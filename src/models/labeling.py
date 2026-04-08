@@ -82,10 +82,15 @@ def label_reviews(scores_path: Path, n: int = 200) -> None:
 
 
 def split_labeled_data(
-    scores_path: Path, train_ratio: float = 0.7
+    reviews_path: Path, train_ratio: float = 0.7
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Load annotations, merge onto scored reviews, return (train_df, test_df)."""
-    df = pd.read_parquet(scores_path)
+    """Load annotations, merge onto reviews, return (train_df, test_df).
+
+    Handles both label formats:
+    - Old: {"topics": ["A", "B"], "sentiment": "positive"}
+    - New: {"topics": {"A": "positive", "B": "negative"}}
+    """
+    df = pd.read_parquet(reviews_path)
     annotations = load_annotations()
 
     if not annotations:
@@ -93,19 +98,43 @@ def split_labeled_data(
 
     rows = []
     for idx_str, ann in annotations.items():
-        rows.append(
-            {
+        topics = ann["topics"]
+        if isinstance(topics, dict):
+            # New format: per-topic sentiment
+            row = {
                 "idx": int(idx_str),
-                "label_topics": ann["topics"],
-                "label_sentiment": ann["sentiment"],
+                "label_topics": topics,  # {topic: sentiment}
+                "label_sentiment": _majority_sentiment(topics),
             }
-        )
+        else:
+            # Old format: topic list + overall sentiment
+            row = {
+                "idx": int(idx_str),
+                "label_topics": {t: ann.get("sentiment", "neutral") for t in topics},
+                "label_sentiment": ann.get("sentiment", "neutral"),
+            }
+        rows.append(row)
     ann_df = pd.DataFrame(rows)
 
-    df = df.merge(ann_df, on="idx", how="inner")
+    # Merge on index position (idx col if present, otherwise use df index)
+    if "idx" in df.columns:
+        df = df.merge(ann_df, on="idx", how="inner")
+    else:
+        df = df.reset_index().rename(columns={"index": "idx"})
+        df = df.merge(ann_df, on="idx", how="inner")
 
     train_df, test_df = train_test_split(df, train_size=train_ratio, random_state=42)
     return train_df.reset_index(drop=True), test_df.reset_index(drop=True)
+
+
+def _majority_sentiment(topic_sentiments: dict[str, str]) -> str:
+    """Derive overall sentiment from per-topic sentiments via majority vote."""
+    if not topic_sentiments:
+        return "neutral"
+    from collections import Counter
+
+    counts = Counter(topic_sentiments.values())
+    return counts.most_common(1)[0][0]
 
 
 def auto_label_from_zero_shot(scores_path: Path, conf_threshold: float = 0.3) -> dict:

@@ -18,15 +18,16 @@ TARGET_DEPARTMENTS = {"Statistics", "Statistics & Ops Research", "Biostatistics"
 CACHE_DIR = Path("data/raw")
 
 SEARCH_QUERY = """
-query SearchTeachers($schoolID: ID!) {
+query SearchTeachers($schoolID: ID!, $cursor: String) {
   newSearch {
-    teachers(query: {text: "", schoolID: $schoolID}, first: 500) {
+    teachers(query: {text: "", schoolID: $schoolID}, first: 500, after: $cursor) {
       edges {
         node {
           id legacyId firstName lastName department
           avgRating numRatings avgDifficulty wouldTakeAgainPercent
         }
       }
+      pageInfo { hasNextPage endCursor }
     }
   }
 }
@@ -69,10 +70,23 @@ async def _post(client: httpx.AsyncClient, payload: dict, attempts: int = 3) -> 
 
 
 async def fetch_teachers(client: httpx.AsyncClient) -> list[dict]:
-    payload = {"query": SEARCH_QUERY, "variables": {"schoolID": SCHOOL_ID}}
-    data = await _post(client, payload)
-    edges = data["data"]["newSearch"]["teachers"]["edges"]
-    return [e["node"] for e in edges]
+    """Fetch ALL teachers at the school, paginating through results."""
+    all_teachers = []
+    cursor = None
+    while True:
+        payload = {
+            "query": SEARCH_QUERY,
+            "variables": {"schoolID": SCHOOL_ID, "cursor": cursor},
+        }
+        data = await _post(client, payload)
+        teachers = data["data"]["newSearch"]["teachers"]
+        edges = teachers["edges"]
+        all_teachers.extend(e["node"] for e in edges)
+        if not teachers["pageInfo"]["hasNextPage"]:
+            break
+        cursor = teachers["pageInfo"]["endCursor"]
+        await asyncio.sleep(0.5)
+    return all_teachers
 
 
 async def fetch_ratings_page(

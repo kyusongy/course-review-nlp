@@ -120,3 +120,10 @@ class SentimentAnalyzer:
             }
 
         return output
+
+    def analyze_by_topic_flat(
+        self, text: str, topic_clf: TopicClassifier
+    ) -> dict[str, str]:
+        """Like analyze_by_topic but returns {topic: sentiment_label} only."""
+        full = self.analyze_by_topic(text, topic_clf)
+        return {topic: data["label"] for topic, data in full.items()}
