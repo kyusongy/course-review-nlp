@@ -45,11 +45,8 @@ async def scrape() -> pd.DataFrame:
     df_teachers = pd.DataFrame(teacher_records)
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    df_ratings.to_parquet(OUT_DIR / "rmp_ratings.parquet", index=False)
-    df_teachers.to_parquet(OUT_DIR / "rmp_teachers.parquet", index=False)
-
-    # Also save teacher metadata as JSON for easy inspection
-    (OUT_DIR / "rmp_teachers.json").write_text(json.dumps(teacher_records, indent=2))
+    df_ratings.to_parquet(OUT_DIR / "reviews.parquet", index=False)
+    df_teachers.to_parquet(OUT_DIR / "teachers.parquet", index=False)
 
     print(f"\nDone. {len(df_ratings)} ratings, {len(df_teachers)} professors")
     print(f"Saved to {OUT_DIR}/")
