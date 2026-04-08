@@ -8,7 +8,9 @@
 
 ## 1. Project Overview
 
-UNC Course Compass is an end-to-end ML system that scrapes student reviews from RateMyProfessor for UNC's Statistics and Data Science departments, performs aspect-based topic classification and sentiment analysis using three approaches (star rating proxy, zero-shot transformers, fine-tuned DistilBERT), and recommends courses based on student preferences through a Streamlit web app.
+UNC Course Compass is an end-to-end ML system that scrapes student reviews from RateMyProfessor for UNC's Statistics and Data Science departments, performs **aspect-based sentiment analysis** — classifying what topics each review discusses and whether the sentiment toward each topic is positive, neutral, or negative — and recommends courses based on student preferences through a Streamlit web app.
+
+The key insight: a single review can be positive about one aspect and negative about another. "Great lectures but brutal exams" is not a neutral review — it's positive about teaching quality and negative about exam difficulty. Our system captures this nuance.
 
 ### Architecture
 
@@ -16,28 +18,36 @@ UNC Course Compass is an end-to-end ML system that scrapes student reviews from 
 RateMyProfessor GraphQL API
         │
         ▼
-   1,163 raw reviews (22 professors)
+   2,429 raw reviews (117 professors)
         │
         ▼
    Text cleaning + deduplication
         │
         ├──────────────────────┬──────────────────────┐
         ▼                      ▼                      ▼
-  Star Rating Proxy      Zero-Shot Models       Fine-Tuned DistilBERT
-  (no NLP)               (BART + RoBERTa)       (trained on our data)
+  Star Rating Proxy      Zero-Shot Models       Fine-Tuned Joint Model
+  (no NLP)               (BART + RoBERTa)       (DistilBERT, 6×4-class)
         │                      │                      │
         └──────────────────────┼──────────────────────┘
                                ▼
-                 Per-topic sentiment scores [-1, 1]
+            Per-topic sentiment: {topic → pos/neu/neg}
                                │
                     ┌──────────┴──────────┐
                     ▼                     ▼
             Weighted Scoring         Evaluation
-            (recommendations)     (F1, accuracy, kappa)
+            (recommendations)     (per-topic F1, accuracy)
                     │
                     ▼
               Streamlit App
 ```
+
+### Three-Layer Comparison
+
+| Layer | Model | What It Does |
+|-------|-------|-------------|
+| 1. Star Baseline | None (rule-based) | Maps 1-5 stars to sentiment. No NLP, no topic differentiation. |
+| 2. Zero-Shot | BART-mnli (406M) + RoBERTa (125M) | Pretrained models, no training on our data. Sentence-level aspect-based sentiment. |
+| 3. Fine-Tuned | DistilBERT (66M) joint model | Trained on our labeled data. 6 independent 4-class heads for per-topic sentiment. |
 
 ---
 
@@ -47,431 +57,347 @@ RateMyProfessor GraphQL API
 
 RateMyProfessor is a React/Next.js app backed by a Relay-based GraphQL endpoint at `https://www.ratemyprofessors.com/graphql`. We reverse-engineered the API through a hybrid approach:
 
-1. **Exploration:** Used web fetching to inspect RMP's page structure and discover the GraphQL endpoint, auth mechanism, and query schema.
-2. **Verification:** Tested queries directly with curl to confirm field names, pagination behavior, and auth requirements.
-3. **Automation:** Wrote an async Python client (`src/scraper/client.py`) using `httpx` to reproduce the same queries at scale.
+1. **Exploration:** Used web fetching to inspect RMP's page structure, discover the GraphQL endpoint and auth mechanism
+2. **Verification:** Tested queries with curl to confirm field names, pagination, and auth
+3. **Automation:** Wrote an async Python client (`src/scraper/client.py`) using httpx
 
-**Key technical details:**
-- Auth header: `Basic dGVzdDp0ZXN0` (base64 of "test:test") — a public token embedded in RMP's frontend JavaScript
-- UNC's school ID: `U2Nob29sLTEyMzI=` (base64 of "School-1232")
-- Required a browser-like `User-Agent` header — RMP returns 403 for `python-httpx` default UA
-- Pagination: cursor-based, 20 ratings per page, with `hasNextPage` / `endCursor` in `pageInfo`
+**Technical details:**
+- Auth: `Basic dGVzdDp0ZXN0` (base64 of "test:test") — a public token from RMP's frontend JS
+- School ID: `U2Nob29sLTEyMzI=` (base64 of "School-1232", UNC Chapel Hill)
+- Required browser-like `User-Agent` header — RMP returns 403 for python-httpx default UA
+- Pagination: cursor-based, fetches all 4,838 UNC professors across 10 pages of 500, then filters to target departments
 
-**Scraping process (`src/scraper/run.py`):**
-1. One query fetches all 500 professors at UNC
-2. Filter to target departments: Statistics (14), Statistics & Ops Research (4), Biostatistics (4)
-3. For each of 22 professors, paginate through all their reviews
-4. 0.5s delay between requests to avoid rate limiting
-5. Retry logic: 3 attempts with exponential backoff on server errors
-6. Raw JSON cached per professor in `data/raw/{legacy_id}.json`
+**Scraping process:**
+1. Paginate through all UNC professors (4,838 total)
+2. Filter to: Statistics (105), Biostatistics (22), Statistics & Ops Research (15) = **142 professors**
+3. Fetch all reviews per professor with cursor-based pagination (20 per page)
+4. 0.5s delay between requests, 3-attempt retry with exponential backoff
+5. Cache raw JSON per professor in `data/raw/{legacy_id}.json`
 
 ### 2.2 Dataset Summary
 
 | Metric | Value |
 |--------|-------|
-| Total reviews | 1,163 |
-| Professors | 22 |
-| Departments | Statistics (14), Statistics & Ops Research (4), Biostatistics (4) |
-| Avg review length | 285 characters |
-| Min / Max review length | 8 / 362 characters |
+| Total reviews | 2,429 |
+| Professors (with reviews) | 117 |
+| Professors (total in RMP) | 142 |
+| Departments | Statistics (105), Biostatistics (22), Stats & Ops Research (15) |
+| Avg review length | 276 characters |
 
 **Star rating distribution:**
 
 | Stars | Count | Percentage |
 |-------|-------|------------|
-| 1 | 367 | 31.6% |
-| 2 | 138 | 11.9% |
-| 3 | 126 | 10.8% |
-| 4 | 183 | 15.7% |
-| 5 | 349 | 30.0% |
+| 1 | 614 | 25.3% |
+| 2 | 303 | 12.5% |
+| 3 | 267 | 11.0% |
+| 4 | 405 | 16.7% |
+| 5 | 840 | 34.6% |
 
-The distribution is bimodal — students tend to leave reviews when they feel strongly (positive or negative), with fewer moderate ratings.
+The distribution is bimodal — students leave reviews when they feel strongly. 5-star reviews dominate (34.6%), followed by 1-star (25.3%).
 
-**Fields collected per review:**
-- `review_text` — free-text review body
-- `star_rating` — 1–5 overall quality rating
-- `difficulty_rating` — 1–5 difficulty rating
-- `would_take_again` — boolean (or null)
-- `course_name` — e.g. "STOR 435"
-- `professor_name` — full name
-- `date` — review timestamp
-- `thumbs_up` / `thumbs_down` — helpfulness votes
-
-### 2.3 Per-Professor Breakdown
+### 2.3 Top Professors by Review Count
 
 | Professor | Reviews | Avg Stars | Department |
 |-----------|---------|-----------|------------|
+| Mario Giacomazzo | 157 | 2.7 | Statistics |
 | Jeff McLean | 154 | 3.5 | Statistics |
 | Chuanshu Ji | 137 | 2.0 | Statistics |
 | Prairie Goodwin | 119 | 2.8 | Statistics |
 | Gabor Pataki | 116 | 3.2 | Statistics |
 | Oluremi Abayomi | 115 | 3.5 | Statistics & Ops Research |
 | William Lassiter | 103 | 4.0 | Statistics |
-| Teressa Bergland | 99 | 2.0 | Statistics & Ops Research |
+| Teressa Bergland | 101 | 2.0 | Statistics & Ops Research |
 | Jane Monaco | 82 | 4.2 | Biostatistics |
+| Sayan Banerjee | 64 | 3.6 | Statistics |
+| Robin Cunningham | 59 | 4.8 | Statistics |
+| Nicolas Fraiman | 58 | 3.8 | Statistics |
 | Kendall Thomas | 57 | 2.4 | Statistics |
-| Vladas Pipiras | 34 | 3.3 | Statistics |
-| Kyung Kim | 29 | 1.1 | Statistics |
-| Mariana Olvera-Cravioto | 26 | 3.5 | Statistics |
-| Ali Nezhad | 22 | 2.8 | Statistics |
-| William McCance | 19 | 2.2 | Statistics |
-| Andrew Nobel | 18 | 2.0 | Statistics |
-| Richard Smith | 10 | 4.1 | Statistics |
-| Jianqing Jia | 8 | 5.0 | Statistics & Ops Research |
-| Vincent Toups | 5 | 1.6 | Biostatistics |
-| Kara McCormack | 5 | 4.8 | Biostatistics |
-| Fan Yao | 2 | 4.5 | Statistics & Ops Research |
-| Ishmael Benjamin Torres Aguilar | 2 | 3.5 | Statistics |
-| Kinsey Helton | 1 | 4.0 | Biostatistics |
+| Guanting Chen | 54 | 2.5 | Statistics & Ops Research |
+| Adrian Allen | 49 | 3.1 | Statistics |
 
 ---
 
 ## 3. Data Preprocessing
 
-Preprocessing was intentionally minimal (`src/scraper/preprocess.py`). Transformer models handle messy text well, so aggressive cleaning (lowercasing, stopword removal, stemming) would hurt more than help.
+Minimal by design — transformer models handle messy text well.
 
-**Steps applied:**
-1. **Whitespace normalization:** Collapsed all whitespace (newlines, tabs, multiple spaces) to single spaces using `re.sub(r"\s+", " ", text).strip()`
-2. **Empty review removal:** Dropped reviews with no text after cleaning
-3. **Deduplication:** Removed exact duplicates on `(review_text, professor_name, course_name)` — catches reviews submitted multiple times
+**Steps:**
+1. **Whitespace normalization:** `re.sub(r"\s+", " ", text).strip()`
+2. **Empty review removal:** Drop reviews with no text after cleaning
+3. **Deduplication:** Remove exact duplicates on `(review_text, professor_name, course_name)`
 
-**Result:** 1,163 → 1,163 reviews (no duplicates or empties found in this dataset — RMP data was already clean).
+**Result:** 2,429 → 2,429 reviews (no duplicates found).
 
-**What we intentionally did NOT do:**
-- No lowercasing — BERT-family models have cased and uncased variants; we used uncased DistilBERT which handles this internally
-- No stopword removal — transformers use attention mechanisms that learn to ignore irrelevant words
-- No stemming/lemmatization — subword tokenization (WordPiece/BPE) makes this unnecessary
-- No spell correction — would risk changing meaning, and models are robust to minor misspellings
+**Intentionally omitted:** lowercasing (handled by model tokenizer), stopword removal (attention handles this), stemming (subword tokenization makes it unnecessary), spell correction (risk of meaning change).
 
 ---
 
 ## 4. Labeling
 
-### 4.1 Topic Taxonomy
+### 4.1 Per-Topic Sentiment Labels
 
-We defined 6 aspect categories for course reviews:
+Each review is labeled with a **dict mapping discussed topics to their sentiment**:
 
-| Topic | Description | Example Phrases |
-|-------|-------------|-----------------|
-| Workload | Homework volume, time commitment | "tons of homework", "manageable workload" |
-| Grading | Fairness, curves, grade distribution | "harsh grader", "generous curve" |
-| Teaching Quality | Lecture clarity, engagement, responsiveness | "explains well", "boring lectures" |
-| Course Content | Relevance, interest, organization | "great material", "outdated content" |
-| Accessibility | Office hours, approachability | "always available", "hard to reach" |
-| Exam Difficulty | Test format, fairness, prep alignment | "exams are fair", "nothing like homework" |
+```json
+{"Teaching Quality": "positive", "Exam Difficulty": "negative"}
+```
 
-Each review is **multi-labeled** — a single review can discuss multiple topics (e.g., "Great lectures but brutal exams" → Teaching Quality + Exam Difficulty).
+This captures that "Great lectures but brutal exams" is not neutral — it's positive about one thing and negative about another. Topics not in the dict are "not discussed."
 
-### 4.2 Labeling Process
+### 4.2 Topic Taxonomy
 
-All 1,163 reviews were labeled using **Claude Sonnet 4.6** as an automated annotator. We dispatched 4 parallel labeling agents, each processing ~290 reviews:
+| Topic | Description |
+|-------|-------------|
+| Workload | Homework volume, time commitment |
+| Grading | Fairness, curves, grade distribution |
+| Teaching Quality | Lecture clarity, engagement, responsiveness |
+| Course Content | Relevance, interest, organization |
+| Accessibility | Office hours, approachability |
+| Exam Difficulty | Test format, fairness, prep alignment |
 
-- Each agent read the raw review text (no model predictions shown — independent judgment)
-- Assigned 0–6 topic labels per review based on what the review clearly discusses
-- Assigned overall sentiment (positive / neutral / negative) based on overall tone
+### 4.3 Labeling Process
 
-This approach provides genuine ground-truth labels that are independent of our zero-shot and fine-tuned models, enabling fair evaluation.
+All 2,429 reviews were labeled using **Claude Sonnet 4.6** as an automated annotator. We dispatched 8 parallel labeling agents, each processing ~300 reviews independently. Each agent read the raw review text (no model predictions shown) and assigned per-topic sentiment based on what the review clearly discusses.
 
-### 4.3 Label Distribution
-
-**Sentiment:**
-
-| Sentiment | Count | Percentage |
-|-----------|-------|------------|
-| Negative | 524 | 45.1% |
-| Positive | 489 | 42.0% |
-| Neutral | 150 | 12.9% |
+### 4.4 Label Distribution
 
 **Topic frequency:**
 
-| Topic | Count | % of Reviews |
-|-------|-------|-------------|
-| Teaching Quality | 970 | 83.4% |
-| Exam Difficulty | 650 | 55.9% |
-| Grading | 512 | 44.0% |
-| Workload | 485 | 41.7% |
-| Accessibility | 338 | 29.1% |
-| Course Content | 235 | 20.2% |
+| Topic | Count | % of Reviews | Positive | Neutral | Negative |
+|-------|-------|-------------|----------|---------|----------|
+| Teaching Quality | 2,016 | 83.0% | 1,017 | 165 | 834 |
+| Exam Difficulty | 1,161 | 47.8% | 411 | 139 | 611 |
+| Grading | 875 | 36.0% | 431 | 28 | 416 |
+| Workload | 687 | 28.3% | 296 | 38 | 353 |
+| Accessibility | 624 | 25.7% | 421 | 5 | 198 |
+| Course Content | 204 | 8.4% | 119 | 12 | 73 |
 
-**Average topics per review:** 2.74
+- **Average topics per review:** 2.29
+- **Reviews with no clear topic:** 74 (3.0%)
+- **Total topic-sentiment assignments:** 5,567
 
-Teaching Quality is discussed in 83% of reviews — students almost always comment on the professor's teaching. Course Content is the rarest (20%) — students are more likely to comment on how the course is run than on the material itself.
+Notable patterns: Teaching Quality is discussed in 83% of reviews. Accessibility is overwhelmingly positive (67% positive) — when students mention office hours, it's usually to praise them. Exam Difficulty is predominantly negative (53%) — exams are more often complained about than praised.
 
-### 4.4 Train/Test Split
+### 4.5 Train/Test Split
 
-- **Train:** 814 reviews (70%)
-- **Test:** 349 reviews (30%)
-- Split is stratified to preserve sentiment class proportions
+- **Train:** 1,700 reviews (70%)
+- **Test:** 729 reviews (30%)
 
 ---
 
 ## 5. Model Architecture
 
-### 5.1 Layer 1 — Star Rating Baseline (`src/models/baseline.py`)
+### 5.1 Layer 1 — Star Rating Baseline
 
-The simplest possible approach. No NLP involved.
+No NLP. Maps star ratings to sentiment:
+- Stars 1–2 → negative (-1.0)
+- Star 3 → neutral (0.0)
+- Stars 4–5 → positive (+1.0)
 
-**Method:**
-- Stars 1–2 → "negative" (score: -1.0)
-- Star 3 → "neutral" (score: 0.0)
-- Stars 4–5 → "positive" (score: +1.0)
+Same sentiment for every topic. Exists as the "why do we need DL?" baseline.
 
-**Purpose:** Establishes the floor — "can NLP models beat just looking at the number of stars?" The baseline assigns the same sentiment to every topic for a given review (no aspect differentiation).
+### 5.2 Layer 2 — Zero-Shot Transformer Models
 
-### 5.2 Layer 2 — Zero-Shot Transformer Models (`src/models/zero_shot.py`)
+Two pretrained models used **without any fine-tuning on our data:**
 
-Two pretrained models used **without any fine-tuning on our data**:
+#### Topic Classification: `facebook/bart-large-mnli` (406M params)
 
-#### Topic Classification: `facebook/bart-large-mnli`
+A BART model fine-tuned on Multi-NLI for natural language inference. Zero-shot classification works by reformulating topic detection as entailment: "Does this text entail 'homework volume and time commitment'?"
 
-- **Architecture:** BART-large (406M parameters), a sequence-to-sequence transformer
-- **Pretraining:** Fine-tuned on Multi-Genre Natural Language Inference (MNLI) — 433K sentence pairs labeled as entailment/contradiction/neutral
-- **Zero-shot mechanism:** Reformulates topic classification as textual entailment. For each topic, the model asks: "Does this review text entail 'homework volume and time commitment'?" A high entailment score means the review discusses that topic.
-- **Key detail:** We used descriptive phrases ("homework volume and time commitment") rather than single words ("Workload") as candidate labels — the model understands natural language descriptions much better than category names
-- **Multi-label:** `multi_label=True` means each topic is scored independently, so a review can match multiple topics
-- **Threshold:** 0.3 confidence — any topic above this is assigned
+- Uses descriptive phrases as candidate labels (not just single words)
+- `multi_label=True` — each topic scored independently
+- Threshold: 0.3 confidence for topic assignment
 
-#### Sentiment Analysis: `cardiffnlp/twitter-roberta-base-sentiment-latest`
+#### Sentiment: `cardiffnlp/twitter-roberta-base-sentiment-latest` (125M params)
 
-- **Architecture:** RoBERTa-base (125M parameters)
-- **Pretraining:** Fine-tuned on ~124M tweets for 3-class sentiment classification
-- **Output:** Probability distribution over negative/neutral/positive
-- **Composite score:** `positive_prob - negative_prob` → range [-1, 1]
-- **Classification thresholds:** > 0.25 = positive, < -0.25 = negative, else neutral
-- **Input truncation:** 512 characters (model's max sequence length)
+RoBERTa fine-tuned on ~124M tweets for 3-class sentiment.
 
-#### Aspect-Based Sentiment (`analyze_by_topic`)
+- Composite score: `positive_prob - negative_prob` → [-1, 1]
+- Thresholds: >0.25 = positive, <-0.25 = negative, else neutral
 
-This combines both models to get **sentiment per topic**:
+#### Aspect-Based Sentiment (the key method)
 
-1. Split review into sentences (regex split on `.!?`)
-2. For each sentence, run topic classification → which topics does this sentence discuss?
-3. For each sentence, run sentiment analysis → positive/neutral/negative with score
-4. Assign each sentence's sentiment to its detected topics
-5. Average sentiment scores per topic across all sentences in the review
+1. Split review into sentences (regex on `.!?`)
+2. Classify each sentence's topics with BART-mnli
+3. Score each sentence's sentiment with RoBERTa
+4. Assign sentence sentiment to its detected topics
+5. Average per-topic across sentences
 
 **Example:** *"The lectures were amazing but the exams were brutal"*
-- Sentence 1: "The lectures were amazing" → Topic: Teaching Quality, Score: +0.82
-- Sentence 2: "the exams were brutal" → Topic: Exam Difficulty, Score: -0.71
-- Result: `{Teaching Quality: +0.82, Exam Difficulty: -0.71}`
+- Sentence 1: "The lectures were amazing" → Teaching Quality: +0.82
+- Sentence 2: "the exams were brutal" → Exam Difficulty: -0.71
+- Result: `{Teaching Quality: positive, Exam Difficulty: negative}`
 
-### 5.3 Layer 3 — Fine-Tuned DistilBERT (`src/models/fine_tune.py`)
+### 5.3 Layer 3 — Fine-Tuned Joint DistilBERT (66M params)
 
-#### Why DistilBERT?
+#### Why a Joint Model?
 
-DistilBERT is a distilled version of BERT — 66M parameters (6 transformer layers vs BERT's 12). It retains 97% of BERT's language understanding while being 60% faster and 40% smaller. This makes it practical to train on a MacBook Pro M5 with 24GB RAM using PyTorch's MPS (Metal Performance Shaders) backend.
+Instead of separate topic classifier + sentiment classifier (the old approach), we use a **single model with 6 independent 4-class heads**, one per topic. Each head predicts: not_discussed (0), positive (1), neutral (2), or negative (3).
 
-#### Topic Classifier — Multi-Label Classification
+This is better because:
+- It learns the **correlation** between topics and sentiments in a single forward pass
+- A topic's sentiment depends on the full review context, not just isolated sentences
+- One model instead of two = simpler, fewer parameters, faster inference
 
-- **Base model:** `distilbert-base-uncased`
-- **Classification head:** Linear layer → 6 sigmoid outputs (one per topic)
-- **Loss function:** Binary cross-entropy (each topic is an independent binary decision)
-- **Why sigmoid + BCE, not softmax + CE?** Because a review can discuss multiple topics simultaneously. Softmax forces probabilities to sum to 1 (mutually exclusive), which is wrong for multi-label. Sigmoid treats each topic independently.
-- **Training data:** 814 reviews with multi-hot topic labels from Sonnet 4.6 annotation
-- **Tokenization:** DistilBERT WordPiece tokenizer, max_length=256 tokens, padding=True, truncation=True
+#### Architecture
 
-**Hyperparameters:**
+```
+Review Text
+    │
+    ▼
+DistilBERT backbone (6 layers, 768-dim hidden)
+    │
+    ▼
+[CLS] token → Pre-classifier (768→768) → ReLU → Dropout(0.1)
+    │
+    ├── Head 1: Linear(768→4) → Workload [not_discussed/pos/neu/neg]
+    ├── Head 2: Linear(768→4) → Grading
+    ├── Head 3: Linear(768→4) → Teaching Quality
+    ├── Head 4: Linear(768→4) → Course Content
+    ├── Head 5: Linear(768→4) → Accessibility
+    └── Head 6: Linear(768→4) → Exam Difficulty
+```
+
+#### Training Details
 
 | Parameter | Value |
 |-----------|-------|
-| Learning rate | 2e-5 |
-| Optimizer | AdamW |
+| Base model | distilbert-base-uncased |
+| Classification heads | 6 × Linear(768→4) |
+| Loss | Average of 6 cross-entropy losses (one per head) |
+| Optimizer | AdamW, lr=2e-5 |
 | Scheduler | Linear warmup (0 warmup steps) |
 | Batch size | 16 |
 | Epochs | 5 |
 | Max sequence length | 256 tokens |
+| Training data | 1,700 reviews with per-topic sentiment labels |
 
-**Training loss:** 0.617 → 0.392 over 5 epochs
+**Training loss:** 0.944 → 0.469 over 5 epochs
 
-**Prediction threshold:** 0.5 — any topic with sigmoid output > 0.5 is assigned
+#### Why Not Sigmoid (Multi-Label) for Per-Topic Sentiment?
 
-#### Sentiment Classifier — Single-Label 3-Class
-
-- **Base model:** `distilbert-base-uncased`
-- **Classification head:** Linear layer → 3 softmax outputs
-- **Loss function:** Cross-entropy (standard multiclass)
-- **Labels:** positive (0), neutral (1), negative (2)
-- **Same hyperparameters as topic classifier**
-
-**Training loss:** 0.852 → 0.150 over 5 epochs (strong convergence — sentiment patterns are more consistent than topic patterns)
+The states within each topic are **mutually exclusive** — a review can't be both positive and negative about the same topic simultaneously. Softmax (via cross-entropy) enforces this constraint. Using sigmoid + BCE (as in the old multi-label topic classifier) would allow contradictory predictions.
 
 ---
 
-## 6. Batch Processing (`src/models/process.py`)
+## 6. Evaluation Results
 
-All 1,163 reviews were processed through both the baseline and zero-shot pipeline, producing a 25-column scored dataset:
+### 6.1 Methodology
 
-**Columns:**
-- `idx`, `professor_name`, `course_name`, `review_text`, `star_rating`
-- `overall_sentiment` (zero-shot label), `overall_score` (zero-shot composite [-1,1])
-- For each of 6 topics:
-  - `topic_{key}_conf` — zero-shot classification confidence [0, 1]
-  - `topic_{key}_sentiment` — zero-shot sentiment label (positive/neutral/negative or null)
-  - `topic_{key}_score` — zero-shot sentiment score [-1, 1] (or null if topic not detected)
+- **Test set:** 729 reviews (30% holdout)
+- **Ground truth:** Sonnet 4.6 per-topic sentiment labels (independent of all models)
+- **Per-topic sentiment accuracy:** evaluated only on reviews where the topic is present in ground truth
 
-**Zero-shot overall sentiment distribution:**
+### 6.2 Per-Topic Sentiment
 
-| Sentiment | Count | Percentage |
-|-----------|-------|------------|
-| Negative | 560 | 48.2% |
-| Positive | 516 | 44.4% |
-| Neutral | 87 | 7.5% |
+| Topic | n | ZS Accuracy | FT Accuracy | ZS F1 | FT F1 |
+|-------|---|-------------|-------------|-------|-------|
+| Teaching Quality | 611 | 0.755 | **0.825** | **0.487** | 0.442 |
+| Exam Difficulty | 374 | **0.626** | 0.620 | **0.403** | 0.357 |
+| Grading | 253 | 0.581 | **0.597** | **0.368** | 0.345 |
+| Workload | 195 | **0.513** | 0.364 | **0.344** | 0.246 |
+| Accessibility | 171 | **0.667** | 0.591 | 0.295 | **0.357** |
+| Course Content | 70 | **0.657** | 0.000 | **0.546** | 0.000 |
 
-Note: The zero-shot model produces far fewer "neutral" labels (7.5%) compared to the Sonnet 4.6 ground truth (12.9%). The zero-shot model is more decisive — it tends to push ambiguous reviews toward positive or negative rather than neutral.
+### 6.3 Topic Detection
 
----
+| Metric | Zero-Shot | Fine-Tuned |
+|--------|-----------|------------|
+| F1 Macro | 0.530 | **0.661** |
+| F1 Micro | 0.575 | **0.827** |
 
-## 7. Evaluation Results
+### 6.4 Overall Sentiment (majority vote from per-topic sentiments)
 
-### 7.1 Methodology
+| Approach | Accuracy | F1 Macro |
+|----------|----------|----------|
+| Star Baseline | 0.794 | 0.638 |
+| Zero-Shot | 0.709 | 0.605 |
+| **Fine-Tuned** | **0.846** | **0.706** |
 
-- **Test set:** 349 reviews (30% holdout, stratified by sentiment)
-- **Ground truth:** Sonnet 4.6 labels (independent of all three model approaches)
-- All three approaches were evaluated on the same test set:
-  1. Star rating baseline
-  2. Zero-shot (BART-mnli + RoBERTa) — run fresh on test texts
-  3. Fine-tuned DistilBERT — loaded from saved model, run on test texts
-
-### 7.2 Topic Classification
-
-| Topic | Zero-Shot F1 | Fine-Tuned F1 | Winner |
-|-------|-------------|---------------|--------|
-| Teaching Quality | 0.884 | **0.911** | Fine-tuned |
-| Exam Difficulty | 0.777 | **0.915** | Fine-tuned |
-| Workload | 0.669 | **0.793** | Fine-tuned |
-| Grading | 0.566 | **0.809** | Fine-tuned |
-| Accessibility | **0.470** | 0.173 | Zero-shot |
-| Course Content | **0.350** | 0.127 | Zero-shot |
-| **Macro F1** | 0.619 | 0.621 | ~Tied |
-| **Micro F1** | 0.647 | **0.792** | Fine-tuned |
-
-**Key observations:**
-- Fine-tuning dramatically improves **high-frequency topics**: Grading (0.566 → 0.809), Exam Difficulty (0.777 → 0.915), Workload (0.669 → 0.793)
-- Fine-tuning **hurts low-frequency topics**: Accessibility (0.470 → 0.173), Course Content (0.350 → 0.127)
-- This is a classic **class imbalance problem** — with only 235 Course Content examples in the full dataset (~165 in training), the model doesn't see enough positive examples to learn the pattern
-- Zero-shot is better for rare categories because it uses general language understanding rather than memorizing patterns from limited examples
-- **Micro F1** (weighted by sample count) strongly favors fine-tuned (0.792 vs 0.647) because it does well on the topics that appear most often
-
-### 7.3 Sentiment Analysis
-
-| Approach | Accuracy | F1 Macro | F1 Negative | F1 Neutral | F1 Positive |
-|----------|----------|----------|-------------|------------|-------------|
-| Star Baseline | **0.871** | 0.747 | 0.927 | 0.384 | 0.929 |
-| Zero-Shot | 0.840 | 0.690 | 0.902 | 0.269 | 0.899 |
-| Fine-Tuned | 0.860 | **0.750** | **0.932** | **0.427** | 0.892 |
-
-**Confusion matrices (rows = true, columns = predicted):**
-
-**Star Baseline:**
-```
-              Predicted
-              neg  neu  pos
-True neg  [  140   14    0 ]
-True neu  [    8   14   17 ]
-True pos  [    0    6  150 ]
-```
-
-**Zero-Shot:**
-```
-              Predicted
-              neg  neu  pos
-True neg  [  142    9    3 ]
-True neu  [   15    9   15 ]
-True pos  [    4   10  142 ]
-```
-
-**Fine-Tuned:**
-```
-              Predicted
-              neg  neu  pos
-True neg  [  144    6    4 ]
-True neu  [    9   16   14 ]
-True pos  [    2   14  140 ]
-```
-
-**Key observations:**
-- The star baseline is **surprisingly strong** (87.1% accuracy) — students' star ratings align well with their text sentiment
-- All models struggle with **neutral** reviews (F1: 0.27–0.43) — the hardest class because neutral reviews are rare (11.2% of test set) and inherently ambiguous
-- Fine-tuned has the **best F1 macro** (0.750) because it handles neutral better (0.427 vs baseline's 0.384 vs zero-shot's 0.269)
-- The zero-shot model is the **worst at neutral** (0.269 F1) — it was trained on tweets, where neutral expressions may differ from academic course reviews
-- The star baseline has **zero false negatives for positive** (never predicts a positive review as negative) but leaks 17 neutrals into positive — it can't detect mixed reviews
-
-### 7.4 Inter-Approach Agreement (Cohen's Kappa)
+### 6.5 Agreement (Cohen's Kappa)
 
 | Comparison | Kappa |
 |------------|-------|
-| Zero-shot vs Fine-tuned | 0.738 |
-| Zero-shot vs Star Baseline | 0.712 |
-| Fine-tuned vs Star Baseline | 0.721 |
-
-All pairs show **substantial agreement** (kappa 0.61–0.80 range). The highest agreement is between zero-shot and fine-tuned (0.738), which makes sense — the fine-tuned model was trained on labels from the same domain and learns similar patterns.
+| Zero-shot vs Fine-tuned | 0.551 |
+| Zero-shot vs Baseline | 0.575 |
+| Fine-tuned vs Baseline | 0.660 |
 
 ---
 
-## 8. Recommendation Engine (`src/recommend/engine.py`)
+## 7. Key Findings
 
-### 8.1 Aggregation
+### 7.1 Per-topic sentiment is a harder but more useful task
 
-For each professor, we compute the mean sentiment score per topic across all their reviews:
+Overall sentiment classification is "easy" — the star baseline achieves 79.4%. Per-topic sentiment requires understanding what a review says about each specific aspect, which is genuinely challenging.
 
-```
-aggregate_professor_scores(reviews_df) →
-  professor_name | num_reviews | workload | grading | teaching_quality | ...
-  Jeff McLean    | 154         | -0.12    | -0.34   | 0.18             | ...
-```
+### 7.2 Fine-tuning excels at topic detection but struggles with sentiment nuance
 
-### 8.2 Scoring
+The joint model achieves 82.7% micro F1 for detecting which topics are discussed (vs 57.5% for zero-shot). However, once it detects a topic, its sentiment accuracy is comparable to or worse than zero-shot for most topics. The model learns "what is being talked about" better than "how does the reviewer feel about it."
 
-User sets importance weights (0–10) for each of the 6 topics via sliders. The recommendation score for each professor is:
+### 7.3 Class imbalance is the critical failure mode
 
+Course Content (204 training examples, ~8% of reviews) achieves 0% accuracy with fine-tuning — the model learns to never predict it. Workload (687 examples) drops from 51.3% (zero-shot) to 36.4% (fine-tuned). Zero-shot's general language understanding handles rare categories better because it doesn't need task-specific examples.
+
+### 7.4 The star baseline remains competitive for overall sentiment
+
+At 79.4% accuracy, mapping stars to sentiment is hard to beat with NLP alone. However, the baseline cannot differentiate between topics — it says a 3-star review is "neutral about everything" when in reality it might be "great lectures, terrible exams." This is where the NLP models provide value.
+
+### 7.5 Zero-shot and fine-tuned models complement each other
+
+An ensemble or routing strategy could use fine-tuned predictions for high-frequency topics (Teaching Quality, Exam Difficulty) and zero-shot for rare ones (Course Content, Accessibility). This addresses the class imbalance problem without sacrificing performance on common topics.
+
+### 7.6 Aspect-based sentiment reveals what star ratings hide
+
+A professor with a 3.5 average could have excellent lectures but unfair exams, or boring lectures with generous grading. The radar chart visualization makes these differences visible and actionable for course selection — something a single average star rating can never show.
+
+---
+
+## 8. Recommendation Engine
+
+### Aggregation
+
+For each professor, compute mean sentiment score per topic across all their reviews (from zero-shot scored dataset).
+
+### Scoring
+
+User sets importance weights (0–10) for each topic:
 ```
 score = Σ(weight_i × topic_score_i) / Σ(weight_i)
 ```
 
-This produces a composite score in [-1, 1]. Professors are ranked by score descending.
+Produces a composite score in [-1, 1]. Professors ranked descending.
 
-### 8.3 Filtering
+### Filtering
 
-- Minimum review count threshold (default: 3) to exclude professors with insufficient data
-- Optional course-level prefix filter
+Minimum review count threshold (default: 3) excludes professors with insufficient data.
 
 ---
 
-## 9. Frontend — Streamlit App (`src/app/streamlit_app.py`)
+## 9. Frontend — Streamlit App
 
-Three-tab interface:
-
-**Tab 1: Explore**
-- Dropdown to select professor
-- Left panel: review count, average star rating, average difficulty, plotly radar chart showing 6-topic sentiment profile
-- Right panel: scrollable review list with star display and course names
-
-**Tab 2: Recommend**
-- 6 sliders for topic importance (0–10)
-- Minimum review threshold slider
-- Ranked list of top 10 professors with composite scores
-- Expandable cards with radar charts per professor
-
-**Tab 3: Model Comparison**
-- Evaluation metrics tables (topic F1, sentiment accuracy)
-- Live analysis: paste any review text, see side-by-side predictions from zero-shot vs fine-tuned models
+Three tabs:
+1. **Explore** — browse professors, radar charts of per-topic sentiment, read reviews
+2. **Recommend** — set topic preference sliders, get ranked professor list
+3. **Model Comparison** — evaluation metrics + live per-topic sentiment comparison
 
 ---
 
 ## 10. Technical Stack
 
-| Component | Tool | Version |
-|-----------|------|---------|
-| Language | Python | 3.12 |
-| Package management | uv | — |
-| ML Framework | PyTorch (MPS backend) | 2.11 |
-| Transformers | HuggingFace Transformers | 5.5 |
-| Data processing | pandas + pyarrow | 2.2+ |
-| Evaluation metrics | scikit-learn | 1.8+ |
-| HTTP client | httpx (async) | 0.27+ |
-| Frontend | Streamlit | 1.33+ |
-| Visualization | plotly | 5.20+ |
-| Compute | MacBook Pro M5 (24GB, MPS) | — |
+| Component | Tool |
+|-----------|------|
+| Language | Python 3.12 |
+| Package management | uv |
+| ML Framework | PyTorch 2.11 (MPS backend) |
+| Transformers | HuggingFace Transformers 5.5 |
+| Data | pandas 2.2+, pyarrow |
+| Metrics | scikit-learn 1.8+ |
+| HTTP client | httpx 0.27+ (async) |
+| Frontend | Streamlit 1.33+ |
+| Visualization | plotly 5.20+ |
+| Compute | MacBook Pro M5, 24GB RAM |
+| Labeling | Claude Sonnet 4.6 (8 parallel agents) |
 
 ---
 
@@ -479,102 +405,68 @@ Three-tab interface:
 
 ```
 course_review/
-├── pyproject.toml              # dependencies and project config
+├── pyproject.toml
 ├── run_pipeline.py             # end-to-end pipeline runner
 ├── src/
 │   ├── scraper/
-│   │   ├── client.py           # RMP GraphQL API client (async, retry, cache)
-│   │   ├── parse.py            # normalize API responses → standardized dicts
+│   │   ├── client.py           # RMP GraphQL client (paginated, async, retry)
+│   │   ├── parse.py            # normalize API responses → dicts/DataFrames
 │   │   ├── preprocess.py       # text cleaning, dedup
 │   │   └── run.py              # scraping entrypoint
 │   ├── models/
 │   │   ├── baseline.py         # star → sentiment mapping
-│   │   ├── zero_shot.py        # BART-mnli topic + RoBERTa sentiment
-│   │   ├── fine_tune.py        # DistilBERT training + prediction
+│   │   ├── zero_shot.py        # BART-mnli topics + RoBERTa sentiment
+│   │   ├── fine_tune.py        # joint DistilBERT (6×4-class heads)
 │   │   ├── labeling.py         # annotation tools + train/test split
 │   │   ├── process.py          # batch scoring all reviews
-│   │   └── evaluate.py         # metrics + 3-way comparison
+│   │   └── evaluate.py         # per-topic sentiment metrics + comparison
 │   ├── recommend/
 │   │   └── engine.py           # weighted scoring + filtering
 │   └── app/
 │       └── streamlit_app.py    # 3-tab web UI
-├── tests/
-│   ├── test_scraper.py         # 15 tests
-│   ├── test_models.py          # 10 tests
-│   └── test_recommend.py       # 3 tests
+├── tests/                      # 28 tests
 ├── data/
-│   ├── raw/                    # cached API JSON (per professor)
-│   ├── processed/              # parquet files + evaluation JSON
-│   └── labels/                 # Sonnet 4.6 annotations
-├── models/                     # saved DistilBERT weights
-└── docs/
-    ├── project-report.md       # this file
-    └── superpowers/
-        ├── specs/              # design specification
-        └── plans/              # implementation plan
+│   ├── raw/                    # cached API JSON
+│   ├── processed/              # parquet files + evaluation results
+│   └── labels/                 # Sonnet 4.6 per-topic sentiment annotations
+└── models/
+    └── joint_classifier/       # saved DistilBERT weights
 ```
 
 ---
 
 ## 12. Reproducibility
 
-To reproduce from scratch:
-
 ```bash
-# 1. Install dependencies
-uv sync --extra dev
+uv sync --extra dev                              # install deps
+uv run python run_pipeline.py                    # scrape + clean + zero-shot score
+uv run python -m src.models.labeling             # label data (interactive CLI)
 
-# 2. Run pipeline (scrape + clean + zero-shot scoring)
-uv run python run_pipeline.py
-
-# 3. Label data (interactive CLI, or use auto_label_from_zero_shot)
-uv run python -m src.models.labeling
-
-# 4. Fine-tune models
+# Train joint model
 uv run python -c "
 from pathlib import Path
 from src.models.labeling import split_labeled_data
-from src.models.fine_tune import train_topic_classifier, train_sentiment_classifier
-train, test = split_labeled_data(Path('data/processed/zero_shot_scores.parquet'))
-train_topic_classifier(train['review_text'].tolist(), train['label_topics'].tolist())
-train_sentiment_classifier(train['review_text'].tolist(), train['label_sentiment'].tolist())
+from src.models.fine_tune import train_joint_classifier
+train, _ = split_labeled_data(Path('data/processed/reviews.parquet'))
+train_joint_classifier(train['review_text'].tolist(), train['label_topics'].tolist())
 "
 
-# 5. Run evaluation
+# Evaluate
 uv run python -c "
 import json
 from pathlib import Path
 from src.models.labeling import split_labeled_data
 from src.models.zero_shot import TopicClassifier, SentimentAnalyzer
-from src.models.fine_tune import predict_topics, predict_sentiment
+from src.models.fine_tune import predict_joint
 from src.models.evaluate import compare_approaches
-_, test = split_labeled_data(Path('data/processed/zero_shot_scores.parquet'))
+_, test = split_labeled_data(Path('data/processed/reviews.parquet'))
 texts = test['review_text'].tolist()
 tc = TopicClassifier(); sa = SentimentAnalyzer()
-zs_topics = [tc.classify(t) for t in texts]
-zs_sents = [sa.analyze(t)['label'] for t in texts]
-ft_topics = predict_topics(texts, 'models/topic_classifier')
-ft_sents = [r['label'] for r in predict_sentiment(texts, 'models/sentiment_classifier')]
-results = compare_approaches(test, zs_topics, zs_sents, ft_topics, ft_sents)
+zs = [sa.analyze_by_topic_flat(t, tc) for t in texts]
+ft = predict_joint(texts)
+results = compare_approaches(test, zs, ft)
 Path('data/processed/evaluation_results.json').write_text(json.dumps(results, indent=2, default=str))
 "
 
-# 6. Launch app
-uv run streamlit run src/app/streamlit_app.py
+uv run streamlit run src/app/streamlit_app.py    # launch app
 ```
-
----
-
-## 13. Key Findings
-
-1. **Fine-tuning helps most where data is abundant.** Topics with 400+ training examples (Teaching Quality, Exam Difficulty, Grading, Workload) saw F1 improvements of 5–24 percentage points. Topics with <300 examples (Accessibility, Course Content) degraded significantly.
-
-2. **Zero-shot is the safer choice for rare categories.** General language understanding from BART-mnli outperforms a fine-tuned model that hasn't seen enough positive examples of a category.
-
-3. **The star baseline is hard to beat on sentiment.** At 87.1% accuracy, simply mapping star ratings to sentiment labels performs remarkably well — students' numeric ratings align with their text sentiment. The fine-tuned model edges it out on F1 macro (0.750 vs 0.747) primarily by handling the neutral class better.
-
-4. **Neutral is the hardest class.** All three models struggle with neutral reviews (best F1: 0.427 from fine-tuned). Neutral reviews are rare (12.9% of data) and inherently ambiguous — a review saying "it was fine" is hard to distinguish from a mildly positive one.
-
-5. **Aspect-based sentiment reveals what star ratings hide.** A professor with a 3.5 average rating could have excellent lectures but unfair exams. The radar chart visualization makes these differences visible and actionable for course selection.
-
-6. **Cohen's kappa shows all models substantially agree (0.71–0.74).** Despite different architectures and training, the three approaches converge on similar predictions for most reviews. Disagreements concentrate in the neutral class and edge cases.
