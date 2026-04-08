@@ -1,0 +1,8980 @@
+{
+  "0": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "1": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "2": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "3": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "4": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "5": {
+    "topics": [
+      "Grading",
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "6": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "7": {
+    "topics": [
+      "Grading",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "8": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "9": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "10": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "11": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "12": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "13": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "14": {
+    "topics": [],
+    "sentiment": "neutral"
+  },
+  "15": {
+    "topics": [
+      "Course Content",
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "16": {
+    "topics": [
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "17": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "18": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "19": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "20": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "21": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "22": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "23": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "24": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "25": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "26": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "27": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "28": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "29": {
+    "topics": [
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "30": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "31": {
+    "topics": [
+      "Accessibility",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "32": {
+    "topics": [
+      "Exam Difficulty",
+      "Course Content",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "33": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "34": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "35": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "36": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "37": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "38": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "39": {
+    "topics": [
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "40": {
+    "topics": [
+      "Workload",
+      "Course Content",
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "41": {
+    "topics": [],
+    "sentiment": "positive"
+  },
+  "42": {
+    "topics": [
+      "Course Content",
+      "Workload",
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "43": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "44": {
+    "topics": [
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "45": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "46": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "47": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "48": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "49": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "50": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "51": {
+    "topics": [
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "52": {
+    "topics": [
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "53": {
+    "topics": [
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "54": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "55": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "56": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "57": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "58": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "59": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "60": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "61": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "62": {
+    "topics": [
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "63": {
+    "topics": [
+      "Accessibility",
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "64": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "65": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "66": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "67": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "68": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "69": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "70": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "71": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "72": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "73": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "74": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "75": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "76": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "77": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "78": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "79": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "80": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "81": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "82": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "83": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "84": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "85": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "86": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "87": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "88": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "89": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "90": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "91": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "92": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "93": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "94": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "95": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "96": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "97": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "98": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "99": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "100": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "101": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "102": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "103": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "104": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "105": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "106": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "107": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "108": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "109": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "110": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "111": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "112": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "113": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "114": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "115": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "116": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "117": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "118": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "119": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "120": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "121": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "122": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "123": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "124": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "125": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "126": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "127": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "128": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "129": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "130": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "131": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "132": {
+    "topics": [
+      "Exam Difficulty",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "133": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "134": {
+    "topics": [
+      "Grading",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "135": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "136": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "137": {
+    "topics": [
+      "Accessibility",
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "138": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "139": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "140": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "141": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "142": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "143": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "144": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "145": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "146": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "147": {
+    "topics": [
+      "Exam Difficulty",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "148": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "149": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "150": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "151": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "152": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "153": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "154": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "155": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "156": {
+    "topics": [
+      "Grading",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "157": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "158": {
+    "topics": [
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "159": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "160": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "161": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "162": {
+    "topics": [
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "163": {
+    "topics": [],
+    "sentiment": "positive"
+  },
+  "164": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "165": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "166": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "167": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "168": {
+    "topics": [
+      "Workload",
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "169": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "170": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "171": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "172": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "173": {
+    "topics": [
+      "Grading",
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "174": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "175": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "176": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "177": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "178": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "179": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "180": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "181": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "182": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "183": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "184": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "185": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "186": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "187": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "188": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "189": {
+    "topics": [
+      "Grading",
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "190": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "191": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "192": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "193": {
+    "topics": [
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "194": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "195": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "196": {
+    "topics": [
+      "Grading",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "197": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "198": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "199": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "200": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "201": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "202": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "203": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "204": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "205": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "206": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "207": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "208": {
+    "topics": [
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "209": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "210": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "211": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "212": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "213": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "214": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "215": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "216": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "217": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "218": {
+    "topics": [
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "219": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "220": {
+    "topics": [
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "221": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "222": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "223": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "224": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "225": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "226": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "227": {
+    "topics": [
+      "Grading",
+      "Accessibility",
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "228": {
+    "topics": [
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "229": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "230": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "231": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "232": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "233": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "234": {
+    "topics": [
+      "Course Content",
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "235": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "236": {
+    "topics": [
+      "Workload",
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "237": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "238": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "239": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "240": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "241": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "242": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "243": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "244": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "245": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "246": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "247": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "248": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "249": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "250": {
+    "topics": [
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "251": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "252": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "253": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "254": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "255": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "256": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "257": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "258": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "259": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "260": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "261": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "262": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "263": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "264": {
+    "topics": [
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "265": {
+    "topics": [
+      "Course Content",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "266": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "267": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "268": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "269": {
+    "topics": [
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "270": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "271": {
+    "topics": [
+      "Course Content",
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "272": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "273": {
+    "topics": [
+      "Exam Difficulty",
+      "Course Content",
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "274": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "275": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "276": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "277": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "278": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "279": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "280": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "281": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "282": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "283": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "284": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "285": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "286": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "287": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "288": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "289": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "290": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "291": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "292": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Course Content",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "293": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "294": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "295": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "296": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "297": {
+    "topics": [
+      "Workload",
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "298": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "299": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "300": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "301": {
+    "topics": [
+      "Workload",
+      "Teaching Quality",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "302": {
+    "topics": [
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "303": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "304": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "305": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "306": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "307": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "308": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "309": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "310": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "311": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "312": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "313": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "314": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "315": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "316": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "317": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "318": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "319": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "320": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "321": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "322": {
+    "topics": [
+      "Course Content",
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "323": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "324": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "325": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "326": {
+    "topics": [
+      "Workload",
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "327": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "328": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "329": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "330": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "331": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "332": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "333": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "334": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "335": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "336": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "337": {
+    "topics": [
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "338": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "339": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "340": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "341": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "342": {
+    "topics": [
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "343": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "344": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "345": {
+    "topics": [
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "346": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "347": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Course Content",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "348": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "349": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "350": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "351": {
+    "topics": [
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "352": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "353": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "354": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "355": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "356": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "357": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "358": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "359": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "360": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "361": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "362": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "363": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "364": {
+    "topics": [
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "365": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "366": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "367": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "368": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "369": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "370": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "371": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "372": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "373": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "374": {
+    "topics": [
+      "Exam Difficulty",
+      "Accessibility",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "375": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "376": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "377": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "378": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "379": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "380": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "381": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "382": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "383": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "384": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "385": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "386": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "387": {
+    "topics": [
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "388": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "389": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "390": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "391": {
+    "topics": [
+      "Grading",
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "392": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "393": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "394": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "395": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "396": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "397": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "398": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "399": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "400": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "401": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "402": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "403": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "404": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "405": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "406": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "407": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "408": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "409": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "410": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "411": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "412": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "413": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "414": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "415": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "416": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "417": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "418": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "419": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "420": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "421": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "422": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "423": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "424": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "425": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "426": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty",
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "427": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "428": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "429": {
+    "topics": [
+      "Exam Difficulty",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "430": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "431": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "432": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "433": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "434": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "435": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "436": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "437": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "438": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "439": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "440": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "441": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "442": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "443": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "444": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "445": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "446": {
+    "topics": [
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "447": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "448": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "449": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "450": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "451": {
+    "topics": [],
+    "sentiment": "positive"
+  },
+  "452": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "453": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "454": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "455": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "456": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "457": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "458": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "459": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "460": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "461": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "462": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "463": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "464": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "465": {
+    "topics": [
+      "Accessibility",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "466": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "467": {
+    "topics": [
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "468": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "469": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "470": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "471": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "472": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "473": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "474": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "475": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "476": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "477": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "478": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "479": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "480": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "481": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "482": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "483": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "484": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "485": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "486": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "487": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "488": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "489": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "490": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "491": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "492": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "493": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "494": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "495": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "496": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "497": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "498": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "499": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "500": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "501": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "502": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "503": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "504": {
+    "topics": [
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "505": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "506": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "507": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "508": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "509": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "510": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "511": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "512": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "513": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "514": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "515": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "516": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "517": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "518": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "519": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "520": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "521": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "522": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "523": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "524": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "525": {
+    "topics": [
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "526": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "527": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "528": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "529": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "530": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "531": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "532": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "533": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "534": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "535": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "536": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "537": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "538": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "539": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "540": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "541": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "542": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "543": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "544": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "545": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "546": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "547": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "548": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "549": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "550": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "551": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "552": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "553": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "554": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "555": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "556": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "557": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "558": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "559": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "560": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "561": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "562": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "563": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "564": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "565": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "566": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "567": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "568": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "569": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "570": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "571": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "572": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "573": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "574": {
+    "topics": [
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "575": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "576": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "577": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "578": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "579": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "580": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "581": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "582": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "583": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "584": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality",
+      "Accessibility",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "585": {
+    "topics": [
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "586": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "587": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "588": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "589": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "590": {
+    "topics": [
+      "Course Content",
+      "Exam Difficulty",
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "591": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "592": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "593": {
+    "topics": [
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "594": {
+    "topics": [
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "595": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "596": {
+    "topics": [
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "597": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "598": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "599": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "600": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "601": {
+    "topics": [
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "602": {
+    "topics": [
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "603": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "604": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "605": {
+    "topics": [
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "606": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "607": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "608": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "609": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "610": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "611": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "612": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "613": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "614": {
+    "topics": [
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "615": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "616": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "617": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "618": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "619": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "620": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "621": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "622": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "623": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "624": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "625": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "626": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "627": {
+    "topics": [
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "628": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "629": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "630": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "631": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "632": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "633": {
+    "topics": [
+      "Course Content",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "634": {
+    "topics": [
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "635": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "636": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "637": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "638": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "639": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "640": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "641": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "642": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Grading",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "643": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "644": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "645": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "646": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "647": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "648": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "649": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "650": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "651": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "652": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty",
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "653": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "654": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload",
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "655": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "656": {
+    "topics": [
+      "Grading",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "657": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "658": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "659": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "660": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "661": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "662": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "663": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "664": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "665": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "666": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "667": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "668": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "669": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "670": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "671": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "672": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "673": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "674": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "675": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "676": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "677": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "678": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "679": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "680": {
+    "topics": [
+      "Workload",
+      "Accessibility",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "681": {
+    "topics": [
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "682": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "683": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "684": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "685": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "686": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "687": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "688": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "689": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "690": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "691": {
+    "topics": [
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "692": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "693": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "694": {
+    "topics": [
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "695": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "696": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "697": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "698": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "699": {
+    "topics": [
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "700": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "701": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "702": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "703": {
+    "topics": [
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "704": {
+    "topics": [
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "705": {
+    "topics": [
+      "Workload",
+      "Course Content",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "706": {
+    "topics": [
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "707": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "708": {
+    "topics": [
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "709": {
+    "topics": [
+      "Grading",
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "710": {
+    "topics": [
+      "Grading",
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "711": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "712": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "713": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "714": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "715": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "716": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "717": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "718": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "719": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "720": {
+    "topics": [
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "721": {
+    "topics": [
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "722": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "723": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "724": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "725": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "726": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "727": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "728": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "729": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "730": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "731": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "732": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "733": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "734": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "735": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "736": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "737": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "738": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "739": {
+    "topics": [
+      "Grading",
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "740": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "741": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "742": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "743": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "744": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "745": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "746": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "747": {
+    "topics": [
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "748": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "749": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "750": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "751": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "752": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "753": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "754": {
+    "topics": [
+      "Grading",
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "755": {
+    "topics": [
+      "Workload",
+      "Course Content",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "756": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "757": {
+    "topics": [
+      "Workload",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "758": {
+    "topics": [
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "759": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "760": {
+    "topics": [
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "761": {
+    "topics": [
+      "Grading",
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "762": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "763": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "764": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "765": {
+    "topics": [
+      "Workload",
+      "Teaching Quality",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "766": {
+    "topics": [
+      "Course Content",
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "767": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "768": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "769": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "770": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "771": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "772": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "773": {
+    "topics": [
+      "Accessibility",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "774": {
+    "topics": [
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "775": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "776": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "777": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "778": {
+    "topics": [
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "779": {
+    "topics": [
+      "Workload",
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "780": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "781": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "782": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "783": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "784": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "785": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "786": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "787": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "788": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "789": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "790": {
+    "topics": [
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "791": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "792": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "793": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "794": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "795": {
+    "topics": [
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "796": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "797": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "798": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "799": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "800": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "801": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "802": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "803": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "804": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "805": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "806": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "807": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "808": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "809": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "810": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "811": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "812": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "813": {
+    "topics": [
+      "Grading",
+      "Workload",
+      "Exam Difficulty",
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "814": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "815": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "816": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "817": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "818": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "819": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "820": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "821": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "822": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "823": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "824": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "825": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "826": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "827": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "828": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "829": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "830": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "831": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "832": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "833": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "834": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "835": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "836": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "837": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "838": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "839": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "840": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "841": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "842": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "843": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "844": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "845": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "846": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "847": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "848": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "849": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "850": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "851": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "852": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "853": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "854": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "855": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "856": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "857": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "858": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "859": {
+    "topics": [
+      "Grading",
+      "Workload",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "860": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "861": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "862": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "863": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "864": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "865": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "866": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "867": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "868": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "869": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "870": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Workload",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "871": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "872": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "873": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "874": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "875": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "876": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "877": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "878": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "879": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "880": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "881": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "882": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "883": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "884": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "885": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "886": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "887": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "888": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "889": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "890": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "891": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "892": {
+    "topics": [
+      "Workload",
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "893": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "894": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "895": {
+    "topics": [
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "896": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "897": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "898": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "899": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "900": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "901": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "902": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "903": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "904": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "905": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "906": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "907": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "908": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "909": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "910": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "911": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "912": {
+    "topics": [
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "913": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "914": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "915": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "916": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "917": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "918": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "919": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "920": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "921": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "922": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "923": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "924": {
+    "topics": [
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "925": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "926": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "927": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "928": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "929": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "930": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "931": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "932": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "933": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "934": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "935": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "936": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "937": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "938": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "939": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "940": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "941": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "942": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "943": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "944": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "945": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "946": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "947": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "948": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "949": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "950": {
+    "topics": [
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "951": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "952": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "953": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "954": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "955": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "956": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "957": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "958": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "959": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "960": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "961": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "962": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "963": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "964": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "965": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "966": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "967": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "968": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "969": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "970": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "971": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "972": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "973": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "974": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "975": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "976": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "977": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "978": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "979": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "980": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "981": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "982": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "983": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "984": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "985": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "986": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "987": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "988": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "989": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "990": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "991": {
+    "topics": [
+      "Teaching Quality",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "992": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "993": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "994": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "995": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "996": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "997": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "998": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "999": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1000": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1001": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1002": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1003": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1004": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1005": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1006": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1007": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1008": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "1009": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1010": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "1011": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "1012": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "1013": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "1014": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1015": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "1016": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1017": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "1018": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1019": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1020": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1021": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "1022": {
+    "topics": [
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "1023": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1024": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "1025": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1026": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1027": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1028": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "1029": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "1030": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1031": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1032": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "1033": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1034": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1035": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "1036": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "1037": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1038": {
+    "topics": [
+      "Workload",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "1039": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "1040": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "1041": {
+    "topics": [
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "1042": {
+    "topics": [
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1043": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1044": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1045": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1046": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1047": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1048": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1049": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1050": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1051": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "1052": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1053": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "1054": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "1055": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "1056": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "1057": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "neutral"
+  },
+  "1058": {
+    "topics": [
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "1059": {
+    "topics": [],
+    "sentiment": "positive"
+  },
+  "1060": {
+    "topics": [
+      "Course Content",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "1061": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "1062": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "1063": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "neutral"
+  },
+  "1064": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "1065": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1066": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1067": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1068": {
+    "topics": [],
+    "sentiment": "positive"
+  },
+  "1069": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "1070": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "1071": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "1072": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "1073": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1074": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "1075": {
+    "topics": [],
+    "sentiment": "positive"
+  },
+  "1076": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "1077": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "neutral"
+  },
+  "1078": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1079": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "1080": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "1081": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1082": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "1083": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "1084": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "1085": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "1086": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "1087": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "neutral"
+  },
+  "1088": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1089": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1090": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1091": {
+    "topics": [
+      "Grading",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1092": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1093": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1094": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "neutral"
+  },
+  "1095": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1096": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "neutral"
+  },
+  "1097": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "1098": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "1099": {
+    "topics": [
+      "Course Content",
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1100": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "1101": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "1102": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1103": {
+    "topics": [
+      "Grading",
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "1104": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "1105": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "1106": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "1107": {
+    "topics": [
+      "Workload",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "1108": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1109": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1110": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1111": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1112": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content"
+    ],
+    "sentiment": "negative"
+  },
+  "1113": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1114": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "1115": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1116": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1117": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1118": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1119": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1120": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1121": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "1122": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "1123": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1124": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading",
+      "Workload",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1125": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1126": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1127": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "1128": {
+    "topics": [
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1129": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1130": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1131": {
+    "topics": [
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1132": {
+    "topics": [
+      "Teaching Quality",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1133": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1134": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1135": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1136": {
+    "topics": [
+      "Teaching Quality",
+      "Grading",
+      "Accessibility",
+      "Workload"
+    ],
+    "sentiment": "negative"
+  },
+  "1137": {
+    "topics": [],
+    "sentiment": "negative"
+  },
+  "1138": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "1139": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1140": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1141": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "negative"
+  },
+  "1142": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1143": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1144": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "1145": {
+    "topics": [
+      "Teaching Quality",
+      "Course Content",
+      "Workload",
+      "Exam Difficulty",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "1146": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1147": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1148": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "negative"
+  },
+  "1149": {
+    "topics": [
+      "Teaching Quality",
+      "Accessibility"
+    ],
+    "sentiment": "negative"
+  },
+  "1150": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1151": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1152": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1153": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Grading",
+      "Exam Difficulty"
+    ],
+    "sentiment": "negative"
+  },
+  "1154": {
+    "topics": [
+      "Workload",
+      "Exam Difficulty",
+      "Course Content"
+    ],
+    "sentiment": "positive"
+  },
+  "1155": {
+    "topics": [
+      "Teaching Quality"
+    ],
+    "sentiment": "positive"
+  },
+  "1156": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading",
+      "Accessibility"
+    ],
+    "sentiment": "positive"
+  },
+  "1157": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Workload",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "1158": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading",
+      "Workload"
+    ],
+    "sentiment": "positive"
+  },
+  "1159": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Accessibility",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "1160": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  },
+  "1161": {
+    "topics": [
+      "Teaching Quality",
+      "Workload",
+      "Exam Difficulty"
+    ],
+    "sentiment": "positive"
+  },
+  "1162": {
+    "topics": [
+      "Teaching Quality",
+      "Exam Difficulty",
+      "Grading"
+    ],
+    "sentiment": "positive"
+  }
+}
