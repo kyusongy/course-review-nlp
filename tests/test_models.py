@@ -68,3 +68,26 @@ def test_sentiment_analyzer_negative(sentiment_ana):
     result = sentiment_ana.analyze("Terrible class, worst professor ever.")
     assert result["label"] == "negative"
     assert result["score"] < 0
+
+
+import torch
+from src.models.fine_tune import TopicDataset, SentimentDataset, create_topic_labels
+
+
+def test_create_topic_labels():
+    labels = create_topic_labels(["Workload", "Grading"])
+    assert len(labels) == len(TOPICS)
+    assert labels[TOPICS.index("Workload")] == 1.0
+    assert labels[TOPICS.index("Grading")] == 1.0
+    assert labels[TOPICS.index("Teaching Quality")] == 0.0
+
+
+def test_topic_dataset():
+    texts = ["Great class", "Hard exams"]
+    topic_lists = [["Teaching Quality"], ["Exam Difficulty", "Grading"]]
+    ds = TopicDataset(texts, topic_lists)
+    assert len(ds) == 2
+    item = ds[0]
+    assert "input_ids" in item
+    assert "labels" in item
+    assert item["labels"].shape == (len(TOPICS),)
