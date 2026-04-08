@@ -91,3 +91,27 @@ def test_topic_dataset():
     assert "input_ids" in item
     assert "labels" in item
     assert item["labels"].shape == (len(TOPICS),)
+
+
+from src.models.evaluate import (
+    compute_classification_metrics,
+    compute_multilabel_metrics,
+)
+
+
+def test_compute_classification_metrics():
+    y_true = ["positive", "negative", "neutral", "positive"]
+    y_pred = ["positive", "negative", "positive", "positive"]
+    metrics = compute_classification_metrics(y_true, y_pred)
+    assert "accuracy" in metrics
+    assert "f1_macro" in metrics
+    assert metrics["accuracy"] == 0.75
+
+
+def test_compute_multilabel_metrics():
+    y_true = [[1, 0, 1, 0, 0, 0], [0, 1, 0, 0, 0, 1]]
+    y_pred = [[1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 1]]
+    metrics = compute_multilabel_metrics(y_true, y_pred)
+    assert "f1_macro" in metrics
+    assert "f1_per_topic" in metrics
+    assert len(metrics["f1_per_topic"]) == 6
