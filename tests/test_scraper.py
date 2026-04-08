@@ -190,3 +190,34 @@ def test_ratings_to_dataframe_empty():
     df = ratings_to_dataframe([])
     assert list(df.columns) == EXPECTED_COLUMNS
     assert len(df) == 0
+
+
+# --- preprocess ---
+
+from src.scraper.preprocess import clean_text, preprocess_reviews
+
+
+def test_clean_text():
+    assert clean_text("  Hello\n\nWorld  ") == "Hello World"
+    assert clean_text("") == ""
+    assert clean_text("This is GREAT!!!") == "This is GREAT!!!"
+
+
+def test_preprocess_reviews():
+    df = pd.DataFrame(
+        {
+            "review_text": ["Great class!", "Great class!", "", "  Loved it  "],
+            "star_rating": [5, 5, 3, 4],
+            "difficulty_rating": [2, 2, 3, 1],
+            "would_take_again": [True, True, False, True],
+            "course_name": ["STOR 435", "STOR 435", "STOR 155", "STOR 435"],
+            "professor_name": ["Jane Doe", "Jane Doe", "Jane Doe", "Jane Doe"],
+            "date": ["2024-01-01", "2024-01-01", "2024-02-01", "2024-03-01"],
+            "thumbs_up": [5, 5, 0, 3],
+            "thumbs_down": [0, 0, 1, 0],
+        }
+    )
+    result = preprocess_reviews(df)
+    assert len(result) == 2  # dropped empty + duplicate
+    assert result["review_text"].iloc[0] == "Great class!"
+    assert result["review_text"].iloc[1] == "Loved it"
