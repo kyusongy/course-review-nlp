@@ -1,0 +1,285 @@
+import json
+from pathlib import Path
+
+import pandas as pd
+import plotly.graph_objects as go
+import streamlit as st
+
+from src.models.fine_tune import predict_sentiment, predict_topics
+from src.models.zero_shot import TOPICS, SentimentAnalyzer, TopicClassifier
+from src.recommend.engine import TOPIC_KEYS, filter_results, score_professors
+
+st.set_page_config(page_title="UNC Course Compass", layout="wide")
+
+DATA_DIR = Path("data/processed")
+MODELS_DIR = Path("models")
+
+SAMPLE_REVIEW = (
+    "Professor Smith was incredibly helpful during office hours. "
+    "The workload was heavy but fair, and exams were challenging but reflected what was taught."
+)
+
+
+@st.cache_data
+def load_reviews() -> pd.DataFrame:
+    return pd.read_parquet(DATA_DIR / "reviews.parquet")
+
+
+@st.cache_data
+def load_scores() -> pd.DataFrame:
+    return pd.read_parquet(DATA_DIR / "zero_shot_scores.parquet")
+
+
+@st.cache_data
+def load_eval_results() -> dict | None:
+    path = DATA_DIR / "evaluation_results.json"
+    if not path.exists():
+        return None
+    with open(path) as f:
+        return json.load(f)
+
+
+@st.cache_data
+def aggregate_prof_scores(scores_df: pd.DataFrame) -> pd.DataFrame:
+    return (
+        scores_df.groupby("professor_name")
+        .agg(
+            num_reviews=("professor_name", "count"),
+            **{k: (f"topic_{k}_score", "mean") for k in TOPIC_KEYS},
+        )
+        .fillna(0.0)
+        .reset_index()
+    )
+
+
+@st.cache_resource
+def load_zero_shot_models():
+    tc = TopicClassifier()
+    sa = SentimentAnalyzer()
+    return tc, sa
+
+
+def radar_chart(scores: dict[str, float], title: str = "") -> go.Figure:
+    topics = list(scores.keys())
+    values = list(scores.values())
+    # close the loop
+    topics_closed = topics + [topics[0]]
+    values_closed = values + [values[0]]
+
+    fig = go.Figure(
+        go.Scatterpolar(
+            r=values_closed,
+            theta=topics_closed,
+            fill="toself",
+            line_color="royalblue",
+        )
+    )
+    fig.update_layout(
+        polar=dict(radialaxis=dict(visible=True, range=[-1, 1])),
+        showlegend=False,
+        title=title,
+        margin=dict(l=20, r=20, t=40, b=20),
+        height=350,
+    )
+    return fig
+
+
+def star_display(rating: int) -> str:
+    r = int(rating)
+    return "★" * r + "☆" * (5 - r)
+
+
+# ── Tabs ─────────────────────────────────────────────────────────────────────
+
+tab_explore, tab_recommend, tab_model = st.tabs(
+    ["Explore", "Recommend", "Model Comparison"]
+)
+
+# ── Tab 1: Explore ────────────────────────────────────────────────────────────
+with tab_explore:
+    st.header("Explore Professors")
+
+    reviews_df = load_reviews()
+    scores_df = load_scores()
+
+    professors = sorted(reviews_df["professor_name"].dropna().unique())
+    selected_prof = st.selectbox("Select a professor", professors)
+
+    prof_reviews = reviews_df[reviews_df["professor_name"] == selected_prof]
+    prof_scores = scores_df[scores_df["professor_name"] == selected_prof]
+
+    col_left, col_right = st.columns([1, 2])
+
+    with col_left:
+        st.subheader("Summary")
+        st.metric("Reviews", len(prof_reviews))
+        if "star_rating" in prof_reviews.columns:
+            avg_rating = prof_reviews["star_rating"].mean()
+            st.metric("Avg Rating", f"{avg_rating:.2f} / 5")
+        if "difficulty_rating" in prof_reviews.columns:
+            avg_diff = prof_reviews["difficulty_rating"].mean()
+            st.metric("Avg Difficulty", f"{avg_diff:.2f}")
+
+        # Radar chart from zero_shot_scores
+        if not prof_scores.empty:
+            topic_means = {
+                topic: prof_scores[f"topic_{key}_score"].mean()
+                for topic, key in zip(TOPICS, TOPIC_KEYS)
+            }
+            st.plotly_chart(
+                radar_chart(topic_means, title="Topic Sentiment"),
+                use_container_width=True,
+            )
+        else:
+            st.info("No scored reviews available for this professor.")
+
+    with col_right:
+        st.subheader("Reviews")
+        for _, row in prof_reviews.iterrows():
+            rating = int(row.get("star_rating", 0))
+            course = row.get("course_name", "Unknown Course")
+            text = row.get("review_text", "")
+            st.markdown(f"**{star_display(rating)}** — {course}")
+            st.write(text)
+            st.divider()
+
+# ── Tab 2: Recommend ──────────────────────────────────────────────────────────
+with tab_recommend:
+    st.header("Find Your Professor")
+
+    col_sliders, col_results = st.columns([1, 2])
+
+    with col_sliders:
+        st.subheader("Priorities")
+        weights = {
+            key: st.slider(topic, 0, 10, 5) for topic, key in zip(TOPICS, TOPIC_KEYS)
+        }
+        min_reviews = st.slider("Minimum reviews", 1, 20, 3)
+
+    with col_results:
+        st.subheader("Top Professors")
+        scores_df = load_scores()
+        agg_df = aggregate_prof_scores(scores_df)
+
+        ranked = score_professors(agg_df, {k: float(v) for k, v in weights.items()})
+        filtered = filter_results(ranked, min_reviews=min_reviews)
+        top10 = filtered.head(10)
+
+        if top10.empty:
+            st.warning("No professors match the current filters.")
+        else:
+            for _, row in top10.iterrows():
+                with st.expander(
+                    f"{row['professor_name']}  —  score: {row['score']:.3f}  "
+                    f"({int(row['num_reviews'])} reviews)"
+                ):
+                    topic_scores = {
+                        topic: row[key] for topic, key in zip(TOPICS, TOPIC_KEYS)
+                    }
+                    st.plotly_chart(
+                        radar_chart(topic_scores),
+                        use_container_width=True,
+                    )
+
+# ── Tab 3: Model Comparison ───────────────────────────────────────────────────
+with tab_model:
+    st.header("Model Comparison")
+
+    eval_data = load_eval_results()
+
+    if eval_data is None:
+        st.warning(
+            "Run evaluation first — `data/processed/evaluation_results.json` not found."
+        )
+    else:
+        # Topic Classification F1
+        st.subheader("Topic Classification F1")
+        tc_data = eval_data.get("topic_classification", {})
+        if tc_data:
+            rows = []
+            for model_name, results in tc_data.items():
+                per_topic = results.get("f1_per_topic", {})
+                row = {
+                    "Model": model_name,
+                    "Macro F1": round(results.get("f1_macro", 0), 4),
+                }
+                row.update({t: round(per_topic.get(t, 0), 4) for t in TOPICS})
+                rows.append(row)
+            st.dataframe(
+                pd.DataFrame(rows).set_index("Model"), use_container_width=True
+            )
+
+        # Sentiment Accuracy
+        st.subheader("Sentiment Accuracy")
+        sent_data = eval_data.get("sentiment", {})
+        if sent_data:
+            rows = []
+            for model_name, results in sent_data.items():
+                per_class = results.get("f1_per_class", {})
+                row = {
+                    "Model": model_name,
+                    "Accuracy": round(results.get("accuracy", 0), 4),
+                    "Macro F1": round(results.get("f1_macro", 0), 4),
+                }
+                row.update({f"F1 ({k})": round(v, 4) for k, v in per_class.items()})
+                rows.append(row)
+            st.dataframe(
+                pd.DataFrame(rows).set_index("Model"), use_container_width=True
+            )
+
+    # Try a Review
+    st.subheader("Try a Review")
+    review_text = st.text_area("Review text", value=SAMPLE_REVIEW, height=120)
+
+    if st.button("Analyze"):
+        col_star, col_zero, col_fine = st.columns(3)
+
+        with col_star:
+            st.markdown("### Star Proxy")
+            st.info("N/A — no star rating provided")
+
+        with col_zero:
+            st.markdown("### Zero-Shot")
+            with st.spinner("Running zero-shot models..."):
+                try:
+                    tc, sa = load_zero_shot_models()
+                    zs_topics = tc.classify(review_text)
+                    zs_sentiment = sa.analyze(review_text)
+                    st.markdown(
+                        f"**Sentiment:** {zs_sentiment['label']} ({zs_sentiment['score']:.3f})"
+                    )
+                    st.markdown("**Topics detected:**")
+                    if zs_topics:
+                        for t in zs_topics:
+                            st.write(f"- {t}")
+                    else:
+                        st.write("None above threshold")
+                except Exception as e:
+                    st.error(f"Zero-shot error: {e}")
+
+        with col_fine:
+            st.markdown("### Fine-Tuned")
+            topic_dir = MODELS_DIR / "topic_classifier"
+            sent_dir = MODELS_DIR / "sentiment_classifier"
+            if not topic_dir.exists() or not sent_dir.exists():
+                st.warning("Fine-tuned models not found. Train them first.")
+            else:
+                with st.spinner("Running fine-tuned models..."):
+                    try:
+                        ft_topics = predict_topics([review_text], model_dir=topic_dir)
+                        ft_sentiment = predict_sentiment(
+                            [review_text], model_dir=sent_dir
+                        )
+                        sent = ft_sentiment[0]
+                        st.markdown(
+                            f"**Sentiment:** {sent['label']} ({sent['score']:.3f})"
+                        )
+                        st.markdown("**Topics detected:**")
+                        topics_found = ft_topics[0]
+                        if topics_found:
+                            for t in topics_found:
+                                st.write(f"- {t}")
+                        else:
+                            st.write("None above threshold")
+                    except Exception as e:
+                        st.error(f"Fine-tuned error: {e}")
