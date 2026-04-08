@@ -6,7 +6,7 @@
 
 **Architecture:** Zero-shot baseline → fine-tune comparison (Approach C). Three-layer sentiment analysis: star ratings as proxy baseline, zero-shot transformer models (BART-mnli + RoBERTa), and fine-tuned DistilBERT. Weighted scoring recommendation engine. Streamlit frontend with explore, recommend, and model comparison views.
 
-**Tech Stack:** Python 3.11+, PyTorch (MPS), HuggingFace Transformers, httpx, pandas, scikit-learn, Streamlit, plotly
+**Tech Stack:** Python 3.11+, uv (package management), PyTorch (MPS), HuggingFace Transformers, httpx, pandas, scikit-learn, Streamlit, plotly
 
 ---
 
@@ -109,14 +109,6 @@ dev = [
     "ipykernel>=6.29",
 ]
 
-[build-system]
-requires = ["setuptools>=69.0"]
-build-backend = "setuptools.backends._legacy:_Backend"
-
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["src*"]
-
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
@@ -138,20 +130,20 @@ Create `.gitkeep` in:
 - `models/.gitkeep`
 - `notebooks/.gitkeep`
 
-- [ ] **Step 5: Set up venv and install**
+- [ ] **Step 5: Initialize uv project and install**
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -e ".[dev]"
+uv sync --extra dev
 ```
+
+This creates `.venv` automatically and installs all dependencies including dev extras.
 
 - [ ] **Step 6: Verify setup**
 
 ```bash
-python -c "import torch; print(torch.backends.mps.is_available())"
-python -c "import transformers; print(transformers.__version__)"
-pytest --co  # collect tests (none yet, should exit clean)
+uv run python -c "import torch; print(torch.backends.mps.is_available())"
+uv run python -c "import transformers; print(transformers.__version__)"
+uv run pytest --co  # collect tests (none yet, should exit clean)
 ```
 
 Expected: MPS available = True, transformers version printed, pytest exits 0.
@@ -165,127 +157,133 @@ git commit -m "Scaffold project structure and dependencies"
 
 ---
 
-### Task 2: RMP Scraper
+### Task 2: RMP Scraper (Hybrid Approach)
+
+**Strategy:** Use Claude Code's WebFetch to explore RMP's current page structure (Next.js `__NEXT_DATA__` or GraphQL API), then write a script that automates bulk collection based on what we find.
 
 **Files:**
 - Create: `src/scraper/client.py`
 - Create: `src/scraper/parse.py`
 - Create: `tests/test_scraper.py`
 
-- [ ] **Step 1: Write scraper tests**
+- [ ] **Step 1: Explore RMP structure with Claude Code**
+
+Use WebFetch to fetch a known UNC professor's RMP page (e.g. search for "University of North Carolina at Chapel Hill" on RMP). Inspect the response for:
+- `__NEXT_DATA__` script tag (Next.js SSR data — contains teacher + ratings JSON)
+- GraphQL API endpoint and auth token (may be embedded in page source)
+- Data schema: what fields are available for teachers and ratings
+
+Document what you find — the actual field names, data structure, and access method determine the parser code.
+
+- [ ] **Step 2: Write parser tests based on discovered schema**
+
+After exploring, write tests using the **actual data shape** found in Step 1. The test fixtures below are templates — update field names and structure to match reality:
 
 ```python
 # tests/test_scraper.py
 import pytest
 from src.scraper.parse import parse_teacher, parse_rating, ratings_to_dataframe
 
-
+# UPDATE THESE FIXTURES with actual field names from Step 1
 SAMPLE_TEACHER_NODE = {
-    "id": "VGVhY2hlci0xMjM0NTY=",
-    "legacyId": 123456,
-    "firstName": "Jane",
-    "lastName": "Doe",
-    "department": "Statistics and Analytics",
-    "avgRating": 4.2,
-    "numRatings": 15,
-    "wouldTakeAgainPercent": 85.0,
-    "avgDifficulty": 3.1,
-    "school": {"id": "U2Nob29sLTEyMzI=", "name": "University of North Carolina at Chapel Hill"},
+    # Fields discovered from RMP page exploration
+    # e.g. "id", "firstName", "lastName", "department", "avgRating", etc.
 }
 
 SAMPLE_RATING_NODE = {
-    "id": "UmF0aW5nLTk5OTk=",
-    "comment": "Great professor, tough exams but fair grading.",
-    "qualityRating": 4,
-    "difficultyRating": 3,
-    "class": "STOR 435",
-    "date": "2024-11-15 00:00:00 +0000 UTC",
-    "thumbsUpTotal": 5,
-    "thumbsDownTotal": 1,
-    "wouldTakeAgain": 1,
-    "isForOnlineClass": False,
+    # Fields discovered from RMP page exploration
+    # e.g. "comment", "qualityRating", "difficultyRating", "class", "date", etc.
 }
 
 
 def test_parse_teacher():
     result = parse_teacher(SAMPLE_TEACHER_NODE)
-    assert result["professor_name"] == "Jane Doe"
-    assert result["department"] == "Statistics and Analytics"
-    assert result["avg_rating"] == 4.2
-    assert result["num_ratings"] == 15
-    assert result["rmp_id"] == "VGVhY2hlci0xMjM0NTY="
+    assert "professor_name" in result
+    assert "department" in result
+    assert "avg_rating" in result
+    assert "num_ratings" in result
 
 
 def test_parse_rating():
     result = parse_rating(SAMPLE_RATING_NODE, professor_name="Jane Doe")
-    assert result["review_text"] == "Great professor, tough exams but fair grading."
-    assert result["star_rating"] == 4
-    assert result["difficulty_rating"] == 3
-    assert result["course_name"] == "STOR 435"
-    assert result["professor_name"] == "Jane Doe"
-    assert result["would_take_again"] is True
+    assert "review_text" in result
+    assert "star_rating" in result
+    assert "difficulty_rating" in result
+    assert "course_name" in result
+    assert "professor_name" in result
 
 
 def test_ratings_to_dataframe():
     ratings = [
         parse_rating(SAMPLE_RATING_NODE, professor_name="Jane Doe"),
-        parse_rating(
-            {**SAMPLE_RATING_NODE, "comment": "Boring lectures.", "qualityRating": 2},
-            professor_name="Jane Doe",
-        ),
+        parse_rating(SAMPLE_RATING_NODE, professor_name="Jane Doe"),
     ]
     df = ratings_to_dataframe(ratings)
     assert len(df) == 2
-    assert list(df.columns) == [
+    expected_cols = [
         "review_text", "star_rating", "difficulty_rating",
         "would_take_again", "course_name", "professor_name",
         "date", "thumbs_up", "thumbs_down",
     ]
-    assert df["star_rating"].dtype == int
+    assert list(df.columns) == expected_cols
 ```
 
-- [ ] **Step 2: Run tests — verify they fail**
+- [ ] **Step 3: Run tests — verify they fail**
 
 ```bash
-pytest tests/test_scraper.py -v
+uv run pytest tests/test_scraper.py -v
 ```
 
-Expected: FAIL — `ModuleNotFoundError: No module named 'src.scraper.parse'`
+Expected: FAIL — `ModuleNotFoundError`
 
-- [ ] **Step 3: Implement `src/scraper/parse.py`**
+- [ ] **Step 4: Implement `src/scraper/parse.py`**
+
+Adapt the parser to match the actual data structure found in Step 1. Target output schema is fixed (our downstream code depends on it):
 
 ```python
 # src/scraper/parse.py
+"""Parse RMP data into standardized format.
+
+Output schema is fixed — all parsers must produce these fields:
+  Teacher: rmp_id, legacy_id, professor_name, department, avg_rating,
+           avg_difficulty, num_ratings, would_take_again_pct, school
+  Rating:  review_text, star_rating, difficulty_rating, would_take_again,
+           course_name, professor_name, date, thumbs_up, thumbs_down
+"""
 import pandas as pd
 
 
 def parse_teacher(node: dict) -> dict:
-    """Parse a teacher node from RMP GraphQL response."""
+    """Parse a teacher node into standardized format.
+    Adapt field access based on actual RMP data structure.
+    """
     return {
-        "rmp_id": node["id"],
-        "legacy_id": node["legacyId"],
+        "rmp_id": node.get("id", ""),
+        "legacy_id": node.get("legacyId", ""),
         "professor_name": f"{node['firstName']} {node['lastName']}",
-        "department": node["department"],
-        "avg_rating": node["avgRating"],
-        "avg_difficulty": node.get("avgDifficulty"),
-        "num_ratings": node["numRatings"],
-        "would_take_again_pct": node.get("wouldTakeAgainPercent"),
+        "department": node.get("department", ""),
+        "avg_rating": node.get("avgRating", 0),
+        "avg_difficulty": node.get("avgDifficulty", 0),
+        "num_ratings": node.get("numRatings", 0),
+        "would_take_again_pct": node.get("wouldTakeAgainPercent", -1),
         "school": node.get("school", {}).get("name", ""),
     }
 
 
 def parse_rating(node: dict, professor_name: str) -> dict:
-    """Parse a rating node from RMP GraphQL response."""
+    """Parse a rating node into standardized format.
+    Adapt field access based on actual RMP data structure.
+    """
     return {
-        "review_text": node["comment"],
-        "star_rating": node["qualityRating"],
-        "difficulty_rating": node["difficultyRating"],
-        "would_take_again": node["wouldTakeAgain"] == 1,
+        "review_text": node.get("comment", ""),
+        "star_rating": int(node.get("qualityRating", 0)),
+        "difficulty_rating": int(node.get("difficultyRating", 0)),
+        "would_take_again": node.get("wouldTakeAgain", 0) == 1,
         "course_name": node.get("class", ""),
         "professor_name": professor_name,
-        "date": node["date"],
-        "thumbs_up": node["thumbsUpTotal"],
-        "thumbs_down": node["thumbsDownTotal"],
+        "date": node.get("date", ""),
+        "thumbs_up": node.get("thumbsUpTotal", 0),
+        "thumbs_down": node.get("thumbsDownTotal", 0),
     }
 
 
@@ -304,230 +302,86 @@ def ratings_to_dataframe(ratings: list[dict]) -> pd.DataFrame:
     return df
 ```
 
-- [ ] **Step 4: Run tests — verify they pass**
+- [ ] **Step 5: Run tests — verify they pass**
 
 ```bash
-pytest tests/test_scraper.py -v
+uv run pytest tests/test_scraper.py -v
 ```
 
 Expected: 3 passed.
 
-- [ ] **Step 5: Implement `src/scraper/client.py`**
+- [ ] **Step 6: Implement `src/scraper/client.py` based on discovered access method**
+
+Write the client based on what Step 1 revealed. Two likely paths:
+
+**Path A — GraphQL API works:** Write async httpx client hitting the GraphQL endpoint with discovered auth token and query structure.
+
+**Path B — `__NEXT_DATA__` parsing:** Write httpx client that fetches professor HTML pages and extracts the `__NEXT_DATA__` JSON from `<script id="__NEXT_DATA__">` tags.
+
+Either way, the client must:
+- Accept a school name and department filter
+- Return list of teacher dicts and their rating dicts
+- Cache raw JSON to `data/raw/{legacy_id}.json`
+- Handle pagination (GraphQL cursors or page numbers)
+- Include retry logic and 0.5s delay between requests
 
 ```python
 # src/scraper/client.py
-"""RateMyProfessor GraphQL API client."""
+"""RateMyProfessor scraper client.
+
+Access method (GraphQL vs __NEXT_DATA__) determined during
+Claude Code exploration in Task 2 Step 1.
+"""
 import json
-import asyncio
 from pathlib import Path
 
 import httpx
 
-URL = "https://www.ratemyprofessors.com/graphql"
-# Public auth token embedded in RMP frontend JS
-AUTH_TOKEN = "dGVzdDp0ZXN0"
-HEADERS = {
-    "Authorization": f"Basic {AUTH_TOKEN}",
-    "Content-Type": "application/json",
-    "Referer": "https://www.ratemyprofessors.com/",
-}
-
-SCHOOL_SEARCH_QUERY = """
-query SchoolSearchQuery($query: SchoolSearchQuery!) {
-  newSearch {
-    schools(query: $query) {
-      edges {
-        node {
-          id
-          legacyId
-          name
-          city
-          state
-        }
-      }
-    }
-  }
-}
-"""
-
-TEACHER_SEARCH_QUERY = """
-query TeacherSearchQuery($query: TeacherSearchQuery!, $count: Int) {
-  newSearch {
-    teachers(query: $query, first: $count) {
-      edges {
-        node {
-          id
-          legacyId
-          firstName
-          lastName
-          department
-          avgRating
-          avgDifficulty
-          numRatings
-          wouldTakeAgainPercent
-          school {
-            id
-            name
-          }
-        }
-      }
-    }
-  }
-}
-"""
-
-TEACHER_RATINGS_QUERY = """
-query TeacherRatingsQuery($id: ID!, $count: Int, $cursor: String) {
-  node(id: $id) {
-    ... on Teacher {
-      id
-      legacyId
-      firstName
-      lastName
-      department
-      ratings(first: $count, after: $cursor) {
-        edges {
-          cursor
-          node {
-            id
-            comment
-            qualityRating
-            difficultyRating
-            class
-            date
-            thumbsUpTotal
-            thumbsDownTotal
-            wouldTakeAgain
-            isForOnlineClass
-          }
-        }
-        pageInfo {
-          hasNextPage
-          endCursor
-        }
-      }
-    }
-  }
-}
-"""
-
-
-class RMPClient:
-    """Async client for RateMyProfessor GraphQL API."""
-
-    def __init__(self, cache_dir: Path | None = None):
-        self.cache_dir = cache_dir
-        self._client = httpx.AsyncClient(headers=HEADERS, timeout=30.0)
-
-    async def __aenter__(self):
-        return self
-
-    async def __aexit__(self, *args):
-        await self._client.aclose()
-
-    async def _query(self, query: str, variables: dict) -> dict:
-        resp = await self._client.post(
-            URL, json={"query": query, "variables": variables}
-        )
-        resp.raise_for_status()
-        return resp.json()
-
-    async def search_school(self, name: str) -> list[dict]:
-        """Search for schools by name. Returns list of school nodes."""
-        data = await self._query(
-            SCHOOL_SEARCH_QUERY,
-            {"query": {"text": name}},
-        )
-        return [edge["node"] for edge in data["data"]["newSearch"]["schools"]["edges"]]
-
-    async def search_teachers(
-        self, school_id: str, dept: str = "", count: int = 1000
-    ) -> list[dict]:
-        """Search for teachers at a school. school_id is the base64 node ID."""
-        variables = {
-            "query": {"text": dept, "schoolID": school_id},
-            "count": count,
-        }
-        data = await self._query(TEACHER_SEARCH_QUERY, variables)
-        return [
-            edge["node"]
-            for edge in data["data"]["newSearch"]["teachers"]["edges"]
-        ]
-
-    async def get_ratings(self, teacher_id: str, count: int = 20) -> list[dict]:
-        """Get all ratings for a teacher, paginating through results."""
-        all_ratings = []
-        cursor = None
-
-        while True:
-            variables = {"id": teacher_id, "count": count, "cursor": cursor}
-            data = await self._query(TEACHER_RATINGS_QUERY, variables)
-            teacher = data["data"]["node"]
-            edges = teacher["ratings"]["edges"]
-            all_ratings.extend(edge["node"] for edge in edges)
-
-            page_info = teacher["ratings"]["pageInfo"]
-            if not page_info["hasNextPage"]:
-                break
-            cursor = page_info["endCursor"]
-
-        return all_ratings
-
-    async def scrape_department(
-        self, school_name: str, dept_query: str
-    ) -> tuple[list[dict], dict[str, list[dict]]]:
-        """Scrape all teachers and their ratings for a department.
-
-        Returns (teachers, {teacher_id: [ratings]}).
-        """
-        schools = await self.search_school(school_name)
-        if not schools:
-            raise ValueError(f"School not found: {school_name}")
-        school_id = schools[0]["id"]
-
-        teachers = await self.search_teachers(school_id, dept_query)
-        print(f"Found {len(teachers)} teachers for '{dept_query}'")
-
-        ratings_by_teacher = {}
-        for teacher in teachers:
-            tid = teacher["id"]
-            name = f"{teacher['firstName']} {teacher['lastName']}"
-            ratings = await self.get_ratings(tid)
-            ratings_by_teacher[tid] = ratings
-            print(f"  {name}: {len(ratings)} ratings")
-
-            # Cache raw data per professor
-            if self.cache_dir:
-                self.cache_dir.mkdir(parents=True, exist_ok=True)
-                path = self.cache_dir / f"{teacher['legacyId']}.json"
-                path.write_text(json.dumps({"teacher": teacher, "ratings": ratings}, indent=2))
-
-        return teachers, ratings_by_teacher
+# TODO: Fill in after Step 1 exploration reveals the actual access method.
+# The implementation will follow one of two paths:
+#   Path A: GraphQL client with discovered auth token + queries
+#   Path B: HTML fetcher with __NEXT_DATA__ JSON extraction
+#
+# This file is intentionally left as a skeleton to be completed
+# during implementation after the exploration step.
 ```
 
-- [ ] **Step 6: Commit**
+Note: the actual `client.py` implementation will be written during execution after the WebFetch exploration reveals the current RMP structure. The plan cannot hardcode API details that may have changed.
+
+- [ ] **Step 7: Commit**
 
 ```bash
 git add src/scraper/ tests/test_scraper.py
-git commit -m "Add RMP scraper client and parser with tests"
+git commit -m "Add RMP scraper parser and client skeleton"
 ```
 
 ---
 
-### Task 3: Data Collection
+### Task 3: Data Collection (Hybrid)
 
 **Files:**
+- Create: `src/scraper/run.py`
 - Uses: `src/scraper/client.py`, `src/scraper/parse.py`
 - Creates: `data/raw/*.json`, `data/processed/reviews.parquet`
 
-- [ ] **Step 1: Create scraping script**
+- [ ] **Step 1: Claude Code explores RMP professor pages**
 
-Create `src/scraper/run.py`:
+Use WebFetch to fetch a few UNC Stats professor pages. Identify the list of professors in the department (search RMP for UNC Chapel Hill → Statistics). Record professor URLs/IDs found.
+
+- [ ] **Step 2: Claude Code extracts sample data**
+
+For 2-3 professors, use WebFetch to fetch their full pages. Extract and save the raw JSON data (from `__NEXT_DATA__` or GraphQL responses) to `data/raw/`. Verify the data contains: reviews, ratings, course names, dates.
+
+- [ ] **Step 3: Write `src/scraper/run.py` based on discovered structure**
+
+Write a script that automates what Claude Code did manually — iterate through all professors, fetch pages, extract and parse data, save to parquet. Use the actual URL patterns and data paths discovered in Steps 1-2.
 
 ```python
 # src/scraper/run.py
-"""Run the RMP scraper for UNC Stats & DS department."""
-import asyncio
+"""Run the RMP scraper for UNC Stats & DS department.
+
+Uses the access method discovered during Claude Code exploration.
+"""
 from pathlib import Path
 
 import pandas as pd
@@ -539,22 +393,22 @@ RAW_DIR = Path("data/raw")
 PROCESSED_DIR = Path("data/processed")
 
 
-async def main():
-    async with RMPClient(cache_dir=RAW_DIR) as client:
-        teachers, ratings_by_teacher = await client.scrape_department(
-            school_name="University of North Carolina at Chapel Hill",
-            dept_query="Statistics",
-        )
+def main():
+    client = RMPClient(cache_dir=RAW_DIR)
+    teachers, ratings_by_teacher = client.scrape_department(
+        school_name="University of North Carolina at Chapel Hill",
+        dept_query="Statistics",
+    )
 
-    # Parse all ratings into a single dataframe
     all_ratings = []
     teacher_records = []
     for teacher in teachers:
-        tid = teacher["id"]
-        prof_name = f"{teacher['firstName']} {teacher['lastName']}"
+        tid = teacher.get("id") or teacher.get("legacyId")
+        prof_name = teacher.get("professor_name") or f"{teacher['firstName']} {teacher['lastName']}"
         teacher_records.append(parse_teacher(teacher))
-        for rating in ratings_by_teacher.get(tid, []):
-            if rating["comment"]:  # skip empty reviews
+        for rating in ratings_by_teacher.get(str(tid), []):
+            text = rating.get("comment", "")
+            if text:
                 all_ratings.append(parse_rating(rating, professor_name=prof_name))
 
     reviews_df = ratings_to_dataframe(all_ratings)
@@ -571,26 +425,23 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
 ```
 
-- [ ] **Step 2: Run the scraper**
+- [ ] **Step 4: Run the scraper**
 
 ```bash
-python -m src.scraper.run
+uv run python -m src.scraper.run
 ```
 
 Expected: prints professor names with rating counts, saves JSON to `data/raw/` and parquet to `data/processed/`.
 
-If the RMP API blocks or returns errors, check:
-- Auth token may have changed — inspect RMP's frontend JS for the current token
-- Rate limiting — add `await asyncio.sleep(0.5)` between requests in `scrape_department`
-- If scraping fails entirely, download a Kaggle RMP dataset as fallback
+If the script fails, fall back to Claude Code doing the fetching directly for remaining professors, or use a Kaggle RMP dataset.
 
-- [ ] **Step 3: Verify data**
+- [ ] **Step 5: Verify data**
 
 ```bash
-python -c "
+uv run python -c "
 import pandas as pd
 df = pd.read_parquet('data/processed/reviews.parquet')
 print(f'Reviews: {len(df)}')
@@ -603,11 +454,11 @@ print(f'\nStar rating distribution:\n{df.star_rating.value_counts().sort_index()
 
 Expected: 500+ reviews, 20+ professors, all columns present.
 
-- [ ] **Step 4: Commit**
+- [ ] **Step 6: Commit**
 
 ```bash
-git add src/scraper/run.py
-git commit -m "Add scraper run script and collect UNC Stats data"
+git add src/scraper/
+git commit -m "Add RMP scraper and collect UNC Stats data"
 ```
 
 ---
@@ -689,7 +540,7 @@ def preprocess_reviews(df: pd.DataFrame) -> pd.DataFrame:
 - [ ] **Step 4: Run tests — verify they pass**
 
 ```bash
-pytest tests/test_scraper.py -v
+uv run pytest tests/test_scraper.py -v
 ```
 
 Expected: all 5 tests pass.
@@ -697,7 +548,7 @@ Expected: all 5 tests pass.
 - [ ] **Step 5: Run preprocessing on scraped data**
 
 ```bash
-python -c "
+uv run python -c "
 import pandas as pd
 from src.scraper.preprocess import preprocess_reviews
 
@@ -763,7 +614,7 @@ def test_compute_baseline_scores():
 - [ ] **Step 2: Run tests — verify they fail**
 
 ```bash
-pytest tests/test_models.py -v
+uv run pytest tests/test_models.py -v
 ```
 
 Expected: FAIL — `ModuleNotFoundError`
@@ -795,7 +646,7 @@ def compute_baseline_scores(df: pd.DataFrame) -> pd.DataFrame:
 - [ ] **Step 4: Run tests — verify they pass**
 
 ```bash
-pytest tests/test_models.py -v
+uv run pytest tests/test_models.py -v
 ```
 
 Expected: 2 passed.
@@ -980,7 +831,7 @@ class SentimentAnalyzer:
 - [ ] **Step 4: Run all zero-shot tests**
 
 ```bash
-pytest tests/test_models.py -v -k "zero_shot or topic or sentiment_analyzer"
+uv run pytest tests/test_models.py -v -k "zero_shot or topic or sentiment_analyzer"
 ```
 
 Expected: 4 passed (first run will download models — ~1.5GB total, takes a few minutes).
@@ -988,7 +839,7 @@ Expected: 4 passed (first run will download models — ~1.5GB total, takes a few
 - [ ] **Step 5: Smoke test on real data**
 
 ```bash
-python -c "
+uv run python -c "
 import pandas as pd
 from src.models.zero_shot import TopicClassifier, SentimentAnalyzer
 
@@ -1107,7 +958,7 @@ if __name__ == "__main__":
 - [ ] **Step 2: Run batch processing**
 
 ```bash
-python -m src.models.process
+uv run python -m src.models.process
 ```
 
 Expected: processes all reviews, prints progress, saves `baseline_scores.parquet` and `zero_shot_scores.parquet` to `data/processed/`. This will take 10-30 min depending on dataset size.
@@ -1115,7 +966,7 @@ Expected: processes all reviews, prints progress, saves `baseline_scores.parquet
 - [ ] **Step 3: Verify outputs**
 
 ```bash
-python -c "
+uv run python -c "
 import pandas as pd
 zs = pd.read_parquet('data/processed/zero_shot_scores.parquet')
 print(f'Zero-shot scores: {len(zs)} reviews')
@@ -1251,7 +1102,7 @@ if __name__ == "__main__":
 - [ ] **Step 2: Run labeling session**
 
 ```bash
-python -m src.models.labeling
+uv run python -m src.models.labeling
 ```
 
 Label at least 200 reviews. You can quit and resume — progress is saved to `data/labels/annotations.json`.
@@ -1331,7 +1182,7 @@ def test_topic_dataset():
 - [ ] **Step 2: Run tests — verify they fail**
 
 ```bash
-pytest tests/test_models.py::test_create_topic_labels tests/test_models.py::test_topic_dataset -v
+uv run pytest tests/test_models.py::test_create_topic_labels tests/test_models.py::test_topic_dataset -v
 ```
 
 Expected: FAIL — `ImportError`
@@ -1561,7 +1412,7 @@ def predict_sentiment(
 - [ ] **Step 4: Run tests — verify they pass**
 
 ```bash
-pytest tests/test_models.py -v
+uv run pytest tests/test_models.py -v
 ```
 
 Expected: all tests pass (including dataset/label utility tests).
@@ -1569,7 +1420,7 @@ Expected: all tests pass (including dataset/label utility tests).
 - [ ] **Step 5: Run fine-tuning on labeled data**
 
 ```bash
-python -c "
+uv run python -c "
 from pathlib import Path
 from src.models.labeling import split_labeled_data
 from src.models.fine_tune import train_topic_classifier, train_sentiment_classifier
@@ -1639,7 +1490,7 @@ def test_compute_multilabel_metrics():
 - [ ] **Step 2: Run tests — verify they fail**
 
 ```bash
-pytest tests/test_models.py::test_compute_classification_metrics tests/test_models.py::test_compute_multilabel_metrics -v
+uv run pytest tests/test_models.py::test_compute_classification_metrics tests/test_models.py::test_compute_multilabel_metrics -v
 ```
 
 Expected: FAIL — `ImportError`
@@ -1734,7 +1585,7 @@ def compare_approaches(
 - [ ] **Step 4: Run tests — verify they pass**
 
 ```bash
-pytest tests/test_models.py -v
+uv run pytest tests/test_models.py -v
 ```
 
 Expected: all tests pass.
@@ -1742,7 +1593,7 @@ Expected: all tests pass.
 - [ ] **Step 5: Run full evaluation**
 
 ```bash
-python -c "
+uv run python -c "
 import json
 from pathlib import Path
 from src.models.labeling import split_labeled_data
@@ -1866,7 +1717,7 @@ def test_filter_min_reviews():
 - [ ] **Step 2: Run tests — verify they fail**
 
 ```bash
-pytest tests/test_recommend.py -v
+uv run pytest tests/test_recommend.py -v
 ```
 
 Expected: FAIL — `ImportError`
@@ -1947,7 +1798,7 @@ def aggregate_professor_scores(
 - [ ] **Step 4: Run tests — verify they pass**
 
 ```bash
-pytest tests/test_recommend.py -v
+uv run pytest tests/test_recommend.py -v
 ```
 
 Expected: 3 passed.
@@ -2185,7 +2036,7 @@ with tab3:
 - [ ] **Step 2: Test the app locally**
 
 ```bash
-streamlit run src/app/streamlit_app.py
+uv run streamlit run src/app/streamlit_app.py
 ```
 
 Expected: app opens in browser with 3 tabs. Verify:
@@ -2256,7 +2107,7 @@ if __name__ == "__main__":
 - [ ] **Step 2: Run full pipeline**
 
 ```bash
-python run_pipeline.py
+uv run python run_pipeline.py
 ```
 
 Verify all steps complete without errors.
@@ -2264,7 +2115,7 @@ Verify all steps complete without errors.
 - [ ] **Step 3: Run all tests**
 
 ```bash
-pytest tests/ -v
+uv run pytest tests/ -v
 ```
 
 Expected: all tests pass.

@@ -226,10 +226,10 @@ course_review/
 | Language | Python 3.11+ |
 | ML Framework | PyTorch + HuggingFace Transformers |
 | Data | pandas, pyarrow (parquet) |
-| Scraping | httpx (async HTTP) |
+| Scraping | httpx + Claude Code WebFetch (hybrid) |
 | Frontend | Streamlit |
 | Visualization | plotly (radar charts, bar charts) |
-| Env management | pyenv + venv |
+| Env management | uv |
 | Compute | Local MPS (M5), Colab backup |
 
 ## 9. Risks
