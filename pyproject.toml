@@ -11,6 +11,7 @@ dependencies = [
     "scikit-learn>=1.4",
     "streamlit>=1.33",
     "plotly>=5.20",
+    "torchvision>=0.26.0",
 ]
 
 [project.optional-dependencies]
