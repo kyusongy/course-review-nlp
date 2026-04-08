@@ -11,6 +11,7 @@ HEADERS = {
     "Authorization": "Basic dGVzdDp0ZXN0",
     "Referer": "https://www.ratemyprofessors.com/",
     "Content-Type": "application/json",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
 }
 SCHOOL_ID = "U2Nob29sLTEyMzI="
 TARGET_DEPARTMENTS = {"Statistics", "Statistics & Ops Research", "Biostatistics"}
