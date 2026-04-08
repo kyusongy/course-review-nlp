@@ -28,3 +28,43 @@ def test_compute_baseline_scores():
     assert result.loc[0, "sentiment_score"] == 1.0
     assert result.loc[1, "sentiment_score"] == -1.0
     assert result.loc[2, "sentiment_score"] == 0.0
+
+
+import pytest
+from src.models.zero_shot import TopicClassifier, SentimentAnalyzer, TOPICS
+
+
+@pytest.fixture(scope="module")
+def topic_clf():
+    return TopicClassifier()
+
+
+@pytest.fixture(scope="module")
+def sentiment_ana():
+    return SentimentAnalyzer()
+
+
+def test_topic_classifier_returns_valid_topics(topic_clf):
+    results = topic_clf.classify(
+        "The homework was way too much but lectures were great."
+    )
+    assert isinstance(results, list)
+    assert all(t in TOPICS for t in results)
+    assert len(results) >= 1
+
+
+def test_topic_classifier_threshold(topic_clf):
+    results = topic_clf.classify("It was fine.", threshold=0.5)
+    assert isinstance(results, list)
+
+
+def test_sentiment_analyzer_returns_valid(sentiment_ana):
+    result = sentiment_ana.analyze("This class was absolutely amazing!")
+    assert result["label"] in ("positive", "neutral", "negative")
+    assert -1.0 <= result["score"] <= 1.0
+
+
+def test_sentiment_analyzer_negative(sentiment_ana):
+    result = sentiment_ana.analyze("Terrible class, worst professor ever.")
+    assert result["label"] == "negative"
+    assert result["score"] < 0
