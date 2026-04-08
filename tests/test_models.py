@@ -70,27 +70,61 @@ def test_sentiment_analyzer_negative(sentiment_ana):
     assert result["score"] < 0
 
 
-import torch
-from src.models.fine_tune import TopicDataset, SentimentDataset, create_topic_labels
+from src.models.fine_tune import (
+    TopicSentimentDataset,
+    create_topic_labels,
+    encode_topic_sentiments,
+    decode_topic_sentiments,
+)
 
 
-def test_create_topic_labels():
-    labels = create_topic_labels(["Workload", "Grading"])
+def test_create_topic_labels_from_dict():
+    labels = create_topic_labels({"Workload": "negative", "Grading": "positive"})
     assert len(labels) == len(TOPICS)
     assert labels[TOPICS.index("Workload")] == 1.0
     assert labels[TOPICS.index("Grading")] == 1.0
     assert labels[TOPICS.index("Teaching Quality")] == 0.0
 
 
-def test_topic_dataset():
-    texts = ["Great class", "Hard exams"]
-    topic_lists = [["Teaching Quality"], ["Exam Difficulty", "Grading"]]
-    ds = TopicDataset(texts, topic_lists)
+def test_encode_topic_sentiments():
+    states = encode_topic_sentiments(
+        {"Teaching Quality": "positive", "Exam Difficulty": "negative"}
+    )
+    assert len(states) == 6
+    assert states[TOPICS.index("Teaching Quality")] == 1  # positive
+    assert states[TOPICS.index("Exam Difficulty")] == 3  # negative
+    assert states[TOPICS.index("Workload")] == 0  # not discussed
+
+
+def test_decode_topic_sentiments():
+    states = [
+        0,
+        1,
+        3,
+        0,
+        0,
+        2,
+    ]  # Grading=positive, Teaching Quality=negative, Exam Difficulty=neutral
+    result = decode_topic_sentiments(states)
+    assert result == {
+        "Grading": "positive",
+        "Teaching Quality": "negative",
+        "Exam Difficulty": "neutral",
+    }
+
+
+def test_topic_sentiment_dataset():
+    texts = ["Great lectures but hard exams", "Easy class"]
+    topic_sents = [
+        {"Teaching Quality": "positive", "Exam Difficulty": "negative"},
+        {"Workload": "positive"},
+    ]
+    ds = TopicSentimentDataset(texts, topic_sents)
     assert len(ds) == 2
     item = ds[0]
     assert "input_ids" in item
     assert "labels" in item
-    assert item["labels"].shape == (len(TOPICS),)
+    assert item["labels"].shape == (len(TOPICS),)  # 6 ints, one per topic
 
 
 from src.models.evaluate import (
