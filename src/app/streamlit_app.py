@@ -5,7 +5,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
-from src.models.fine_tune import predict_sentiment, predict_topics
+from src.models.fine_tune import predict_joint
 from src.models.zero_shot import TOPICS, SentimentAnalyzer, TopicClassifier
 from src.recommend.engine import TOPIC_KEYS, filter_results, score_professors
 
@@ -192,37 +192,62 @@ with tab_model:
             "Run evaluation first — `data/processed/evaluation_results.json` not found."
         )
     else:
-        # Topic Classification F1
-        st.subheader("Topic Classification F1")
-        tc_data = eval_data.get("topic_classification", {})
-        if tc_data:
+        # Per-topic sentiment accuracy/F1
+        st.subheader("Per-Topic Sentiment")
+        pts_data = eval_data.get("per_topic_sentiment", {})
+        if pts_data:
             rows = []
-            for model_name, results in tc_data.items():
-                per_topic = results.get("f1_per_topic", {})
-                row = {
-                    "Model": model_name,
-                    "Macro F1": round(results.get("f1_macro", 0), 4),
-                }
-                row.update({t: round(per_topic.get(t, 0), 4) for t in TOPICS})
-                rows.append(row)
-            st.dataframe(
-                pd.DataFrame(rows).set_index("Model"), use_container_width=True
-            )
+            for model_name, topics in pts_data.items():
+                for topic, results in topics.items():
+                    if topic.startswith("_"):
+                        continue
+                    rows.append(
+                        {
+                            "Model": model_name,
+                            "Topic": topic,
+                            "N": results.get("n", ""),
+                            "Accuracy": round(results.get("accuracy", 0), 4),
+                            "F1 Macro": round(results.get("f1_macro", 0), 4),
+                        }
+                    )
+            if rows:
+                st.dataframe(
+                    pd.DataFrame(rows).set_index(["Model", "Topic"]),
+                    use_container_width=True,
+                )
 
-        # Sentiment Accuracy
-        st.subheader("Sentiment Accuracy")
-        sent_data = eval_data.get("sentiment", {})
+        # Topic detection summary (from _topic_detection key)
+        st.subheader("Topic Detection")
+        if pts_data:
+            rows = []
+            for model_name, topics in pts_data.items():
+                det = topics.get("_topic_detection", {})
+                if det:
+                    rows.append(
+                        {
+                            "Model": model_name,
+                            "F1 Macro": round(det.get("f1_macro", 0), 4),
+                            "F1 Micro": round(det.get("f1_micro", 0), 4),
+                        }
+                    )
+            if rows:
+                st.dataframe(
+                    pd.DataFrame(rows).set_index("Model"), use_container_width=True
+                )
+
+        # Overall sentiment comparison
+        st.subheader("Overall Sentiment")
+        sent_data = eval_data.get("overall_sentiment", {})
         if sent_data:
             rows = []
             for model_name, results in sent_data.items():
-                per_class = results.get("f1_per_class", {})
-                row = {
-                    "Model": model_name,
-                    "Accuracy": round(results.get("accuracy", 0), 4),
-                    "Macro F1": round(results.get("f1_macro", 0), 4),
-                }
-                row.update({f"F1 ({k})": round(v, 4) for k, v in per_class.items()})
-                rows.append(row)
+                rows.append(
+                    {
+                        "Model": model_name,
+                        "Accuracy": round(results.get("accuracy", 0), 4),
+                        "F1 Macro": round(results.get("f1_macro", 0), 4),
+                    }
+                )
             st.dataframe(
                 pd.DataFrame(rows).set_index("Model"), use_container_width=True
             )
@@ -243,43 +268,28 @@ with tab_model:
             with st.spinner("Running zero-shot models..."):
                 try:
                     tc, sa = load_zero_shot_models()
-                    zs_topics = tc.classify(review_text)
-                    zs_sentiment = sa.analyze(review_text)
-                    st.markdown(
-                        f"**Sentiment:** {zs_sentiment['label']} ({zs_sentiment['score']:.3f})"
-                    )
-                    st.markdown("**Topics detected:**")
-                    if zs_topics:
-                        for t in zs_topics:
-                            st.write(f"- {t}")
+                    topic_sents = sa.analyze_by_topic_flat(review_text, tc)
+                    if topic_sents:
+                        for topic, sent in topic_sents.items():
+                            st.write(f"  {topic}: {sent}")
                     else:
-                        st.write("None above threshold")
+                        st.write("No topics detected")
                 except Exception as e:
                     st.error(f"Zero-shot error: {e}")
 
         with col_fine:
             st.markdown("### Fine-Tuned")
-            topic_dir = MODELS_DIR / "topic_classifier"
-            sent_dir = MODELS_DIR / "sentiment_classifier"
-            if not topic_dir.exists() or not sent_dir.exists():
-                st.warning("Fine-tuned models not found. Train them first.")
+            joint_dir = MODELS_DIR / "joint_classifier"
+            if not joint_dir.exists():
+                st.warning("Fine-tuned model not found. Train it first.")
             else:
-                with st.spinner("Running fine-tuned models..."):
+                with st.spinner("Running fine-tuned model..."):
                     try:
-                        ft_topics = predict_topics([review_text], model_dir=topic_dir)
-                        ft_sentiment = predict_sentiment(
-                            [review_text], model_dir=sent_dir
-                        )
-                        sent = ft_sentiment[0]
-                        st.markdown(
-                            f"**Sentiment:** {sent['label']} ({sent['score']:.3f})"
-                        )
-                        st.markdown("**Topics detected:**")
-                        topics_found = ft_topics[0]
-                        if topics_found:
-                            for t in topics_found:
-                                st.write(f"- {t}")
+                        ft_results = predict_joint([review_text])[0]
+                        if ft_results:
+                            for topic, sent in ft_results.items():
+                                st.write(f"  {topic}: {sent}")
                         else:
-                            st.write("None above threshold")
+                            st.write("No topics detected")
                     except Exception as e:
                         st.error(f"Fine-tuned error: {e}")
