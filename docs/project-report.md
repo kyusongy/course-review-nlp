@@ -26,7 +26,7 @@ RateMyProfessor GraphQL API
         ├──────────────────────┬──────────────────────┐
         ▼                      ▼                      ▼
   Star Rating Proxy      Zero-Shot Models       Fine-Tuned Joint Model
-  (no NLP)               (BART + RoBERTa)       (DistilBERT, 6×4-class)
+  (no NLP)               (BART + RoBERTa)       (DistilBERT, 5×4-class)
         │                      │                      │
         └──────────────────────┼──────────────────────┘
                                ▼
@@ -47,7 +47,7 @@ RateMyProfessor GraphQL API
 |-------|-------|-------------|
 | 1. Star Baseline | None (rule-based) | Maps 1-5 stars to sentiment. No NLP, no topic differentiation. |
 | 2. Zero-Shot | BART-mnli (406M) + RoBERTa (125M) | Pretrained models, no training on our data. Sentence-level aspect-based sentiment. |
-| 3. Fine-Tuned | DistilBERT (66M) joint model | Trained on our labeled data. 6 independent 4-class heads for per-topic sentiment. |
+| 3. Fine-Tuned | DistilBERT (66M) joint model | Trained on our labeled data. 5 independent 4-class heads for per-topic sentiment. |
 
 ---
 
@@ -152,7 +152,6 @@ This captures that "Great lectures but brutal exams" is not neutral — it's pos
 | Workload | Homework volume, time commitment |
 | Grading | Fairness, curves, grade distribution |
 | Teaching Quality | Lecture clarity, engagement, responsiveness |
-| Course Content | Relevance, interest, organization |
 | Accessibility | Office hours, approachability |
 | Exam Difficulty | Test format, fairness, prep alignment |
 
@@ -171,11 +170,10 @@ All 2,429 reviews were labeled using **Claude Sonnet 4.6** as an automated annot
 | Grading | 875 | 36.0% | 431 | 28 | 416 |
 | Workload | 687 | 28.3% | 296 | 38 | 353 |
 | Accessibility | 624 | 25.7% | 421 | 5 | 198 |
-| Course Content | 204 | 8.4% | 119 | 12 | 73 |
 
-- **Average topics per review:** 2.29
+- **Average topics per review:** 2.21
 - **Reviews with no clear topic:** 74 (3.0%)
-- **Total topic-sentiment assignments:** 5,567
+- **Total topic-sentiment assignments:** 5,363
 
 Notable patterns: Teaching Quality is discussed in 83% of reviews. Accessibility is overwhelmingly positive (67% positive) — when students mention office hours, it's usually to praise them. Exam Difficulty is predominantly negative (53%) — exams are more often complained about than praised.
 
@@ -233,7 +231,7 @@ RoBERTa fine-tuned on ~124M tweets for 3-class sentiment.
 
 #### Why a Joint Model?
 
-Instead of separate topic classifier + sentiment classifier (the old approach), we use a **single model with 6 independent 4-class heads**, one per topic. Each head predicts: not_discussed (0), positive (1), neutral (2), or negative (3).
+Instead of separate topic classifier + sentiment classifier (the old approach), we use a **single model with 5 independent 4-class heads**, one per topic. Each head predicts: not_discussed (0), positive (1), neutral (2), or negative (3).
 
 This is better because:
 - It learns the **correlation** between topics and sentiments in a single forward pass
@@ -254,9 +252,8 @@ DistilBERT backbone (6 layers, 768-dim hidden)
     ├── Head 1: Linear(768→4) → Workload [not_discussed/pos/neu/neg]
     ├── Head 2: Linear(768→4) → Grading
     ├── Head 3: Linear(768→4) → Teaching Quality
-    ├── Head 4: Linear(768→4) → Course Content
-    ├── Head 5: Linear(768→4) → Accessibility
-    └── Head 6: Linear(768→4) → Exam Difficulty
+    ├── Head 4: Linear(768→4) → Accessibility
+    └── Head 5: Linear(768→4) → Exam Difficulty
 ```
 
 #### Training Details
@@ -264,8 +261,8 @@ DistilBERT backbone (6 layers, 768-dim hidden)
 | Parameter | Value |
 |-----------|-------|
 | Base model | distilbert-base-uncased |
-| Classification heads | 6 × Linear(768→4) |
-| Loss | Average of 6 cross-entropy losses (one per head) |
+| Classification heads | 5 × Linear(768→4) |
+| Loss | Average of 5 cross-entropy losses (one per head) |
 | Optimizer | AdamW, lr=2e-5 |
 | Scheduler | Linear warmup (0 warmup steps) |
 | Batch size | 16 |
@@ -273,7 +270,7 @@ DistilBERT backbone (6 layers, 768-dim hidden)
 | Max sequence length | 256 tokens |
 | Training data | 1,700 reviews with per-topic sentiment labels |
 
-**Training loss:** 0.944 → 0.469 over 5 epochs
+**Training loss:** 1.003 → 0.518 over 5 epochs
 
 #### Why Not Sigmoid (Multi-Label) for Per-Topic Sentiment?
 
@@ -293,35 +290,34 @@ The states within each topic are **mutually exclusive** — a review can't be bo
 
 | Topic | n | ZS Accuracy | FT Accuracy | ZS F1 | FT F1 |
 |-------|---|-------------|-------------|-------|-------|
-| Teaching Quality | 611 | 0.755 | **0.825** | **0.487** | 0.442 |
-| Exam Difficulty | 374 | **0.626** | 0.620 | **0.403** | 0.357 |
-| Grading | 253 | 0.581 | **0.597** | **0.368** | 0.345 |
-| Workload | 195 | **0.513** | 0.364 | **0.344** | 0.246 |
-| Accessibility | 171 | **0.667** | 0.591 | 0.295 | **0.357** |
-| Course Content | 70 | **0.657** | 0.000 | **0.546** | 0.000 |
+| Teaching Quality | 611 | 0.755 | **0.827** | **0.487** | 0.445 |
+| Exam Difficulty | 374 | **0.626** | 0.596 | **0.403** | 0.350 |
+| Grading | 253 | 0.581 | **0.510** | **0.368** | 0.310 |
+| Workload | 195 | **0.513** | 0.328 | **0.344** | 0.230 |
+| Accessibility | 171 | **0.667** | 0.579 | 0.295 | **0.361** |
 
 ### 6.3 Topic Detection
 
 | Metric | Zero-Shot | Fine-Tuned |
 |--------|-----------|------------|
-| F1 Macro | 0.530 | **0.661** |
-| F1 Micro | 0.575 | **0.827** |
+| F1 Macro | 0.600 | **0.769** |
+| F1 Micro | 0.640 | **0.827** |
 
 ### 6.4 Overall Sentiment (majority vote from per-topic sentiments)
 
 | Approach | Accuracy | F1 Macro |
 |----------|----------|----------|
-| Star Baseline | 0.794 | 0.638 |
-| Zero-Shot | 0.709 | 0.605 |
-| **Fine-Tuned** | **0.846** | **0.706** |
+| Star Baseline | 0.793 | 0.641 |
+| Zero-Shot | 0.716 | 0.607 |
+| **Fine-Tuned** | **0.840** | **0.705** |
 
 ### 6.5 Agreement (Cohen's Kappa)
 
 | Comparison | Kappa |
 |------------|-------|
-| Zero-shot vs Fine-tuned | 0.551 |
-| Zero-shot vs Baseline | 0.575 |
-| Fine-tuned vs Baseline | 0.660 |
+| Zero-shot vs Fine-tuned | 0.550 |
+| Zero-shot vs Baseline | 0.559 |
+| Fine-tuned vs Baseline | 0.650 |
 
 ---
 
@@ -329,25 +325,21 @@ The states within each topic are **mutually exclusive** — a review can't be bo
 
 ### 7.1 Per-topic sentiment is a harder but more useful task
 
-Overall sentiment classification is "easy" — the star baseline achieves 79.4%. Per-topic sentiment requires understanding what a review says about each specific aspect, which is genuinely challenging.
+Overall sentiment classification is "easy" — the star baseline achieves 79.3%. Per-topic sentiment requires understanding what a review says about each specific aspect, which is genuinely challenging.
 
 ### 7.2 Fine-tuning excels at topic detection but struggles with sentiment nuance
 
-The joint model achieves 82.7% micro F1 for detecting which topics are discussed (vs 57.5% for zero-shot). However, once it detects a topic, its sentiment accuracy is comparable to or worse than zero-shot for most topics. The model learns "what is being talked about" better than "how does the reviewer feel about it."
+The joint model achieves 82.7% micro F1 for detecting which topics are discussed (vs 64.0% for zero-shot). However, once it detects a topic, its sentiment accuracy is comparable to or worse than zero-shot for most topics. The model learns "what is being talked about" better than "how does the reviewer feel about it." Workload remains particularly challenging with only 195 training examples.
 
-### 7.3 Class imbalance is the critical failure mode
+### 7.3 The star baseline remains competitive for overall sentiment
 
-Course Content (204 training examples, ~8% of reviews) achieves 0% accuracy with fine-tuning — the model learns to never predict it. Workload (687 examples) drops from 51.3% (zero-shot) to 36.4% (fine-tuned). Zero-shot's general language understanding handles rare categories better because it doesn't need task-specific examples.
+At 79.3% accuracy, mapping stars to sentiment is hard to beat with NLP alone. However, the baseline cannot differentiate between topics — it says a 3-star review is "neutral about everything" when in reality it might be "great lectures, terrible exams." This is where the NLP models provide value.
 
-### 7.4 The star baseline remains competitive for overall sentiment
+### 7.4 Zero-shot and fine-tuned models complement each other
 
-At 79.4% accuracy, mapping stars to sentiment is hard to beat with NLP alone. However, the baseline cannot differentiate between topics — it says a 3-star review is "neutral about everything" when in reality it might be "great lectures, terrible exams." This is where the NLP models provide value.
+An ensemble or routing strategy could use fine-tuned predictions for high-frequency topics (Teaching Quality, Exam Difficulty) and zero-shot for lower-data topics (Workload, Accessibility). This addresses the data scarcity problem without sacrificing performance on common topics.
 
-### 7.5 Zero-shot and fine-tuned models complement each other
-
-An ensemble or routing strategy could use fine-tuned predictions for high-frequency topics (Teaching Quality, Exam Difficulty) and zero-shot for rare ones (Course Content, Accessibility). This addresses the class imbalance problem without sacrificing performance on common topics.
-
-### 7.6 Aspect-based sentiment reveals what star ratings hide
+### 7.5 Aspect-based sentiment reveals what star ratings hide
 
 A professor with a 3.5 average could have excellent lectures but unfair exams, or boring lectures with generous grading. The radar chart visualization makes these differences visible and actionable for course selection — something a single average star rating can never show.
 
@@ -416,7 +408,7 @@ course_review/
 │   ├── models/
 │   │   ├── baseline.py         # star → sentiment mapping
 │   │   ├── zero_shot.py        # BART-mnli topics + RoBERTa sentiment
-│   │   ├── fine_tune.py        # joint DistilBERT (6×4-class heads)
+│   │   ├── fine_tune.py        # joint DistilBERT (5×4-class heads)
 │   │   ├── labeling.py         # annotation tools + train/test split
 │   │   ├── process.py          # batch scoring all reviews
 │   │   └── evaluate.py         # per-topic sentiment metrics + comparison
