@@ -37,9 +37,16 @@ def load_reviews() -> pd.DataFrame:
     return pd.read_parquet(DATA_DIR / "reviews.parquet")
 
 
+SCORE_SOURCES = {
+    "Sonnet 4.6 Labels (ground truth)": "labeled_scores.parquet",
+    "Fine-Tuned DistilBERT": "finetuned_scores.parquet",
+    "Zero-Shot (BART + RoBERTa)": "zero_shot_scores.parquet",
+}
+
+
 @st.cache_data
-def load_scores() -> pd.DataFrame:
-    return pd.read_parquet(DATA_DIR / "labeled_scores.parquet")
+def load_scores(source_file: str) -> pd.DataFrame:
+    return pd.read_parquet(DATA_DIR / source_file)
 
 
 @st.cache_data
@@ -101,6 +108,15 @@ def star_display(rating: int) -> str:
     return "★" * r + "☆" * (5 - r)
 
 
+# ── Sidebar: data source toggle ──────────────────────────────────────────────
+st.sidebar.header("Data Source")
+score_source = st.sidebar.radio(
+    "Score reviews with:",
+    list(SCORE_SOURCES.keys()),
+    index=0,
+)
+score_file = SCORE_SOURCES[score_source]
+
 # ── Tabs ─────────────────────────────────────────────────────────────────────
 
 tab_explore, tab_recommend, tab_model = st.tabs(
@@ -112,7 +128,7 @@ with tab_explore:
     st.header("Explore Professors")
 
     reviews_df = load_reviews()
-    scores_df = load_scores()
+    scores_df = load_scores(score_file)
 
     professors = sorted(reviews_df["professor_name"].dropna().unique())
     selected_prof = st.selectbox("Select a professor", professors)
@@ -170,7 +186,7 @@ with tab_recommend:
 
     with col_results:
         st.subheader("Top Professors")
-        scores_df = load_scores()
+        scores_df = load_scores(score_file)
         agg_df = aggregate_prof_scores(scores_df)
 
         ranked = score_professors(agg_df, {k: float(v) for k, v in weights.items()})
