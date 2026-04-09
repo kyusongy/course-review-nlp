@@ -508,7 +508,7 @@ with tab_explore:
                 vals = prof_scores[col_name].dropna()
                 topic_means[topic] = vals.mean() if len(vals) > 0 else 0
             st.plotly_chart(
-                radar_chart(topic_means), use_container_width=True, key="explore_radar"
+                radar_chart(topic_means), width="stretch", key="explore_radar"
             )
         else:
             st.info("No scored reviews for this professor.")
@@ -620,7 +620,7 @@ with tab_recommend:
                     }
                     st.plotly_chart(
                         radar_chart(topic_scores, height=220),
-                        use_container_width=True,
+                        width="stretch",
                         key=f"rec_{rank_idx}",
                     )
 
@@ -688,7 +688,7 @@ with tab_model:
             if rows:
                 st.dataframe(
                     pd.DataFrame(rows).set_index(["Model", "Topic"]),
-                    use_container_width=True,
+                    width="stretch",
                 )
 
         # Topic detection
@@ -724,7 +724,7 @@ with tab_model:
         label_visibility="visible",
     )
 
-    if st.button("Analyze", type="primary", use_container_width=True):
+    if st.button("Analyze", type="primary", width="stretch"):
         col_zero, col_fine = st.columns(2, gap="large")
 
         with col_zero:
