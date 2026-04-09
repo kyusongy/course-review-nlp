@@ -23,7 +23,7 @@ from src.recommend.engine import TOPIC_KEYS, filter_results, score_professors
 
 st.set_page_config(
     page_title="UNC Course Compass",
-    page_icon="🧭",
+    page_icon="C",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -51,11 +51,11 @@ SENTIMENT_COLORS = {
 }
 
 TOPIC_ICONS = {
-    "Workload": "📚",
-    "Grading": "📝",
-    "Teaching Quality": "🎓",
-    "Accessibility": "🚪",
-    "Exam Difficulty": "📋",
+    "Workload": "",
+    "Grading": "",
+    "Teaching Quality": "",
+    "Accessibility": "",
+    "Exam Difficulty": "",
 }
 
 # ── Custom CSS ───────────────────────────────────────────────────────────────
@@ -413,7 +413,7 @@ with st.sidebar:
     st.markdown(
         f"""<div style="padding: 0.5rem 0 1rem 0;">
         <div style="font-family: 'Source Serif 4', serif; font-size: 1.3rem; font-weight: 700; color: {TEXT_PRIMARY};">
-            🧭 Course Compass
+            Course Compass
         </div>
         <div style="font-size: 0.78rem; color: {TEXT_MUTED}; margin-top: 0.2rem;">
             UNC Statistics & Data Science
@@ -458,7 +458,7 @@ st.markdown(
 # ── Tabs ─────────────────────────────────────────────────────────────────────
 
 tab_explore, tab_recommend, tab_model = st.tabs(
-    ["🔍  Explore", "🎯  Recommend", "⚖️  Model Comparison"]
+    ["Explore", "Recommend", "Model Comparison"]
 )
 
 # ── Tab 1: Explore ───────────────────────────────────────────────────────────
