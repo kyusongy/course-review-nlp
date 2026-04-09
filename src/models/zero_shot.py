@@ -1,3 +1,5 @@
+import re
+
 from transformers import pipeline
 
 TOPICS = [
@@ -16,12 +18,6 @@ TOPIC_DESCRIPTIONS = [
     "professor availability and approachability",
     "exam difficulty and test fairness",
 ]
-
-_LABEL_MAP = {
-    "LABEL_0": "negative",
-    "LABEL_1": "neutral",
-    "LABEL_2": "positive",
-}
 
 
 class TopicClassifier:
@@ -63,7 +59,7 @@ class SentimentAnalyzer:
 
         scores = {}
         for item in results:
-            label = _LABEL_MAP.get(item["label"], item["label"].lower())
+            label = item["label"].lower()
             scores[label] = item["score"]
 
         pos = scores.get("positive", 0.0)
@@ -82,9 +78,6 @@ class SentimentAnalyzer:
     def analyze_by_topic(
         self, text: str, topic_clf: TopicClassifier
     ) -> dict[str, dict]:
-        # Split into sentences (simple split on . ! ?)
-        import re
-
         sentences = [s.strip() for s in re.split(r"[.!?]+", text) if s.strip()]
 
         topic_data: dict[str, list[float]] = {t: [] for t in TOPICS}

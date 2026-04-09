@@ -6,6 +6,7 @@ from pathlib import Path
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
+from src.models.evaluate import _majority_sentiment
 from src.models.zero_shot import TOPICS
 
 ANNOTATIONS_PATH = Path("data/labels/annotations.json")
@@ -125,16 +126,6 @@ def split_labeled_data(
 
     train_df, test_df = train_test_split(df, train_size=train_ratio, random_state=42)
     return train_df.reset_index(drop=True), test_df.reset_index(drop=True)
-
-
-def _majority_sentiment(topic_sentiments: dict[str, str]) -> str:
-    """Derive overall sentiment from per-topic sentiments via majority vote."""
-    if not topic_sentiments:
-        return "neutral"
-    from collections import Counter
-
-    counts = Counter(topic_sentiments.values())
-    return counts.most_common(1)[0][0]
 
 
 def auto_label_from_zero_shot(scores_path: Path, conf_threshold: float = 0.3) -> dict:

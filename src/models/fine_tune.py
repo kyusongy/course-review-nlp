@@ -1,9 +1,10 @@
 """Fine-tune DistilBERT for joint topic-sentiment classification.
 
-Each of 6 topics has 4 possible states: not_discussed, positive, neutral, negative.
-The model has 6 independent 4-class classification heads sharing a DistilBERT backbone.
+Each of 5 topics has 4 possible states: not_discussed, positive, neutral, negative.
+The model has 5 independent 4-class classification heads sharing a DistilBERT backbone.
 """
 
+from collections import Counter
 from pathlib import Path
 
 import torch
@@ -11,7 +12,6 @@ from torch import nn
 from torch.utils.data import DataLoader, Dataset
 from transformers import (
     AutoModel,
-    AutoModelForSequenceClassification,
     AutoTokenizer,
     get_linear_schedule_with_warmup,
 )
@@ -30,7 +30,7 @@ _DEVICE = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
 
 
 def encode_topic_sentiments(topic_sentiments: dict[str, str]) -> list[int]:
-    """Convert {topic: sentiment} dict to list of 6 ints (one per topic).
+    """Convert {topic: sentiment} dict to list of ints (one per topic) (one per topic).
 
     Topics not in the dict get state 0 (not_discussed).
     """
@@ -38,7 +38,7 @@ def encode_topic_sentiments(topic_sentiments: dict[str, str]) -> list[int]:
 
 
 def decode_topic_sentiments(states: list[int]) -> dict[str, str]:
-    """Convert list of 6 state ints back to {topic: sentiment} dict.
+    """Convert list of 5 state ints back to {topic: sentiment} dict.
 
     Skips topics with state 0 (not_discussed).
     """
@@ -65,7 +65,7 @@ class TopicSentimentDataset(Dataset):
         self._encodings = self._tokenizer(
             texts, truncation=True, padding=True, max_length=max_length
         )
-        # Each label is a list of 6 ints (one 4-class label per topic)
+        # Each label is a list of ints (one per topic) (one 4-class label per topic)
         self._labels = [encode_topic_sentiments(ts) for ts in topic_sentiments]
 
     def __len__(self) -> int:
@@ -81,7 +81,7 @@ class TopicSentimentDataset(Dataset):
 
 
 class TopicSentimentModel(nn.Module):
-    """DistilBERT with 6 independent 4-class heads (one per topic)."""
+    """DistilBERT with 5 independent 4-class heads (one per topic)."""
 
     def __init__(self, model_name: str = MODEL_NAME):
         super().__init__()
@@ -89,7 +89,7 @@ class TopicSentimentModel(nn.Module):
         hidden_size = self.backbone.config.hidden_size  # 768 for distilbert-base
         self.pre_classifier = nn.Linear(hidden_size, hidden_size)
         self.dropout = nn.Dropout(0.1)
-        # 6 independent heads, each outputting 4 logits
+        # 5 independent heads, each outputting 4 logits
         self.heads = nn.ModuleList([nn.Linear(hidden_size, NUM_STATES) for _ in TOPICS])
 
     def forward(self, input_ids, attention_mask, labels=None):
@@ -101,7 +101,7 @@ class TopicSentimentModel(nn.Module):
         hidden = self.dropout(hidden)
 
         # Each head produces (batch, 4) logits
-        all_logits = [head(hidden) for head in self.heads]  # list of 6 × (batch, 4)
+        all_logits = [head(hidden) for head in self.heads]  # list of 5 × (batch, 4)
 
         loss = None
         if labels is not None:
@@ -192,7 +192,9 @@ def predict_joint(
                 input_ids=enc["input_ids"], attention_mask=enc["attention_mask"]
             )
             logits = outputs["logits"].squeeze(0)  # (6, 4)
-            states = logits.argmax(dim=-1).cpu().tolist()  # list of 6 ints
+            states = (
+                logits.argmax(dim=-1).cpu().tolist()
+            )  # list of ints (one per topic)
             results.append(decode_topic_sentiments(states))
     return results
 
@@ -231,9 +233,6 @@ def predict_sentiment(
             results.append({"label": "neutral", "score": 0.0})
             continue
         sentiments = list(p.values())
-        # Count votes
-        from collections import Counter
-
         counts = Counter(sentiments)
         label = counts.most_common(1)[0][0]
         score = {"positive": 1.0, "neutral": 0.0, "negative": -1.0}[label]

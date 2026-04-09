@@ -416,7 +416,7 @@ course_review/
 │   │   └── engine.py           # weighted scoring + filtering
 │   └── app/
 │       └── streamlit_app.py    # 3-tab web UI
-├── tests/                      # 28 tests
+├── tests/                      # 30 tests
 ├── data/
 │   ├── raw/                    # cached API JSON
 │   ├── processed/              # parquet files + evaluation results

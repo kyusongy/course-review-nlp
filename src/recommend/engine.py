@@ -2,7 +2,7 @@ import pandas as pd
 from src.models.zero_shot import TOPICS
 
 TOPIC_KEYS = [t.lower().replace(" ", "_") for t in TOPICS]
-# ["workload", "grading", "teaching_quality", "course_content", "accessibility", "exam_difficulty"]
+# ["workload", "grading", "teaching_quality", "accessibility", "exam_difficulty"]
 
 
 def score_professors(

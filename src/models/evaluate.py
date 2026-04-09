@@ -5,6 +5,8 @@ Supports both:
 - Per-topic sentiment (4-class per topic: not_discussed/positive/neutral/negative)
 """
 
+from collections import Counter
+
 from sklearn.metrics import (
     accuracy_score,
     classification_report,
@@ -140,7 +142,5 @@ def _majority_sentiment(topic_sentiments: dict[str, str]) -> str:
     """Derive overall sentiment from per-topic sentiments."""
     if not topic_sentiments:
         return "neutral"
-    from collections import Counter
-
     counts = Counter(topic_sentiments.values())
     return counts.most_common(1)[0][0]
