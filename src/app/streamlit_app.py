@@ -183,6 +183,7 @@ with tab_recommend:
                     st.plotly_chart(
                         radar_chart(topic_scores),
                         use_container_width=True,
+                        key=f"rec_{row['professor_name']}",
                     )
 
 # ── Tab 3: Model Comparison ───────────────────────────────────────────────────
