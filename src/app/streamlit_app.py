@@ -416,7 +416,7 @@ with st.sidebar:
             Course Compass
         </div>
         <div style="font-size: 0.78rem; color: {TEXT_MUTED}; margin-top: 0.2rem;">
-            UNC Statistics & Data Science
+            UNC Statistics & Operations Research
         </div>
     </div>""",
         unsafe_allow_html=True,
@@ -450,7 +450,7 @@ with st.sidebar:
 st.markdown(
     """<div class="hero">
     <h1>UNC Course Compass</h1>
-    <p>Aspect-based sentiment analysis for <span class="accent">Statistics & Data Science</span> course reviews</p>
+    <p>Aspect-based sentiment analysis for <span class="accent">Statistics & Operations Research</span> course reviews</p>
 </div>""",
     unsafe_allow_html=True,
 )

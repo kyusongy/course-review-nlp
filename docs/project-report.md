@@ -8,7 +8,7 @@
 
 ## 1. Project Overview
 
-UNC Course Compass is an end-to-end ML system that scrapes student reviews from RateMyProfessor for UNC's Statistics and Data Science departments, performs **aspect-based sentiment analysis** — classifying what topics each review discusses and whether the sentiment toward each topic is positive, neutral, or negative — and recommends courses based on student preferences through a Streamlit web app.
+UNC Course Compass is an end-to-end ML system that scrapes student reviews from RateMyProfessor for UNC's Statistics and Operations Research departments, performs **aspect-based sentiment analysis** — classifying what topics each review discusses and whether the sentiment toward each topic is positive, neutral, or negative — and recommends courses based on student preferences through a Streamlit web app.
 
 The key insight: a single review can be positive about one aspect and negative about another. "Great lectures but brutal exams" is not a neutral review — it's positive about teaching quality and negative about exam difficulty. Our system captures this nuance.
 

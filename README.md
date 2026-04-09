@@ -1,6 +1,6 @@
 # UNC Course Compass
 
-ML-powered course recommendation system for UNC Statistics & Data Science. Scrapes RateMyProfessor reviews, performs **aspect-based sentiment analysis** (per-topic positive/neutral/negative), and recommends professors based on student preferences.
+ML-powered course recommendation system for UNC Statistics & Operations Research. Scrapes RateMyProfessor reviews, performs **aspect-based sentiment analysis** (per-topic positive/neutral/negative), and recommends professors based on student preferences.
 
 ## Quick Start
 
