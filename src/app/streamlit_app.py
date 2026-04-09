@@ -1,6 +1,10 @@
 import json
+import os
 import sys
 from pathlib import Path
+
+# Suppress transformers file watcher spam
+os.environ["TRANSFORMERS_NO_ADVISORY_WARNINGS"] = "1"
 
 # Ensure project root is on sys.path so `src` imports work
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
