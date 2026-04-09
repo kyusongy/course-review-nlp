@@ -32,7 +32,6 @@
   "4": {
     "topics": {
       "Teaching Quality": "positive",
-      "Course Content": "neutral",
       "Exam Difficulty": "positive"
     }
   },
@@ -87,7 +86,6 @@
   "12": {
     "topics": {
       "Teaching Quality": "positive",
-      "Course Content": "positive",
       "Workload": "positive",
       "Exam Difficulty": "positive"
     }
@@ -95,7 +93,6 @@
   "13": {
     "topics": {
       "Teaching Quality": "negative",
-      "Course Content": "negative",
       "Exam Difficulty": "negative"
     }
   },
@@ -104,7 +101,6 @@
   },
   "15": {
     "topics": {
-      "Course Content": "positive",
       "Workload": "negative",
       "Teaching Quality": "positive"
     }
@@ -124,8 +120,7 @@
   "18": {
     "topics": {
       "Workload": "negative",
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "19": {
@@ -204,8 +199,7 @@
   },
   "30": {
     "topics": {
-      "Teaching Quality": "neutral",
-      "Course Content": "negative"
+      "Teaching Quality": "neutral"
     }
   },
   "31": {
@@ -271,8 +265,7 @@
   "40": {
     "topics": {
       "Teaching Quality": "positive",
-      "Workload": "negative",
-      "Course Content": "positive"
+      "Workload": "negative"
     }
   },
   "41": {
@@ -282,7 +275,6 @@
   },
   "42": {
     "topics": {
-      "Course Content": "positive",
       "Workload": "negative",
       "Exam Difficulty": "negative"
     }
@@ -301,8 +293,7 @@
     "topics": {
       "Workload": "negative",
       "Exam Difficulty": "negative",
-      "Grading": "negative",
-      "Course Content": "negative"
+      "Grading": "negative"
     }
   },
   "46": {
@@ -328,8 +319,7 @@
   "49": {
     "topics": {
       "Exam Difficulty": "negative",
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "50": {
@@ -364,7 +354,6 @@
   "55": {
     "topics": {
       "Teaching Quality": "positive",
-      "Course Content": "positive",
       "Exam Difficulty": "neutral"
     }
   },
@@ -500,7 +489,6 @@
   "76": {
     "topics": {
       "Teaching Quality": "positive",
-      "Course Content": "positive",
       "Exam Difficulty": "neutral"
     }
   },
@@ -521,8 +509,7 @@
     "topics": {
       "Teaching Quality": "negative",
       "Workload": "negative",
-      "Exam Difficulty": "positive",
-      "Course Content": "negative"
+      "Exam Difficulty": "positive"
     }
   },
   "80": {
@@ -560,8 +547,7 @@
   },
   "85": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "86": {
@@ -636,8 +622,7 @@
   },
   "97": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "positive"
+      "Teaching Quality": "negative"
     }
   },
   "98": {
@@ -662,7 +647,6 @@
   "101": {
     "topics": {
       "Teaching Quality": "positive",
-      "Course Content": "positive",
       "Exam Difficulty": "positive"
     }
   },
@@ -685,8 +669,7 @@
   },
   "105": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "106": {
@@ -716,14 +699,12 @@
   "111": {
     "topics": {
       "Teaching Quality": "positive",
-      "Course Content": "positive",
       "Exam Difficulty": "positive"
     }
   },
   "112": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "neutral"
+      "Teaching Quality": "positive"
     }
   },
   "113": {
@@ -825,8 +806,7 @@
   },
   "128": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "129": {
@@ -1242,7 +1222,6 @@
   "191": {
     "topics": {
       "Workload": "negative",
-      "Course Content": "negative",
       "Grading": "negative"
     }
   },
@@ -1565,8 +1544,7 @@
   },
   "239": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "neutral"
+      "Teaching Quality": "negative"
     }
   },
   "240": {
@@ -1618,8 +1596,7 @@
   },
   "247": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "248": {
@@ -1635,9 +1612,7 @@
     }
   },
   "250": {
-    "topics": {
-      "Course Content": "negative"
-    }
+    "topics": {}
   },
   "251": {
     "topics": {
@@ -1663,8 +1638,7 @@
   "254": {
     "topics": {
       "Exam Difficulty": "negative",
-      "Grading": "negative",
-      "Course Content": "negative"
+      "Grading": "negative"
     }
   },
   "255": {
@@ -1697,8 +1671,7 @@
   "259": {
     "topics": {
       "Teaching Quality": "negative",
-      "Exam Difficulty": "negative",
-      "Course Content": "negative"
+      "Exam Difficulty": "negative"
     }
   },
   "260": {
@@ -1774,8 +1747,7 @@
   "271": {
     "topics": {
       "Teaching Quality": "negative",
-      "Exam Difficulty": "negative",
-      "Course Content": "negative"
+      "Exam Difficulty": "negative"
     }
   },
   "272": {
@@ -1787,8 +1759,7 @@
   "273": {
     "topics": {
       "Exam Difficulty": "neutral",
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "274": {
@@ -1992,7 +1963,6 @@
   "305": {
     "topics": {
       "Teaching Quality": "positive",
-      "Course Content": "neutral",
       "Accessibility": "positive"
     }
   },
@@ -2006,8 +1976,7 @@
   "307": {
     "topics": {
       "Teaching Quality": "positive",
-      "Exam Difficulty": "negative",
-      "Course Content": "positive"
+      "Exam Difficulty": "negative"
     }
   },
   "308": {
@@ -2103,7 +2072,6 @@
   },
   "322": {
     "topics": {
-      "Course Content": "positive",
       "Teaching Quality": "positive",
       "Exam Difficulty": "positive"
     }
@@ -2118,8 +2086,7 @@
   },
   "324": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "325": {
@@ -2132,7 +2099,6 @@
   "326": {
     "topics": {
       "Workload": "negative",
-      "Course Content": "positive",
       "Teaching Quality": "neutral",
       "Exam Difficulty": "positive"
     }
@@ -2160,8 +2126,7 @@
   },
   "330": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "331": {
@@ -2178,8 +2143,7 @@
   },
   "333": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "334": {
@@ -2190,8 +2154,7 @@
   },
   "335": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "336": {
@@ -2202,8 +2165,7 @@
   },
   "337": {
     "topics": {
-      "Accessibility": "positive",
-      "Course Content": "positive"
+      "Accessibility": "positive"
     }
   },
   "338": {
@@ -2217,8 +2179,7 @@
   "339": {
     "topics": {
       "Teaching Quality": "positive",
-      "Grading": "positive",
-      "Course Content": "positive"
+      "Grading": "positive"
     }
   },
   "340": {
@@ -2289,8 +2250,7 @@
   "350": {
     "topics": {
       "Teaching Quality": "positive",
-      "Accessibility": "positive",
-      "Course Content": "positive"
+      "Accessibility": "positive"
     }
   },
   "351": {
@@ -2300,7 +2260,6 @@
   },
   "352": {
     "topics": {
-      "Course Content": "neutral",
       "Teaching Quality": "positive",
       "Exam Difficulty": "positive"
     }
@@ -2349,16 +2308,14 @@
   },
   "359": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "360": {
     "topics": {
       "Teaching Quality": "positive",
       "Workload": "neutral",
-      "Exam Difficulty": "neutral",
-      "Course Content": "positive"
+      "Exam Difficulty": "neutral"
     }
   },
   "361": {
@@ -2369,8 +2326,7 @@
   },
   "362": {
     "topics": {
-      "Exam Difficulty": "neutral",
-      "Course Content": "positive"
+      "Exam Difficulty": "neutral"
     }
   },
   "363": {
@@ -2395,7 +2351,6 @@
   },
   "366": {
     "topics": {
-      "Course Content": "positive",
       "Teaching Quality": "positive",
       "Exam Difficulty": "positive"
     }
@@ -2529,8 +2484,7 @@
   "386": {
     "topics": {
       "Teaching Quality": "positive",
-      "Workload": "positive",
-      "Course Content": "positive"
+      "Workload": "positive"
     }
   },
   "387": {
@@ -2858,8 +2812,7 @@
   },
   "438": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "negative"
+      "Teaching Quality": "positive"
     }
   },
   "439": {
@@ -2910,8 +2863,7 @@
   },
   "446": {
     "topics": {
-      "Workload": "negative",
-      "Course Content": "negative"
+      "Workload": "negative"
     }
   },
   "447": {
@@ -2951,8 +2903,7 @@
   "453": {
     "topics": {
       "Teaching Quality": "positive",
-      "Exam Difficulty": "positive",
-      "Course Content": "positive"
+      "Exam Difficulty": "positive"
     }
   },
   "454": {
@@ -2978,7 +2929,6 @@
   "457": {
     "topics": {
       "Teaching Quality": "negative",
-      "Course Content": "positive",
       "Workload": "positive",
       "Exam Difficulty": "positive"
     }
@@ -3011,7 +2961,6 @@
   },
   "462": {
     "topics": {
-      "Course Content": "positive",
       "Teaching Quality": "neutral"
     }
   },
@@ -3262,8 +3211,7 @@
   "500": {
     "topics": {
       "Teaching Quality": "positive",
-      "Accessibility": "positive",
-      "Course Content": "positive"
+      "Accessibility": "positive"
     }
   },
   "501": {
@@ -3716,7 +3664,6 @@
   },
   "575": {
     "topics": {
-      "Course Content": "negative",
       "Accessibility": "positive",
       "Grading": "positive"
     }
@@ -3816,8 +3763,7 @@
   "590": {
     "topics": {
       "Teaching Quality": "negative",
-      "Exam Difficulty": "negative",
-      "Course Content": "negative"
+      "Exam Difficulty": "negative"
     }
   },
   "591": {
@@ -3975,8 +3921,7 @@
   "619": {
     "topics": {
       "Teaching Quality": "negative",
-      "Accessibility": "negative",
-      "Course Content": "positive"
+      "Accessibility": "negative"
     }
   },
   "620": {
@@ -4377,8 +4322,7 @@
   "681": {
     "topics": {
       "Grading": "positive",
-      "Exam Difficulty": "neutral",
-      "Course Content": "positive"
+      "Exam Difficulty": "neutral"
     }
   },
   "682": {
@@ -4410,8 +4354,7 @@
   },
   "686": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "negative"
+      "Teaching Quality": "positive"
     }
   },
   "687": {
@@ -4472,8 +4415,7 @@
       "Workload": "negative",
       "Grading": "negative",
       "Exam Difficulty": "negative",
-      "Teaching Quality": "negative",
-      "Course Content": "positive"
+      "Teaching Quality": "negative"
     }
   },
   "696": {
@@ -4531,8 +4473,7 @@
   },
   "705": {
     "topics": {
-      "Workload": "negative",
-      "Course Content": "positive"
+      "Workload": "negative"
     }
   },
   "706": {
@@ -4596,7 +4537,6 @@
   "717": {
     "topics": {
       "Grading": "negative",
-      "Course Content": "positive",
       "Accessibility": "positive"
     }
   },
@@ -4792,8 +4732,7 @@
   "748": {
     "topics": {
       "Teaching Quality": "positive",
-      "Grading": "negative",
-      "Course Content": "positive"
+      "Grading": "negative"
     }
   },
   "749": {
@@ -4869,8 +4808,7 @@
   },
   "760": {
     "topics": {
-      "Grading": "negative",
-      "Course Content": "positive"
+      "Grading": "negative"
     }
   },
   "761": {
@@ -4908,9 +4846,7 @@
     }
   },
   "766": {
-    "topics": {
-      "Course Content": "negative"
-    }
+    "topics": {}
   },
   "767": {
     "topics": {
@@ -4935,8 +4871,7 @@
   },
   "770": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "771": {
@@ -5141,8 +5076,7 @@
   },
   "804": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "805": {
@@ -5393,8 +5327,7 @@
   },
   "845": {
     "topics": {
-      "Teaching Quality": "neutral",
-      "Course Content": "positive"
+      "Teaching Quality": "neutral"
     }
   },
   "846": {
@@ -5508,8 +5441,7 @@
   "864": {
     "topics": {
       "Teaching Quality": "positive",
-      "Accessibility": "positive",
-      "Course Content": "positive"
+      "Accessibility": "positive"
     }
   },
   "865": {
@@ -5560,8 +5492,7 @@
   },
   "873": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "874": {
@@ -5732,8 +5663,7 @@
   "902": {
     "topics": {
       "Teaching Quality": "positive",
-      "Grading": "positive",
-      "Course Content": "positive"
+      "Grading": "positive"
     }
   },
   "903": {
@@ -5779,22 +5709,19 @@
   "909": {
     "topics": {
       "Teaching Quality": "positive",
-      "Course Content": "positive",
       "Accessibility": "positive"
     }
   },
   "910": {
     "topics": {
       "Teaching Quality": "positive",
-      "Workload": "neutral",
-      "Course Content": "positive"
+      "Workload": "neutral"
     }
   },
   "911": {
     "topics": {
       "Teaching Quality": "positive",
-      "Accessibility": "positive",
-      "Course Content": "positive"
+      "Accessibility": "positive"
     }
   },
   "912": {
@@ -5806,7 +5733,6 @@
   "913": {
     "topics": {
       "Teaching Quality": "positive",
-      "Course Content": "positive",
       "Accessibility": "positive"
     }
   },
@@ -5824,15 +5750,13 @@
   },
   "916": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "917": {
     "topics": {
       "Teaching Quality": "positive",
-      "Accessibility": "positive",
-      "Course Content": "positive"
+      "Accessibility": "positive"
     }
   },
   "918": {
@@ -5853,8 +5777,7 @@
   },
   "921": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "922": {
@@ -5886,8 +5809,7 @@
   "926": {
     "topics": {
       "Teaching Quality": "positive",
-      "Workload": "negative",
-      "Course Content": "positive"
+      "Workload": "negative"
     }
   },
   "927": {
@@ -5929,14 +5851,12 @@
   },
   "933": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "934": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "935": {
@@ -5947,8 +5867,7 @@
   },
   "936": {
     "topics": {
-      "Teaching Quality": "neutral",
-      "Course Content": "positive"
+      "Teaching Quality": "neutral"
     }
   },
   "937": {
@@ -5959,14 +5878,12 @@
   },
   "938": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "939": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "940": {
@@ -5995,8 +5912,7 @@
     "topics": {
       "Teaching Quality": "negative",
       "Grading": "negative",
-      "Exam Difficulty": "negative",
-      "Course Content": "negative"
+      "Exam Difficulty": "negative"
     }
   },
   "944": {
@@ -6076,8 +5992,7 @@
   },
   "957": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "958": {
@@ -6097,8 +6012,7 @@
   },
   "961": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "962": {
@@ -6217,14 +6131,12 @@
   },
   "980": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "981": {
     "topics": {
-      "Teaching Quality": "neutral",
-      "Course Content": "positive"
+      "Teaching Quality": "neutral"
     }
   },
   "982": {
@@ -6442,8 +6354,7 @@
   },
   "1017": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "positive"
+      "Teaching Quality": "negative"
     }
   },
   "1018": {
@@ -6678,8 +6589,7 @@
   },
   "1055": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "1056": {
@@ -6707,8 +6617,7 @@
   "1060": {
     "topics": {
       "Teaching Quality": "positive",
-      "Workload": "positive",
-      "Course Content": "positive"
+      "Workload": "positive"
     }
   },
   "1061": {
@@ -6948,32 +6857,27 @@
   },
   "1098": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "1099": {
     "topics": {
-      "Course Content": "negative",
       "Teaching Quality": "negative"
     }
   },
   "1100": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "1101": {
     "topics": {
       "Teaching Quality": "negative",
-      "Course Content": "negative",
       "Grading": "positive"
     }
   },
   "1102": {
     "topics": {
-      "Course Content": "negative",
       "Grading": "positive",
       "Workload": "negative",
       "Accessibility": "positive"
@@ -6982,8 +6886,7 @@
   "1103": {
     "topics": {
       "Teaching Quality": "positive",
-      "Grading": "positive",
-      "Course Content": "positive"
+      "Grading": "positive"
     }
   },
   "1104": {
@@ -7008,8 +6911,7 @@
   },
   "1107": {
     "topics": {
-      "Workload": "negative",
-      "Course Content": "negative"
+      "Workload": "negative"
     }
   },
   "1108": {
@@ -7039,7 +6941,6 @@
   },
   "1112": {
     "topics": {
-      "Course Content": "negative",
       "Teaching Quality": "negative"
     }
   },
@@ -7128,7 +7029,6 @@
   "1126": {
     "topics": {
       "Teaching Quality": "negative",
-      "Course Content": "negative",
       "Accessibility": "negative"
     }
   },
@@ -7245,15 +7145,13 @@
   "1144": {
     "topics": {
       "Teaching Quality": "positive",
-      "Exam Difficulty": "negative",
-      "Course Content": "positive"
+      "Exam Difficulty": "negative"
     }
   },
   "1145": {
     "topics": {
       "Teaching Quality": "positive",
-      "Accessibility": "positive",
-      "Course Content": "positive"
+      "Accessibility": "positive"
     }
   },
   "1146": {
@@ -7385,8 +7283,7 @@
   "1165": {
     "topics": {
       "Teaching Quality": "positive",
-      "Accessibility": "positive",
-      "Course Content": "positive"
+      "Accessibility": "positive"
     }
   },
   "1166": {
@@ -7682,8 +7579,7 @@
   "1212": {
     "topics": {
       "Grading": "negative",
-      "Workload": "negative",
-      "Course Content": "positive"
+      "Workload": "negative"
     }
   },
   "1213": {
@@ -7708,7 +7604,6 @@
   "1216": {
     "topics": {
       "Teaching Quality": "negative",
-      "Course Content": "negative",
       "Grading": "negative"
     }
   },
@@ -7757,9 +7652,7 @@
     }
   },
   "1224": {
-    "topics": {
-      "Course Content": "negative"
-    }
+    "topics": {}
   },
   "1225": {
     "topics": {
@@ -7784,8 +7677,7 @@
   },
   "1229": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "1230": {
@@ -7796,8 +7688,7 @@
   "1231": {
     "topics": {
       "Teaching Quality": "negative",
-      "Grading": "negative",
-      "Course Content": "negative"
+      "Grading": "negative"
     }
   },
   "1232": {
@@ -7833,7 +7724,6 @@
   },
   "1237": {
     "topics": {
-      "Course Content": "positive",
       "Grading": "negative"
     }
   },
@@ -7914,8 +7804,7 @@
   "1249": {
     "topics": {
       "Exam Difficulty": "neutral",
-      "Grading": "positive",
-      "Course Content": "positive"
+      "Grading": "positive"
     }
   },
   "1250": {
@@ -7948,14 +7837,12 @@
   },
   "1254": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "1255": {
     "topics": {
-      "Teaching Quality": "neutral",
-      "Course Content": "positive"
+      "Teaching Quality": "neutral"
     }
   },
   "1256": {
@@ -7967,8 +7854,7 @@
   "1257": {
     "topics": {
       "Teaching Quality": "positive",
-      "Workload": "positive",
-      "Course Content": "positive"
+      "Workload": "positive"
     }
   },
   "1258": {
@@ -7985,9 +7871,7 @@
     }
   },
   "1260": {
-    "topics": {
-      "Course Content": "positive"
-    }
+    "topics": {}
   },
   "1261": {
     "topics": {
@@ -8023,8 +7907,7 @@
   },
   "1266": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "positive"
+      "Teaching Quality": "negative"
     }
   },
   "1267": {
@@ -8139,8 +8022,7 @@
   },
   "1284": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "1285": {
@@ -8260,21 +8142,18 @@
   "1304": {
     "topics": {
       "Teaching Quality": "neutral",
-      "Course Content": "positive",
       "Accessibility": "negative"
     }
   },
   "1305": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "1306": {
     "topics": {
       "Teaching Quality": "positive",
-      "Workload": "neutral",
-      "Course Content": "positive"
+      "Workload": "neutral"
     }
   },
   "1307": {
@@ -8285,14 +8164,12 @@
   },
   "1308": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "1309": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "1310": {
@@ -8302,8 +8179,7 @@
   },
   "1311": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "1312": {
@@ -8367,7 +8243,6 @@
   "1322": {
     "topics": {
       "Teaching Quality": "positive",
-      "Course Content": "positive",
       "Grading": "positive"
     }
   },
@@ -8429,8 +8304,7 @@
   "1332": {
     "topics": {
       "Teaching Quality": "positive",
-      "Accessibility": "positive",
-      "Course Content": "positive"
+      "Accessibility": "positive"
     }
   },
   "1333": {
@@ -8637,8 +8511,7 @@
   },
   "1366": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "positive"
+      "Teaching Quality": "negative"
     }
   },
   "1367": {
@@ -8726,8 +8599,7 @@
   "1380": {
     "topics": {
       "Teaching Quality": "negative",
-      "Workload": "positive",
-      "Course Content": "positive"
+      "Workload": "positive"
     }
   },
   "1381": {
@@ -8988,8 +8860,7 @@
   },
   "1423": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "1424": {
@@ -9370,8 +9241,7 @@
   "1485": {
     "topics": {
       "Grading": "positive",
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "1486": {
@@ -9383,7 +9253,6 @@
   "1487": {
     "topics": {
       "Teaching Quality": "negative",
-      "Course Content": "negative",
       "Workload": "negative",
       "Grading": "positive"
     }
@@ -9396,7 +9265,6 @@
   },
   "1489": {
     "topics": {
-      "Course Content": "positive",
       "Workload": "positive"
     }
   },
@@ -9438,13 +9306,11 @@
   "1496": {
     "topics": {
       "Teaching Quality": "positive",
-      "Accessibility": "positive",
-      "Course Content": "positive"
+      "Accessibility": "positive"
     }
   },
   "1497": {
     "topics": {
-      "Course Content": "positive",
       "Accessibility": "positive",
       "Grading": "positive"
     }
@@ -9457,7 +9323,6 @@
   },
   "1499": {
     "topics": {
-      "Course Content": "positive",
       "Workload": "positive"
     }
   },
@@ -9561,8 +9426,7 @@
   },
   "1515": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "negative"
+      "Teaching Quality": "positive"
     }
   },
   "1516": {
@@ -9654,8 +9518,7 @@
   "1529": {
     "topics": {
       "Teaching Quality": "neutral",
-      "Workload": "positive",
-      "Course Content": "positive"
+      "Workload": "positive"
     }
   },
   "1530": {
@@ -9878,8 +9741,7 @@
   "1564": {
     "topics": {
       "Teaching Quality": "positive",
-      "Grading": "positive",
-      "Course Content": "positive"
+      "Grading": "positive"
     }
   },
   "1565": {
@@ -9911,8 +9773,7 @@
   },
   "1569": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "neutral"
+      "Teaching Quality": "positive"
     }
   },
   "1570": {
@@ -10011,7 +9872,6 @@
   },
   "1585": {
     "topics": {
-      "Course Content": "neutral",
       "Workload": "negative"
     }
   },
@@ -10291,14 +10151,12 @@
   "1630": {
     "topics": {
       "Teaching Quality": "neutral",
-      "Grading": "positive",
-      "Course Content": "positive"
+      "Grading": "positive"
     }
   },
   "1631": {
     "topics": {
-      "Teaching Quality": "neutral",
-      "Course Content": "positive"
+      "Teaching Quality": "neutral"
     }
   },
   "1632": {
@@ -10372,8 +10230,7 @@
   },
   "1643": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "1644": {
@@ -10427,9 +10284,7 @@
     }
   },
   "1651": {
-    "topics": {
-      "Course Content": "negative"
-    }
+    "topics": {}
   },
   "1652": {
     "topics": {
@@ -10457,8 +10312,7 @@
   },
   "1656": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "1657": {
@@ -10627,8 +10481,7 @@
   },
   "1683": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "1684": {
@@ -10654,8 +10507,7 @@
   },
   "1687": {
     "topics": {
-      "Workload": "negative",
-      "Course Content": "positive"
+      "Workload": "negative"
     }
   },
   "1688": {
@@ -10706,8 +10558,7 @@
   "1696": {
     "topics": {
       "Teaching Quality": "neutral",
-      "Grading": "positive",
-      "Course Content": "positive"
+      "Grading": "positive"
     }
   },
   "1697": {
@@ -10715,7 +10566,6 @@
   },
   "1698": {
     "topics": {
-      "Course Content": "neutral",
       "Workload": "negative"
     }
   },
@@ -10754,14 +10604,12 @@
   },
   "1705": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "1706": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "1707": {
@@ -10773,8 +10621,7 @@
   "1708": {
     "topics": {
       "Teaching Quality": "positive",
-      "Accessibility": "positive",
-      "Course Content": "positive"
+      "Accessibility": "positive"
     }
   },
   "1709": {
@@ -10890,8 +10737,7 @@
   },
   "1727": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "negative"
+      "Teaching Quality": "positive"
     }
   },
   "1728": {
@@ -11472,8 +11318,7 @@
   },
   "1821": {
     "topics": {
-      "Exam Difficulty": "negative",
-      "Course Content": "negative"
+      "Exam Difficulty": "negative"
     }
   },
   "1822": {
@@ -11535,7 +11380,6 @@
   },
   "1830": {
     "topics": {
-      "Course Content": "positive",
       "Teaching Quality": "neutral",
       "Workload": "negative",
       "Exam Difficulty": "negative"
@@ -11544,7 +11388,6 @@
   "1831": {
     "topics": {
       "Teaching Quality": "neutral",
-      "Course Content": "negative",
       "Exam Difficulty": "negative"
     }
   },
@@ -11596,8 +11439,7 @@
   "1839": {
     "topics": {
       "Exam Difficulty": "positive",
-      "Grading": "positive",
-      "Course Content": "positive"
+      "Grading": "positive"
     }
   },
   "1840": {
@@ -11662,7 +11504,6 @@
   },
   "1849": {
     "topics": {
-      "Course Content": "negative",
       "Workload": "negative",
       "Teaching Quality": "positive",
       "Accessibility": "positive"
@@ -11670,8 +11511,7 @@
   },
   "1850": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "1851": {
@@ -11743,8 +11583,7 @@
   },
   "1861": {
     "topics": {
-      "Grading": "positive",
-      "Course Content": "neutral"
+      "Grading": "positive"
     }
   },
   "1862": {
@@ -11826,9 +11665,7 @@
     }
   },
   "1874": {
-    "topics": {
-      "Course Content": "neutral"
-    }
+    "topics": {}
   },
   "1875": {
     "topics": {
@@ -11884,8 +11721,7 @@
   },
   "1883": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "1884": {
@@ -12016,7 +11852,6 @@
   "1904": {
     "topics": {
       "Grading": "positive",
-      "Course Content": "negative",
       "Teaching Quality": "negative"
     }
   },
@@ -12057,8 +11892,7 @@
   },
   "1911": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "1912": {
@@ -12086,8 +11920,7 @@
   },
   "1916": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "1917": {
@@ -12115,14 +11948,12 @@
   },
   "1921": {
     "topics": {
-      "Course Content": "negative",
       "Teaching Quality": "negative"
     }
   },
   "1922": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "positive"
+      "Teaching Quality": "negative"
     }
   },
   "1923": {
@@ -12206,8 +12037,7 @@
   },
   "1936": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "1937": {
@@ -12261,15 +12091,13 @@
   },
   "1945": {
     "topics": {
-      "Course Content": "positive",
       "Workload": "positive",
       "Exam Difficulty": "positive"
     }
   },
   "1946": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "1947": {
@@ -12426,8 +12254,7 @@
   },
   "1971": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "1972": {
@@ -12459,8 +12286,7 @@
   "1976": {
     "topics": {
       "Teaching Quality": "positive",
-      "Accessibility": "positive",
-      "Course Content": "positive"
+      "Accessibility": "positive"
     }
   },
   "1977": {
@@ -12477,9 +12303,7 @@
     }
   },
   "1979": {
-    "topics": {
-      "Course Content": "positive"
-    }
+    "topics": {}
   },
   "1980": {
     "topics": {
@@ -12705,8 +12529,7 @@
   },
   "2016": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "neutral"
+      "Teaching Quality": "negative"
     }
   },
   "2017": {
@@ -12748,14 +12571,12 @@
   },
   "2023": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "neutral"
+      "Teaching Quality": "positive"
     }
   },
   "2024": {
     "topics": {
-      "Workload": "negative",
-      "Course Content": "positive"
+      "Workload": "negative"
     }
   },
   "2025": {
@@ -12771,8 +12592,7 @@
   },
   "2027": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "2028": {
@@ -12862,7 +12682,6 @@
   },
   "2042": {
     "topics": {
-      "Course Content": "negative",
       "Workload": "positive",
       "Accessibility": "negative"
     }
@@ -13362,7 +13181,6 @@
   "2122": {
     "topics": {
       "Teaching Quality": "negative",
-      "Course Content": "negative",
       "Exam Difficulty": "negative"
     }
   },
@@ -13374,7 +13192,6 @@
   },
   "2124": {
     "topics": {
-      "Course Content": "negative",
       "Workload": "positive",
       "Exam Difficulty": "positive",
       "Teaching Quality": "positive"
@@ -13389,7 +13206,6 @@
   },
   "2126": {
     "topics": {
-      "Course Content": "negative",
       "Teaching Quality": "neutral"
     }
   },
@@ -13435,7 +13251,6 @@
   "2133": {
     "topics": {
       "Teaching Quality": "positive",
-      "Course Content": "positive",
       "Grading": "negative",
       "Workload": "negative"
     }
@@ -13448,8 +13263,7 @@
   },
   "2135": {
     "topics": {
-      "Exam Difficulty": "positive",
-      "Course Content": "positive"
+      "Exam Difficulty": "positive"
     }
   },
   "2136": {
@@ -13481,7 +13295,6 @@
   },
   "2140": {
     "topics": {
-      "Course Content": "positive",
       "Accessibility": "positive",
       "Teaching Quality": "positive"
     }
@@ -13495,8 +13308,7 @@
   "2142": {
     "topics": {
       "Teaching Quality": "positive",
-      "Accessibility": "positive",
-      "Course Content": "positive"
+      "Accessibility": "positive"
     }
   },
   "2143": {
@@ -13576,8 +13388,7 @@
   "2155": {
     "topics": {
       "Teaching Quality": "negative",
-      "Exam Difficulty": "negative",
-      "Course Content": "negative"
+      "Exam Difficulty": "negative"
     }
   },
   "2156": {
@@ -13669,7 +13480,6 @@
   },
   "2170": {
     "topics": {
-      "Course Content": "negative",
       "Teaching Quality": "negative"
     }
   },
@@ -13725,8 +13535,7 @@
   "2179": {
     "topics": {
       "Accessibility": "positive",
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "2180": {
@@ -13882,14 +13691,11 @@
   },
   "2205": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "positive"
+      "Teaching Quality": "negative"
     }
   },
   "2206": {
-    "topics": {
-      "Course Content": "positive"
-    }
+    "topics": {}
   },
   "2207": {
     "topics": {
@@ -13916,13 +13722,11 @@
   },
   "2211": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "2212": {
     "topics": {
-      "Course Content": "positive",
       "Workload": "positive",
       "Exam Difficulty": "neutral"
     }
@@ -13942,8 +13746,7 @@
     "topics": {
       "Teaching Quality": "neutral",
       "Grading": "negative",
-      "Exam Difficulty": "negative",
-      "Course Content": "negative"
+      "Exam Difficulty": "negative"
     }
   },
   "2216": {
@@ -13954,14 +13757,12 @@
   },
   "2217": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "negative"
+      "Teaching Quality": "positive"
     }
   },
   "2218": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "negative"
+      "Teaching Quality": "positive"
     }
   },
   "2219": {
@@ -13972,8 +13773,7 @@
   },
   "2220": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "negative"
+      "Teaching Quality": "positive"
     }
   },
   "2221": {
@@ -13990,8 +13790,7 @@
   },
   "2223": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "negative"
+      "Teaching Quality": "positive"
     }
   },
   "2224": {
@@ -14001,8 +13800,7 @@
   },
   "2225": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "negative"
+      "Teaching Quality": "positive"
     }
   },
   "2226": {
@@ -14081,8 +13879,7 @@
   },
   "2239": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "2240": {
@@ -14115,8 +13912,7 @@
   "2244": {
     "topics": {
       "Teaching Quality": "positive",
-      "Accessibility": "positive",
-      "Course Content": "negative"
+      "Accessibility": "positive"
     }
   },
   "2245": {
@@ -14180,8 +13976,7 @@
   },
   "2256": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "negative"
+      "Teaching Quality": "positive"
     }
   },
   "2257": {
@@ -14266,8 +14061,7 @@
   },
   "2271": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "2272": {
@@ -14347,8 +14141,7 @@
   },
   "2284": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "2285": {
@@ -14359,8 +14152,7 @@
   },
   "2286": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "2287": {
@@ -14525,14 +14317,12 @@
   },
   "2314": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "2315": {
     "topics": {
-      "Teaching Quality": "positive",
-      "Course Content": "positive"
+      "Teaching Quality": "positive"
     }
   },
   "2316": {
@@ -14995,8 +14785,7 @@
   "2390": {
     "topics": {
       "Teaching Quality": "negative",
-      "Exam Difficulty": "negative",
-      "Course Content": "negative"
+      "Exam Difficulty": "negative"
     }
   },
   "2391": {
@@ -15152,8 +14941,7 @@
   },
   "2418": {
     "topics": {
-      "Teaching Quality": "negative",
-      "Course Content": "negative"
+      "Teaching Quality": "negative"
     }
   },
   "2419": {

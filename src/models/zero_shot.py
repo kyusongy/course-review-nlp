@@ -4,7 +4,6 @@ TOPICS = [
     "Workload",
     "Grading",
     "Teaching Quality",
-    "Course Content",
     "Accessibility",
     "Exam Difficulty",
 ]
@@ -14,7 +13,6 @@ TOPIC_DESCRIPTIONS = [
     "homework volume and time commitment",
     "grading fairness and grade distribution",
     "lecture quality and teaching effectiveness",
-    "course material relevance and organization",
     "professor availability and approachability",
     "exam difficulty and test fairness",
 ]

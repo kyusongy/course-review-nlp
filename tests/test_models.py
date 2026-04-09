@@ -90,21 +90,15 @@ def test_encode_topic_sentiments():
     states = encode_topic_sentiments(
         {"Teaching Quality": "positive", "Exam Difficulty": "negative"}
     )
-    assert len(states) == 6
+    assert len(states) == 5
     assert states[TOPICS.index("Teaching Quality")] == 1  # positive
     assert states[TOPICS.index("Exam Difficulty")] == 3  # negative
     assert states[TOPICS.index("Workload")] == 0  # not discussed
 
 
 def test_decode_topic_sentiments():
-    states = [
-        0,
-        1,
-        3,
-        0,
-        0,
-        2,
-    ]  # Grading=positive, Teaching Quality=negative, Exam Difficulty=neutral
+    # 5 topics: Workload, Grading, Teaching Quality, Accessibility, Exam Difficulty
+    states = [0, 1, 3, 0, 2]
     result = decode_topic_sentiments(states)
     assert result == {
         "Grading": "positive",
@@ -143,9 +137,9 @@ def test_compute_classification_metrics():
 
 
 def test_compute_multilabel_metrics():
-    y_true = [[1, 0, 1, 0, 0, 0], [0, 1, 0, 0, 0, 1]]
-    y_pred = [[1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 1]]
+    y_true = [[1, 0, 1, 0, 0], [0, 1, 0, 0, 1]]
+    y_pred = [[1, 0, 0, 0, 0], [0, 1, 0, 0, 1]]
     metrics = compute_multilabel_metrics(y_true, y_pred)
     assert "f1_macro" in metrics
     assert "f1_per_topic" in metrics
-    assert len(metrics["f1_per_topic"]) == 6
+    assert len(metrics["f1_per_topic"]) == 5
