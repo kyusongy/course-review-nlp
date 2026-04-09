@@ -1,0 +1,180 @@
+{
+  "per_topic_sentiment": {
+    "zero_shot": {
+      "Workload": {
+        "n": 195,
+        "accuracy": 0.5128205128205128,
+        "f1_macro": 0.34439520646606914
+      },
+      "Grading": {
+        "n": 253,
+        "accuracy": 0.5810276679841897,
+        "f1_macro": 0.3681625700409998
+      },
+      "Teaching Quality": {
+        "n": 611,
+        "accuracy": 0.7545008183306056,
+        "f1_macro": 0.4870996269616671
+      },
+      "Course Content": {
+        "n": 70,
+        "accuracy": 0.6571428571428571,
+        "f1_macro": 0.5459861775651249
+      },
+      "Accessibility": {
+        "n": 171,
+        "accuracy": 0.6666666666666666,
+        "f1_macro": 0.2949509116409537
+      },
+      "Exam Difficulty": {
+        "n": 374,
+        "accuracy": 0.6256684491978609,
+        "f1_macro": 0.4027749781630048
+      },
+      "_topic_detection": {
+        "f1_macro": 0.5298500451155806,
+        "f1_micro": 0.5749235474006116,
+        "f1_per_topic": {
+          "Workload": 0.46153846153846156,
+          "Grading": 0.5185995623632386,
+          "Teaching Quality": 0.9117421335379893,
+          "Course Content": 0.17879948914431673,
+          "Accessibility": 0.4016393442622951,
+          "Exam Difficulty": 0.7067812798471824
+        }
+      }
+    },
+    "finetuned": {
+      "Workload": {
+        "n": 195,
+        "accuracy": 0.31794871794871793,
+        "f1_macro": 0.2176901464980935
+      },
+      "Grading": {
+        "n": 253,
+        "accuracy": 0.5652173913043478,
+        "f1_macro": 0.33339853938445485
+      },
+      "Teaching Quality": {
+        "n": 611,
+        "accuracy": 0.8199672667757774,
+        "f1_macro": 0.4390845559309483
+      },
+      "Course Content": {
+        "n": 70,
+        "accuracy": 0.0,
+        "f1_macro": 0.0
+      },
+      "Accessibility": {
+        "n": 171,
+        "accuracy": 0.43859649122807015,
+        "f1_macro": 0.2816723660641589
+      },
+      "Exam Difficulty": {
+        "n": 374,
+        "accuracy": 0.6336898395721925,
+        "f1_macro": 0.36037702607470046
+      },
+      "_topic_detection": {
+        "f1_macro": 0.6388836985824821,
+        "f1_micro": 0.8172671210645894,
+        "f1_per_topic": {
+          "Workload": 0.6474358974358975,
+          "Grading": 0.7939914163090128,
+          "Teaching Quality": 0.9338645418326693,
+          "Course Content": 0.0,
+          "Accessibility": 0.5968992248062015,
+          "Exam Difficulty": 0.8611111111111112
+        }
+      }
+    }
+  },
+  "overall_sentiment": {
+    "baseline": {
+      "accuracy": 0.7942386831275721,
+      "f1_macro": 0.6381505391856314,
+      "f1_per_class": {
+        "negative": 0.8627450980392157,
+        "neutral": 0.19047619047619047,
+        "positive": 0.8612303290414879
+      },
+      "confusion_matrix": [
+        [
+          264,
+          44,
+          18
+        ],
+        [
+          9,
+          14,
+          45
+        ],
+        [
+          13,
+          21,
+          301
+        ]
+      ],
+      "report": "              precision    recall  f1-score   support\n\n    negative       0.92      0.81      0.86       326\n     neutral       0.18      0.21      0.19        68\n    positive       0.83      0.90      0.86       335\n\n    accuracy                           0.79       729\n   macro avg       0.64      0.64      0.64       729\nweighted avg       0.81      0.79      0.80       729\n"
+    },
+    "zero_shot": {
+      "accuracy": 0.7091906721536351,
+      "f1_macro": 0.6053226163627998,
+      "f1_per_class": {
+        "negative": 0.8096885813148789,
+        "neutral": 0.20689655172413793,
+        "positive": 0.7993827160493827
+      },
+      "confusion_matrix": [
+        [
+          234,
+          74,
+          18
+        ],
+        [
+          8,
+          24,
+          36
+        ],
+        [
+          10,
+          66,
+          259
+        ]
+      ],
+      "report": "              precision    recall  f1-score   support\n\n    negative       0.93      0.72      0.81       326\n     neutral       0.15      0.35      0.21        68\n    positive       0.83      0.77      0.80       335\n\n    accuracy                           0.71       729\n   macro avg       0.63      0.61      0.61       729\nweighted avg       0.81      0.71      0.75       729\n"
+    },
+    "finetuned": {
+      "accuracy": 0.8257887517146777,
+      "f1_macro": 0.6891276590864891,
+      "f1_per_class": {
+        "negative": 0.8702290076335878,
+        "neutral": 0.3516483516483517,
+        "positive": 0.8455056179775281
+      },
+      "confusion_matrix": [
+        [
+          285,
+          3,
+          38
+        ],
+        [
+          14,
+          16,
+          38
+        ],
+        [
+          30,
+          4,
+          301
+        ]
+      ],
+      "report": "              precision    recall  f1-score   support\n\n    negative       0.87      0.87      0.87       326\n     neutral       0.70      0.24      0.35        68\n    positive       0.80      0.90      0.85       335\n\n    accuracy                           0.83       729\n   macro avg       0.79      0.67      0.69       729\nweighted avg       0.82      0.83      0.81       729\n"
+    }
+  },
+  "agreement": {
+    "zero_shot_vs_finetuned": 0.5404149834741094,
+    "zero_shot_vs_baseline": 0.5746343400073989,
+    "finetuned_vs_baseline": 0.6358690186455338
+  }
+}
