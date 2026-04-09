@@ -593,6 +593,8 @@ with tab_recommend:
             icon = TOPIC_ICONS.get(topic, "")
             weights[key] = st.slider(f"{icon} {topic}", 0, 10, 5, key=f"w_{key}")
 
+    min_reviews = st.slider("Minimum reviews", 1, 30, 5, key="min_rev")
+
     scores_df = load_scores(score_file)
     reviews_df_rec = load_reviews()
 
@@ -605,8 +607,6 @@ with tab_recommend:
         placeholder="All courses",
         key="course_filter",
     )
-
-    min_reviews = st.slider("Minimum reviews", 1, 30, 5, key="min_rev")
 
     # If courses selected, filter scores to only reviews from those courses
     filtered_scores = scores_df
