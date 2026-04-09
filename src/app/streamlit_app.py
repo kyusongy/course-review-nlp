@@ -319,6 +319,27 @@ def aggregate_prof_scores(scores_df: pd.DataFrame) -> pd.DataFrame:
     )
 
 
+def normalize_course(name: str) -> str:
+    """Normalize course names: 'STOR-155' / 'STOR 155' / 'STOR155' → 'STOR 155'."""
+    import re
+
+    name = name.strip().upper().replace("-", "").replace(" ", "")
+    m = re.match(r"^([A-Z]+)(\d+[A-Z]?)$", name)
+    if m:
+        return f"{m.group(1)} {m.group(2)}"
+    return name
+
+
+@st.cache_data
+def get_course_list(reviews_df: pd.DataFrame) -> list[str]:
+    """Get sorted unique normalized course names."""
+    courses = reviews_df["course_name"].dropna().apply(normalize_course)
+    counts = courses.value_counts()
+    # Only include courses with 3+ reviews
+    valid = counts[counts >= 3].index.tolist()
+    return sorted(valid)
+
+
 @st.cache_resource
 def load_zero_shot_models():
     tc = TopicClassifier()
@@ -572,10 +593,34 @@ with tab_recommend:
             icon = TOPIC_ICONS.get(topic, "")
             weights[key] = st.slider(f"{icon} {topic}", 0, 10, 5, key=f"w_{key}")
 
+    scores_df = load_scores(score_file)
+    reviews_df_rec = load_reviews()
+
+    # Course filter
+    all_courses = get_course_list(reviews_df_rec)
+    selected_courses = st.multiselect(
+        "Filter by course (optional)",
+        all_courses,
+        default=[],
+        placeholder="All courses",
+        key="course_filter",
+    )
+
     min_reviews = st.slider("Minimum reviews", 1, 30, 5, key="min_rev")
 
-    scores_df = load_scores(score_file)
-    agg_df = aggregate_prof_scores(scores_df)
+    # If courses selected, filter scores to only reviews from those courses
+    filtered_scores = scores_df
+    if selected_courses:
+        filtered_scores = scores_df.copy()
+        filtered_scores["_norm_course"] = filtered_scores["course_name"].apply(
+            normalize_course
+        )
+        filtered_scores = filtered_scores[
+            filtered_scores["_norm_course"].isin(selected_courses)
+        ]
+        filtered_scores = filtered_scores.drop(columns=["_norm_course"])
+
+    agg_df = aggregate_prof_scores(filtered_scores)
     ranked = score_professors(agg_df, {k: float(v) for k, v in weights.items()})
     filtered = filter_results(ranked, min_reviews=min_reviews)
     top = filtered.head(10)
