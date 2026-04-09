@@ -1,5 +1,2 @@
 [server]
-fileWatcherType = "poll"
-
-[client]
-showErrorDetails = true
+fileWatcherType = "none"
