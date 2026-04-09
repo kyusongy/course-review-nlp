@@ -39,7 +39,7 @@ def load_reviews() -> pd.DataFrame:
 
 @st.cache_data
 def load_scores() -> pd.DataFrame:
-    return pd.read_parquet(DATA_DIR / "finetuned_scores.parquet")
+    return pd.read_parquet(DATA_DIR / "labeled_scores.parquet")
 
 
 @st.cache_data
