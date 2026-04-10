@@ -280,21 +280,15 @@ section[data-testid="stSidebar"] .stRadio label {{
 
 # ── Data Loading ─────────────────────────────────────────────────────────────
 
-SCORE_SOURCES = {
-    "Sonnet 4.6 Labels (ground truth)": "labeled_scores.parquet",
-    "Fine-Tuned DistilBERT": "finetuned_scores.parquet",
-    "Zero-Shot (BART + RoBERTa)": "zero_shot_scores.parquet",
-}
-
 
 @st.cache_data
 def load_reviews() -> pd.DataFrame:
-    return pd.read_parquet(DATA_DIR / "reviews.parquet")
+    return pd.read_parquet(DATA_DIR / "reviews_all.parquet")
 
 
 @st.cache_data
-def load_scores(source_file: str) -> pd.DataFrame:
-    return pd.read_parquet(DATA_DIR / source_file)
+def load_scores() -> pd.DataFrame:
+    return pd.read_parquet(DATA_DIR / "scored_all.parquet")
 
 
 @st.cache_data
@@ -437,29 +431,17 @@ with st.sidebar:
             Course Compass
         </div>
         <div style="font-size: 0.78rem; color: {TEXT_MUTED}; margin-top: 0.2rem;">
-            UNC Statistics & Operations Research
+            UNC Chapel Hill
         </div>
     </div>""",
         unsafe_allow_html=True,
     )
     st.divider()
     st.markdown(
-        f'<div style="font-size: 0.75rem; color: {TEXT_MUTED}; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Data Source</div>',
-        unsafe_allow_html=True,
-    )
-    score_source = st.radio(
-        "source",
-        list(SCORE_SOURCES.keys()),
-        index=0,
-        label_visibility="collapsed",
-    )
-    score_file = SCORE_SOURCES[score_source]
-
-    st.divider()
-    st.markdown(
         f"""<div style="font-size: 0.75rem; color: {TEXT_MUTED}; line-height: 1.5; padding: 0.5rem 0;">
-        <strong style="color: {TEXT_PRIMARY};">2,429</strong> reviews<br>
-        <strong style="color: {TEXT_PRIMARY};">117</strong> professors<br>
+        <strong style="color: {TEXT_PRIMARY};">65,376</strong> reviews<br>
+        <strong style="color: {TEXT_PRIMARY};">4,173</strong> professors<br>
+        <strong style="color: {TEXT_PRIMARY};">103</strong> departments<br>
         <strong style="color: {TEXT_PRIMARY};">5</strong> sentiment topics
     </div>""",
         unsafe_allow_html=True,
@@ -471,7 +453,7 @@ with st.sidebar:
 st.markdown(
     """<div class="hero">
     <h1>UNC Course Compass</h1>
-    <p>Aspect-based sentiment analysis for <span class="accent">Statistics & Operations Research</span> course reviews</p>
+    <p>Aspect-based sentiment analysis for <span class="accent">UNC Chapel Hill</span> course reviews</p>
 </div>""",
     unsafe_allow_html=True,
 )
@@ -486,7 +468,7 @@ tab_explore, tab_recommend, tab_model = st.tabs(
 
 with tab_explore:
     reviews_df = load_reviews()
-    scores_df = load_scores(score_file)
+    scores_df = load_scores()
 
     professors = sorted(reviews_df["professor_name"].dropna().unique())
     selected_prof = st.selectbox(
@@ -595,7 +577,7 @@ with tab_recommend:
 
     min_reviews = st.slider("Minimum reviews", 1, 30, 5, key="min_rev")
 
-    scores_df = load_scores(score_file)
+    scores_df = load_scores()
     reviews_df_rec = load_reviews()
 
     # Course filter
