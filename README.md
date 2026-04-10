@@ -5,8 +5,9 @@ ML-powered course recommendation system for UNC Chapel Hill. Scrapes 65,376 Rate
 ## Quick Start
 
 ```bash
-uv sync --extra dev
-uv run streamlit run src/app/streamlit_app.py
+uv sync --extra dev                            # install dependencies
+uv run python train.py                         # train model, evaluate, score all reviews
+uv run streamlit run src/app/streamlit_app.py  # launch app
 ```
 
 ## Pipeline
@@ -47,13 +48,15 @@ uv run streamlit run src/app/streamlit_app.py
 ## Project Structure
 
 ```
+run_pipeline.py   # parse raw data -> reviews_all.parquet
+train.py          # train -> evaluate -> score all 65K reviews
 src/
-  scraper/    # RMP GraphQL client, parser, preprocessor
-  models/     # baseline, zero_shot, fine_tune, evaluate, labeling
-  recommend/  # weighted scoring engine
-  app/        # Streamlit frontend
-tests/        # 30 tests
-data/labels/  # Sonnet 4.6 per-topic sentiment annotations
+  scraper/        # RMP GraphQL client, parser, preprocessor
+  models/         # baseline, zero_shot, fine_tune, evaluate, labeling
+  recommend/      # weighted scoring engine
+  app/            # Streamlit frontend
+tests/            # 30 tests
+data/labels/      # Sonnet 4.6 per-topic sentiment annotations (8,378 reviews)
 ```
 
 ## Tech Stack

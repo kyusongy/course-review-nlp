@@ -473,7 +473,8 @@ Using Claude Sonnet 4.6 to label 8,378 reviews across 103 departments would have
 ```
 course_review/
 |-- pyproject.toml
-|-- run_pipeline.py             # end-to-end pipeline runner
+|-- run_pipeline.py             # parse raw JSON -> reviews_all.parquet
+|-- train.py                    # train -> evaluate -> score all reviews
 |-- src/
 |   |-- scraper/
 |   |   |-- client.py           # RMP GraphQL client (paginated, async, retry)
@@ -504,33 +505,36 @@ course_review/
 
 ## 12. Reproducibility
 
+### From a fresh clone (all data is tracked):
+
 ```bash
-uv sync --extra dev                              # install deps
-uv run python run_pipeline.py                    # scrape + clean + score
-
-# Train (requires labeled data in data/labels/)
-uv run python -c "
-import pandas as pd
-from src.models.fine_tune import train_joint_classifier
-train = pd.read_parquet('data/processed/train.parquet')
-train_joint_classifier(train['review_text'].tolist(), train['label_topics'].tolist())
-"
-
-# Evaluate
-uv run python -c "
-import json, pandas as pd
-from pathlib import Path
-from src.models.fine_tune import predict_joint
-from src.models.zero_shot import TopicClassifier, SentimentAnalyzer
-from src.models.evaluate import compare_approaches
-test = pd.read_parquet('data/processed/test.parquet')
-texts = test['review_text'].tolist()
-tc = TopicClassifier(); sa = SentimentAnalyzer()
-zs = [sa.analyze_by_topic_flat(t, tc) for t in texts]
-ft = predict_joint(texts)
-results = compare_approaches(test, zs, ft)
-Path('data/processed/evaluation_results.json').write_text(json.dumps(results, indent=2, default=str))
-"
-
-uv run streamlit run src/app/streamlit_app.py    # launch app
+uv sync --extra dev                                # install dependencies
+uv run python train.py                             # train model, evaluate, score all 65K reviews
+uv run streamlit run src/app/streamlit_app.py      # launch app
 ```
+
+`train.py` handles the full pipeline: trains the joint model on `train.parquet` with validation-based early stopping, evaluates on `test.parquet` (comparing fine-tuned vs zero-shot vs baseline), and scores all 65,376 reviews with the best model. Accepts `--epochs N` and `--eval-only` flags.
+
+### To re-scrape from RateMyProfessor:
+
+```bash
+uv run python -m src.scraper.run                   # scrape all UNC reviews -> data/raw/
+uv run python run_pipeline.py                      # parse raw JSON -> reviews_all.parquet
+```
+
+### What's tracked vs generated
+
+| File | Tracked | Notes |
+|------|---------|-------|
+| `data/labels/unified_annotations.json` | Yes | 8,378 Sonnet 4.6 labels (ground truth) |
+| `data/processed/reviews_all.parquet` | Yes | 65,376 reviews |
+| `data/processed/train/val/test.parquet` | Yes | 70/15/15 splits with labels |
+| `data/processed/teachers_all.parquet` | Yes | 4,838 professor metadata |
+| `data/processed/scored_all.parquet` | Yes | Model-scored reviews (powers the app) |
+| `data/processed/evaluation_results.json` | Yes | Test set metrics |
+| `data/raw/*.json` | No | 41MB, re-scrape with `src.scraper.run` |
+| `models/joint_classifier/` | No | Re-train with `train.py` |
+
+### What cannot be reproduced exactly
+
+The Sonnet 4.6 labeling step. LLM outputs are non-deterministic, so re-labeling would produce slightly different labels. The labels are committed to the repo (`unified_annotations.json`) so this step does not need to be repeated.
