@@ -2,8 +2,6 @@ __pycache__/
 *.pyc
 .venv/
 data/raw/
-data/processed/
-data/labels/
 /models/
 *.egg-info/
 dist/
