@@ -65,19 +65,21 @@ def compute_per_topic_sentiment_metrics(
         true_labels = []
         pred_labels = []
         for gt, pr in zip(y_true, y_pred):
-            if topic in gt:
-                true_labels.append(gt[topic])
-                pred_labels.append(pr.get(topic, "not_discussed"))
+            gt_val = gt.get(topic)
+            if gt_val is not None:  # topic was labeled (not None/missing)
+                true_labels.append(gt_val)
+                pr_val = pr.get(topic)
+                pred_labels.append(pr_val if pr_val is not None else "not_discussed")
         if not true_labels:
             results[topic] = {"n": 0, "accuracy": None, "f1_macro": None}
             continue
-        results[topic] = {
-            "n": len(true_labels),
-            "accuracy": accuracy_score(true_labels, pred_labels),
-            "f1_macro": f1_score(
-                true_labels, pred_labels, average="macro", zero_division=0
-            ),
-        }
+        try:
+            acc = accuracy_score(true_labels, pred_labels)
+            f1 = f1_score(true_labels, pred_labels, average="macro", zero_division=0)
+        except Exception:
+            acc = 0.0
+            f1 = 0.0
+        results[topic] = {"n": len(true_labels), "accuracy": acc, "f1_macro": f1}
 
     # Also compute topic detection accuracy (did we find the right topics?)
     topic_detection_true = []
@@ -142,5 +144,9 @@ def _majority_sentiment(topic_sentiments: dict[str, str]) -> str:
     """Derive overall sentiment from per-topic sentiments."""
     if not topic_sentiments:
         return "neutral"
-    counts = Counter(topic_sentiments.values())
+    # Filter out None values (parquet expands sparse dicts)
+    values = [v for v in topic_sentiments.values() if v is not None]
+    if not values:
+        return "neutral"
+    counts = Counter(values)
     return counts.most_common(1)[0][0]

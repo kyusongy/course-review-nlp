@@ -205,7 +205,8 @@ def predict_joint(
 def create_topic_labels(topics) -> list[float]:
     """Convert topic list or dict to multi-hot vector (for evaluation compat)."""
     if isinstance(topics, dict):
-        return [1.0 if t in topics else 0.0 for t in TOPICS]
+        # Handle parquet-expanded dicts where missing topics have None values
+        return [1.0 if topics.get(t) is not None else 0.0 for t in TOPICS]
     return [1.0 if t in topics else 0.0 for t in TOPICS]
 
 
