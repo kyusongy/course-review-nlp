@@ -2,6 +2,7 @@ __pycache__/
 *.pyc
 .venv/
 data/raw/
+data/archive/
 /models/
 *.egg-info/
 dist/
