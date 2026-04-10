@@ -1,39 +1,98 @@
 #!/usr/bin/env python
-"""Run the full Course Compass pipeline end-to-end."""
+"""Scrape all UNC reviews and build the reviews_all.parquet dataset.
 
-import asyncio
+Usage:
+    uv run python run_pipeline.py
+
+After this, run train.py to train the model and score all reviews.
+"""
+
+import json
+import re
 from pathlib import Path
 
 import pandas as pd
 
-from src.scraper.run import scrape
-from src.scraper.preprocess import preprocess_reviews
-from src.models.process import process_all
+RAW_DIR = Path("data/raw")
+PROCESSED_DIR = Path("data/processed")
+
+
+def parse_all_reviews() -> pd.DataFrame:
+    """Parse all raw JSON files into a single DataFrame."""
+    # Load teacher metadata for legacy_id -> name/dept mapping
+    teachers = pd.read_parquet(PROCESSED_DIR / "teachers_all.parquet")
+    teacher_map = {
+        row["legacy_id"]: {
+            "professor_name": row["professor_name"],
+            "department": row["department"],
+        }
+        for _, row in teachers.iterrows()
+    }
+
+    all_reviews = []
+    for f in sorted(RAW_DIR.glob("*.json")):
+        legacy_id = int(f.stem)
+        info = teacher_map.get(legacy_id)
+        if not info:
+            continue
+
+        data = json.loads(f.read_text())
+        if not isinstance(data, list):
+            continue
+
+        for r in data:
+            comment = r.get("comment", "").strip()
+            if not comment:
+                continue
+            comment = re.sub(r"\s+", " ", comment).strip()
+
+            all_reviews.append(
+                {
+                    "review_text": comment,
+                    "star_rating": int(r.get("qualityRating", 0)),
+                    "difficulty_rating": int(r.get("difficultyRating", 0)),
+                    "would_take_again": (
+                        None
+                        if r.get("wouldTakeAgain") is None
+                        else bool(r["wouldTakeAgain"])
+                    ),
+                    "course_name": r.get("class", ""),
+                    "professor_name": info["professor_name"],
+                    "department": info["department"],
+                    "date": r.get("date", ""),
+                    "thumbs_up": r.get("thumbsUpTotal", 0),
+                    "thumbs_down": r.get("thumbsDownTotal", 0),
+                }
+            )
+
+    df = pd.DataFrame(all_reviews)
+    df = df.drop_duplicates(
+        subset=["review_text", "professor_name", "course_name"]
+    ).reset_index(drop=True)
+    return df
 
 
 def main():
-    raw_path = Path("data/processed/reviews.parquet")
-    processed_dir = Path("data/processed")
+    PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 
-    if not raw_path.exists():
-        print("Step 1: Scraping RateMyProfessor...")
-        asyncio.run(scrape())
+    output = PROCESSED_DIR / "reviews_all.parquet"
+    if output.exists():
+        print(
+            f"reviews_all.parquet already exists ({len(pd.read_parquet(output))} reviews). Skipping."
+        )
+    else:
+        if not any(RAW_DIR.glob("*.json")):
+            print(
+                "No raw data found. Scrape first with: uv run python -m src.scraper.run"
+            )
+            return
 
-    print("Step 2: Preprocessing...")
-    df = pd.read_parquet(raw_path)
-    df = preprocess_reviews(df)
-    df.to_parquet(raw_path, index=False)
-    print(f"  {len(df)} cleaned reviews")
+        print("Parsing all raw reviews...")
+        df = parse_all_reviews()
+        df.to_parquet(output, index=False)
+        print(f"Saved {len(df)} reviews to {output}")
 
-    print("Step 3: Running zero-shot pipeline...")
-    process_all(raw_path, processed_dir)
-
-    print("\nPipeline complete!")
-    print("Next steps:")
-    print("  1. Label data:  uv run python -m src.models.labeling")
-    print("  2. Fine-tune:   uv run python -c 'from src.models.fine_tune import ...'")
-    print("  3. Evaluate:    uv run python -c 'from src.models.evaluate import ...'")
-    print("  4. Launch app:  uv run streamlit run src/app/streamlit_app.py")
+    print("\nNext: uv run python train.py")
 
 
 if __name__ == "__main__":
