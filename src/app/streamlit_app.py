@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -315,8 +316,6 @@ def aggregate_prof_scores(scores_df: pd.DataFrame) -> pd.DataFrame:
 
 def normalize_course(name: str) -> str:
     """Normalize course names: 'STOR-155' / 'STOR 155' / 'STOR155' → 'STOR 155'."""
-    import re
-
     name = name.strip().upper().replace("-", "").replace(" ", "")
     m = re.match(r"^([A-Z]+)(\d+[A-Z]?)$", name)
     if m:
@@ -326,11 +325,12 @@ def normalize_course(name: str) -> str:
 
 @st.cache_data
 def get_course_list(reviews_df: pd.DataFrame) -> list[str]:
-    """Get sorted unique normalized course names."""
+    """Get sorted unique normalized course names with a letter prefix."""
     courses = reviews_df["course_name"].dropna().apply(normalize_course)
     counts = courses.value_counts()
-    # Only include courses with 3+ reviews
     valid = counts[counts >= 3].index.tolist()
+    # Exclude bare numbers (no department prefix)
+    valid = [c for c in valid if re.match(r"^[A-Z]", c)]
     return sorted(valid)
 
 
@@ -660,20 +660,22 @@ with tab_model:
     if eval_data is None:
         st.warning("Run evaluation first.")
     else:
-        # Overall sentiment comparison — the headline metric
+        pts_data = eval_data.get("per_topic_sentiment", {})
+        sent_data = eval_data.get("overall_sentiment", {})
+
+        # Overall sentiment — headline cards
         st.markdown(
             f'<div class="section-header">Overall Sentiment Accuracy</div>',
             unsafe_allow_html=True,
         )
-        sent_data = eval_data.get("overall_sentiment", {})
         if sent_data:
             cols = st.columns(3)
-            labels = {
+            model_labels = {
                 "baseline": "Star Baseline",
                 "zero_shot": "Zero-Shot",
                 "finetuned": "Fine-Tuned",
             }
-            for i, (model_key, label) in enumerate(labels.items()):
+            for i, (model_key, label) in enumerate(model_labels.items()):
                 data = sent_data.get(model_key, {})
                 acc = data.get("accuracy", 0)
                 f1 = data.get("f1_macro", 0)
@@ -687,58 +689,134 @@ with tab_model:
                         unsafe_allow_html=True,
                     )
 
-        # Per-topic sentiment
+        # Per-topic: side-by-side bar chart
         st.markdown(
-            f'<div class="section-header">Per-Topic Sentiment</div>',
+            f'<div class="section-header">Per-Topic Sentiment Accuracy</div>',
             unsafe_allow_html=True,
         )
-        pts_data = eval_data.get("per_topic_sentiment", {})
         if pts_data:
-            rows = []
-            for model_name, topics in pts_data.items():
-                for topic, results in topics.items():
-                    if topic.startswith("_"):
-                        continue
-                    acc = results.get("accuracy", 0)
-                    f1 = results.get("f1_macro", 0)
-                    rows.append(
-                        {
-                            "Model": "Zero-Shot"
-                            if model_name == "zero_shot"
-                            else "Fine-Tuned",
-                            "Topic": topic,
-                            "N": results.get("n", ""),
-                            "Accuracy": f"{acc:.1%}" if acc else "0%",
-                            "F1 Macro": f"{f1:.3f}" if f1 else "0.000",
-                        }
-                    )
-            if rows:
-                st.dataframe(
-                    pd.DataFrame(rows).set_index(["Model", "Topic"]),
-                    width="stretch",
-                )
+            zs_accs = []
+            ft_accs = []
+            topic_labels = []
+            for topic in TOPICS:
+                zs_info = pts_data.get("zero_shot", {}).get(topic, {})
+                ft_info = pts_data.get("finetuned", {}).get(topic, {})
+                zs_acc = (zs_info.get("accuracy", 0) or 0) * 100
+                ft_acc = (ft_info.get("accuracy", 0) or 0) * 100
+                n = ft_info.get("n", 0)
+                topic_labels.append(f"{topic} (n={n})")
+                zs_accs.append(zs_acc)
+                ft_accs.append(ft_acc)
 
-        # Topic detection
+            fig = go.Figure()
+            fig.add_trace(
+                go.Bar(
+                    name="Zero-Shot",
+                    x=topic_labels,
+                    y=zs_accs,
+                    marker_color="#6C757D",
+                    text=[f"{v:.1f}%" for v in zs_accs],
+                    textposition="outside",
+                )
+            )
+            fig.add_trace(
+                go.Bar(
+                    name="Fine-Tuned",
+                    x=topic_labels,
+                    y=ft_accs,
+                    marker_color=CAROLINA_BLUE,
+                    text=[f"{v:.1f}%" for v in ft_accs],
+                    textposition="outside",
+                )
+            )
+            fig.update_layout(
+                barmode="group",
+                height=380,
+                paper_bgcolor="rgba(0,0,0,0)",
+                plot_bgcolor="rgba(0,0,0,0)",
+                font=dict(color=TEXT_PRIMARY, family="DM Sans"),
+                yaxis=dict(
+                    title="Accuracy %",
+                    range=[0, 100],
+                    gridcolor="#30363D",
+                    zeroline=False,
+                ),
+                xaxis=dict(gridcolor="#30363D"),
+                legend=dict(
+                    orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5
+                ),
+                margin=dict(l=40, r=20, t=40, b=80),
+            )
+            st.plotly_chart(fig, width="stretch", key="topic_acc_bar")
+
+        # Topic detection — side-by-side cards
         st.markdown(
             f'<div class="section-header">Topic Detection F1</div>',
             unsafe_allow_html=True,
         )
         if pts_data:
+            # Per-topic detection bar chart
+            zs_det = pts_data.get("zero_shot", {}).get("_topic_detection", {})
+            ft_det = pts_data.get("finetuned", {}).get("_topic_detection", {})
+            zs_per = zs_det.get("f1_per_topic", {})
+            ft_per = ft_det.get("f1_per_topic", {})
+
             det_cols = st.columns(2)
-            for i, model_name in enumerate(["zero_shot", "finetuned"]):
-                det = pts_data.get(model_name, {}).get("_topic_detection", {})
-                label = "Zero-Shot" if model_name == "zero_shot" else "Fine-Tuned"
-                with det_cols[i]:
-                    macro = det.get("f1_macro", 0)
-                    micro = det.get("f1_micro", 0)
-                    st.markdown(
-                        f"""<div class="metric-card">
-                        <div class="value">{macro:.3f}</div>
-                        <div class="label">{label} &mdash; Macro</div>
-                        <div style="font-size:0.8rem; color:{TEXT_MUTED}; margin-top:0.5rem;">Micro: <span style="color:{TEXT_PRIMARY};">{micro:.3f}</span></div>
-                    </div>""",
-                        unsafe_allow_html=True,
-                    )
+            with det_cols[0]:
+                st.markdown(
+                    metric_card(
+                        f"{zs_det.get('f1_macro', 0):.3f}", "Zero-Shot -- Macro"
+                    ),
+                    unsafe_allow_html=True,
+                )
+            with det_cols[1]:
+                st.markdown(
+                    metric_card(
+                        f"{ft_det.get('f1_macro', 0):.3f}", "Fine-Tuned -- Macro"
+                    ),
+                    unsafe_allow_html=True,
+                )
+
+            fig2 = go.Figure()
+            fig2.add_trace(
+                go.Bar(
+                    name="Zero-Shot",
+                    x=TOPICS,
+                    y=[zs_per.get(t, 0) for t in TOPICS],
+                    marker_color="#6C757D",
+                    text=[f"{zs_per.get(t, 0):.2f}" for t in TOPICS],
+                    textposition="outside",
+                )
+            )
+            fig2.add_trace(
+                go.Bar(
+                    name="Fine-Tuned",
+                    x=TOPICS,
+                    y=[ft_per.get(t, 0) for t in TOPICS],
+                    marker_color=CAROLINA_BLUE,
+                    text=[f"{ft_per.get(t, 0):.2f}" for t in TOPICS],
+                    textposition="outside",
+                )
+            )
+            fig2.update_layout(
+                barmode="group",
+                height=350,
+                paper_bgcolor="rgba(0,0,0,0)",
+                plot_bgcolor="rgba(0,0,0,0)",
+                font=dict(color=TEXT_PRIMARY, family="DM Sans"),
+                yaxis=dict(
+                    title="F1 Score",
+                    range=[0, 1.05],
+                    gridcolor="#30363D",
+                    zeroline=False,
+                ),
+                xaxis=dict(gridcolor="#30363D"),
+                legend=dict(
+                    orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5
+                ),
+                margin=dict(l=40, r=20, t=40, b=60),
+            )
+            st.plotly_chart(fig2, width="stretch", key="topic_det_bar")
 
     # Try a Review
     st.markdown(
