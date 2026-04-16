@@ -26,15 +26,40 @@ def filter_results(
     return df[mask].reset_index(drop=True)
 
 
-def aggregate_professor_scores(reviews_df: pd.DataFrame) -> pd.DataFrame:
-    topic_score_cols = [f"topic_{k}_score" for k in TOPIC_KEYS]
-    agg = (
-        reviews_df.groupby("professor_name")
-        .agg(
-            num_reviews=("professor_name", "count"),
-            **{k: (f"topic_{k}_score", "mean") for k in TOPIC_KEYS},
-        )
-        .fillna(0.0)
-        .reset_index()
-    )
-    return agg
+def aggregate_professor_scores(
+    reviews_df: pd.DataFrame, prior_strength: float = 5.0
+) -> pd.DataFrame:
+    """Per-topic mean per professor, shrunk toward the department prior.
+
+    For each (prof, topic):
+        shrunk = (n * prof_mean + m * dept_mean) / (n + m)
+
+    n is the count of reviews *mentioning that topic* (non-null score), not
+    the prof's total review count — a prof with 20 reviews but only 2
+    mentioning Exam Difficulty shrinks based on n=2 for that topic.
+
+    m (prior_strength) controls shrinkage. Low-N profs land near their
+    department's mean; high-N profs keep their own mean. Filtering on
+    num_reviews is a separate lever (visibility, not score).
+    """
+    topic_cols = [f"topic_{k}_score" for k in TOPIC_KEYS]
+
+    dept_mean = reviews_df.groupby("department")[topic_cols].mean().fillna(0.0)
+
+    grouped = reviews_df.groupby("professor_name")
+    n = grouped[topic_cols].count()
+    raw_mean = grouped[topic_cols].mean().fillna(0.0)
+    num_reviews = grouped.size().rename("num_reviews")
+    prof_dept = grouped["department"].first()
+
+    prior = dept_mean.loc[prof_dept.values]
+    prior.index = prof_dept.index
+
+    m = prior_strength
+    blended = (n * raw_mean + m * prior) / (n + m)
+    blended.columns = TOPIC_KEYS
+
+    out = blended.reset_index()
+    out.insert(1, "department", prof_dept.values)
+    out.insert(2, "num_reviews", num_reviews.values)
+    return out

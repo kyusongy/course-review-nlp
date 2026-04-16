@@ -8,3 +8,5 @@ data/archive/
 dist/
 .ipynb_checkpoints/
 .DS_Store
+docs/presentation_script.md
+docs/presentation.pptx

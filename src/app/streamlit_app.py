@@ -18,7 +18,12 @@ import streamlit as st
 
 from src.models.fine_tune import predict_joint
 from src.models.zero_shot import TOPICS, SentimentAnalyzer, TopicClassifier
-from src.recommend.engine import TOPIC_KEYS, filter_results, score_professors
+from src.recommend.engine import (
+    TOPIC_KEYS,
+    aggregate_professor_scores,
+    filter_results,
+    score_professors,
+)
 
 # ── Page Config ──────────────────────────────────────────────────────────────
 
@@ -303,15 +308,7 @@ def load_eval_results() -> dict | None:
 
 @st.cache_data
 def aggregate_prof_scores(scores_df: pd.DataFrame) -> pd.DataFrame:
-    return (
-        scores_df.groupby("professor_name")
-        .agg(
-            num_reviews=("professor_name", "count"),
-            **{k: (f"topic_{k}_score", "mean") for k in TOPIC_KEYS},
-        )
-        .fillna(0.0)
-        .reset_index()
-    )
+    return aggregate_professor_scores(scores_df)
 
 
 def normalize_course(name: str) -> str:
@@ -575,7 +572,14 @@ with tab_recommend:
             icon = TOPIC_ICONS.get(topic, "")
             weights[key] = st.slider(f"{icon} {topic}", 0, 10, 5, key=f"w_{key}")
 
-    min_reviews = st.slider("Minimum reviews", 1, 30, 5, key="min_rev")
+    min_reviews = st.slider(
+        "Minimum reviews",
+        1,
+        30,
+        3,
+        key="min_rev",
+        help="Scores for low-review profs are shrunk toward their department mean — lower this slider to surface new profs without letting 1-2 lucky reviews dominate.",
+    )
 
     scores_df = load_scores()
     reviews_df_rec = load_reviews()
